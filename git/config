@@ -22,6 +22,7 @@
     tool = vimdiff
 [merge]
     tool = vimdiff
+		normalize = true
 [push]
     default = current
 [branch]
@@ -120,3 +121,9 @@
     pager = less -r
 [help]
     autocorrect = 1
+
+[filter "openssl"]
+	smudge = ~/.gitencrypt/smudge_filter_openssl
+	clean = ~/.gitencrypt/clean_filter_openssl
+[diff "openssl"]
+	textconv = ~/.gitencrypt/diff_filter_openssl
