@@ -1,0 +1,122 @@
+[gui]
+    editor = gvim
+[color]
+    ui = auto
+    diff = auto
+    branch = always
+    status = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[diff]
+    tool = vimdiff
+[merge]
+    tool = vimdiff
+[push]
+    default = current
+[branch]
+    autosetuprebase = always
+
+[github]
+    user = onjin
+
+[alias]
+    # remotes {{{
+    #
+    # git bra origin user/repo
+    bra = "!f() { git remote add $1 https://bitbucket.org/$2.git; }; f"
+
+    # git gra origin user/repo
+    gra = "!f() { git remote add $1 https://github.com/$2.git; }; f"
+    # remotes }}}
+
+    # history {{{
+    hist = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
+    histfull = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+    lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    llog = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+    seclog = log --pretty=format:'%H %aN  %s  %G?'
+    changelog = log --pretty=format:'%Cgreen%d %Creset%s' --date=iso
+    # history }}}
+
+    #wish i knew
+    whois = "!sh -c 'git log -i -1 --pretty=\"format::%an <%ae>\n\" --author=\"$1\"' -"
+    whatis = "show -s --pretty='tformat::%h (%s, %ad)' --date=short"
+    howmany = "!sh -c 'git log -a --pretty=oneline | wc -l'"
+    howmanybywhom = shortlog -sn
+
+    #what's going on, I don't even
+    anychanges = !sh -c 'git fetch' && git log --oneline HEAD..origin/$1
+    anychangesonmaster = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
+    whoischanging = !sh -c 'git shortlog HEAD..origin/$0'
+    whoischangingmaster = !sh -c 'git shortlog HEAD..origin/master'
+
+    #tags
+    pt = !git push && git push --tags
+    showtags = show-ref --tags
+    pushtags = push --tags
+    tagwithdate = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
+
+    #better versions
+    purr = pull --rebase
+    difff = diff --color-words #just words
+    bbranch = branch -v
+
+    #what do I have in my toolbox?
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+
+
+    #fiat lux
+    makegitrepo = !git init && git add . && git commit -m \"initial commit\"
+
+    #Finds a filename in the git repository. Gives absolute location (from the git root).
+    find = !sh -c 'git ls-tree -r --name-only HEAD | grep --color $1' -
+
+    #Deletes all branches that were safely merged into the master. All other are skipped (no worries).
+    cleanup = !git branch --merged master | grep -v 'master$' | xargs git branch -d
+
+    unstage = reset HEAD --
+    fast-cherry-pick = !sh -c 'git pull' && sh -c 'git checkout $1' && sh -c 'git pull' && sh -c 'git cherry-pick -x $0'
+    mylog = log --no-merges
+    show-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; ls `f`"
+    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
+    who = shortlog -s --
+    exportfiles = !sh -c 'git diff $0 --name-only | "while read files; do mkdir -p \"$1/$(dirname $files)\"; cp -vf $files $1/$(dirname $files); done"
+    for-onjin = !sh -c 'git config user.name \"Marek Wywiał\" && git config user.email "onjinx@gmail.com"'
+    for-idc = !sh -c 'git config user.name \"Marek Wywiał\" && git config user.email "marek.wywial@i-dotcom.pl"'
+    for-ingre = !sh -c 'git config user.name \"Marek Wywiał\" && git config user.email "marek.wywial@ingre.pl"'
+    sec-for-onjin = !sh -c 'git config user.signingkey 1BF8C41D'
+    sec-for-idc = !sh -c 'git config user.signingkey 98C83196'
+
+    # git flow relates
+    afterfeature = !git checkout master && git pull && git fetch -p && git branch --merged
+    ffs = !sh -c 'git checkout -b features/$0 master'
+    releasenotes = log --pretty=format:'%Cgreen%d %Creset%s' --date=iso --no-merges
+    devup = !git checkout develop && git pull
+    masup = !git checkout master && git pull
+    donethis = log --pretty=format:'[x] %an -> %s , about %ar '
+    save-donethis = !sh -c 'rm -f DONE.THIS.md' && git log --pretty=format:'[x] %an -> %s , about %ar ' > DONE.THIS.md
+[apply]
+    whitespace = nowarn
+[core]
+    pager = less -r
+[help]
+    autocorrect = 1
