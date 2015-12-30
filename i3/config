@@ -186,9 +186,9 @@ for_window [class="(?i)skype"] floating enable
 for_window [class="(?i)gnome-calculator"] floating enable
 for_window [class="Gcalctool"] floating enable
 
-exec --no-startup-id unclutter -idle 5
+exec --no-startup-id "unclutter -idle 5"
 exec --no-startup-id numlockx
-exec --no-startup-id setxkbmap -layout 'pl,pl'
+exec --no-startup-id "setxkbmap -layout 'pl,pl'"
 exec --no-startup-id ~/.local/bin/setup_screens
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
