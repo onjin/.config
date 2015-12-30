@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+source "$HOME/.config/bash/exports"
+source "$XDG_CONFIG_HOME/bash/bashrc"
