@@ -53,4 +53,11 @@ esac
 source "$XDG_CONFIG_HOME/bash/aliases"
 
 # completion
-source "$XDG_CONFIG_HOME/bash/aliases"
+source "$XDG_CONFIG_HOME/bash/completion"
+
+# wirtualenv wrapper
+source /usr/local/bin/virtualenvwrapper.sh
+
+# theme
+source "$XDG_CONFIG_HOME/bash/themes/base.theme.bash"
+source "$XDG_CONFIG_HOME/bash/themes/current"
