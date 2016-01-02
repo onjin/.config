@@ -6,6 +6,8 @@ VIRTUALENV_THEME_PROMPT_PREFIX=''
 VIRTUALENV_THEME_PROMPT_SUFFIX='/'
 PYTHON_THEME_PROMPT_PREFIX=''
 PYTHON_THEME_PROMPT_SUFFIX=''
+SCM_PREFIX='('
+SCM_SUFFIX=')'
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]]  && infocmp gnome-256color >/dev/null 2>&1; then export TERM=gnome-256color
 elif [[ $TERM != dumb ]] && infocmp xterm-256color >/dev/null 2>&1; then export TERM=xterm-256color
@@ -45,7 +47,7 @@ parse_git_branch () {
 }
 
 function prompt_command() {
-PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$PURPLE\](\$(parse_git_branch)) ${BOLD}${PURPLE}$(python_version_prompt)\[$WHITE\]\n\$ \[$RESET\]"
+PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$PURPLE\]\$(parse_git_branch) ${BOLD}${PURPLE}$(python_version_prompt)\[$WHITE\]\n\$ \[$RESET\]"
 }
 
 PROMPT_COMMAND=prompt_command
