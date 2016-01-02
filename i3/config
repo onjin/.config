@@ -197,3 +197,10 @@ exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
 exec --no-startup-id i3-msg 'workspace 1; exec gnome-terminal'
 exec --no-startup-id i3-msg 'workspace 2; exec google-chrome'
 exec --no-startup-id i3-msg 'workspace 3; exec gvim'
+
+# quake console
+exec --no-startup-id gnome-terminal --name quake
+for_window [instance="quake"] floating enable
+for_window [instance="quake"] move scratchpad
+for_window [instance="quake"] scratchpad show; move position 0px 0px; resize shrink height 100px; move scratchpad
+bindsym $mod+q [instance="quake"] scratchpad show
