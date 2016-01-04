@@ -123,7 +123,7 @@
     autocorrect = 1
 
 [filter "openssl"]
-	smudge = ~/.gitencrypt/smudge_filter_openssl
-	clean = ~/.gitencrypt/clean_filter_openssl
+	smudge = ~/.config/git/gitencrypt/smudge_filter_openssl
+	clean = ~/.config/git/gitencrypt/clean_filter_openssl
 [diff "openssl"]
-	textconv = ~/.gitencrypt/diff_filter_openssl
+	textconv = ~/.config/git/gitencrypt/diff_filter_openssl

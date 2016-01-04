@@ -61,3 +61,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 # theme
 source "$XDG_CONFIG_HOME/bash/themes/base.theme.bash"
 source "$XDG_CONFIG_HOME/bash/themes/current"
+
+# Source all extra functions
+for func in "$XDG_CONFIG_HOME/bash/functions.d/"*; do
+	source "$func"
+done
+unset func
