@@ -29,7 +29,6 @@ bindsym $mod+r exec /usr/bin/rofi -show run
 # tab
 bindsym $mod+Tab exec --no-startup-id /usr/bin/rofi -show window
 bindsym $alt+Tab exec --no-startup-id /usr/bin/rofi -show window
-bindsym $alt+s exec --no-startup-id /usr/bin/rofi -show ssh
 
 # setup screens
 bindsym $mod+Shift+s exec --no-startup-id $HOME/.local/bin/setup_screens
