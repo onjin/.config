@@ -150,6 +150,7 @@ bindsym $mod+Shift+r mode "resize"
 bar {
         status_command i3status
 				tray_output primary
+				position top
 }
 bindsym $mod+m bar hidden_state toggle
 bindsym $mod+Shift+m bar mode toggle
@@ -185,9 +186,11 @@ for_window [class="(?i)skype"] floating enable
 for_window [class="(?i)gnome-calculator"] floating enable
 for_window [class="Gcalctool"] floating enable
 
+exec --no-startup-id ~/.config/screenlayout/setup.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
 exec --no-startup-id redshift-gtk
+exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id python /home/onjin/.linconnect/LinConnectServer/main/linconnect_server.py
 exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
 exec --no-startup-id i3-msg 'workspace 1; exec gnome-terminal'
