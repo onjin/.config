@@ -7,7 +7,7 @@
 
 $include /etc/inputrc
 
-set editing-mode vi
+set editing-mode emacs
 
 # Ring the bell, let other programs handle it (urxvt, tmux, etc.)
 set bell-style audible
@@ -53,7 +53,7 @@ set skip-completed-text On
 set visible-stats on
 
 # vi mode
-set editing-mode vi
+set editing-mode emacs
 
 $if mode=vi
 	# Insert mode settings
