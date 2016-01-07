@@ -74,8 +74,8 @@ $if mode=vi
 	"\e[1;5D": backward-word
 
 	# Disable left and right cursor movement
-	"\e[C": redraw-current-line
-	"\e[D": redraw-current-line
+	# "\e[C": redraw-current-line
+	# "\e[D": redraw-current-line
 
 	# Command mode settings
 	set keymap vi-command
@@ -93,8 +93,8 @@ $if mode=vi
 	"\e[1;5D": backward-word
 
 	# Disable left and right cursor movement
-	"\e[C": redraw-current-line
-	"\e[D": redraw-current-line
+	# "\e[C": redraw-current-line
+	# "\e[D": redraw-current-line
 $endif
 
 #  vim: set ts=2 sw=2 tw=80 noet :
