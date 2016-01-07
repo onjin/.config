@@ -47,7 +47,7 @@ parse_git_branch () {
 }
 
 function prompt_command() {
-PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$PURPLE\]\$(parse_git_branch) ${BOLD}${PURPLE}$(python_version_prompt)\[$WHITE\]\n\$ \[$RESET\]"
+PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$WHITE\]\$(scm_prompt_info) ${BOLD}${WHITE}$(python_version_prompt)\[$WHITE\]\n\$ \[$RESET\]"
 }
 
 PROMPT_COMMAND=prompt_command
