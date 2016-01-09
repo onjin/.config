@@ -1,2 +1,1 @@
 qnapi.ini filter=openssl diff=openssl
-bash/exports filter=openssl diff=openssl

@@ -1,6 +1,11 @@
-U2FsdGVkX1+jJeqY6wAAACjp40wYVLFpX556hpGyA76BSlJQSqI3n7CB8czudxjY
-6RbsgrghX9Locq9HRB840ysOtfyvFZkIir21zXS2bBCYpamYqL4NrPn0wduBBXg9
-DwpV0NUcMkMhONSoOReFgvT8VaY+v7+6KLqTh9QG53pn97LgVv7xtcfxboHdwtq0
-FOsdyiEs29u9BJwsJOoLLPYNJIHfj+iqqEpUUBiLyCvXNRIQ9xr4WkcRkaIt8E/w
-PgZ9RfI1CldBviJO9KF+3ejhNkhc80jL7CStqo/P6LHjFjzRTB96P/0pEj9Woepx
-5VnQ7u/sKdbXuekj8A7poWl7zWhX3t2koHCHhx5to6M=
+#!/usr/bin/env bash
+
+export PREFIX=/usr
+
+export PATH="$HOME/.local/bin:$PATH:bin:$HOME/bin"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+export INPUTRC="$XDG_CONFIG_HOME/bash/inputrc"

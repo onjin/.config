@@ -6,6 +6,9 @@
 
 --languages=-html
 --languages=-javascript
+--languages=+python
+
+--python-kinds=-iv
 
 --exclude=.cache
 --exclude=.git
