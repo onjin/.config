@@ -2,12 +2,14 @@
 # Screenshot: http://cloud.gf3.ca/M5rG
 # A big thanks to \amethyst on Freenode
 
-VIRTUALENV_THEME_PROMPT_PREFIX=''
-VIRTUALENV_THEME_PROMPT_SUFFIX='/'
-PYTHON_THEME_PROMPT_PREFIX=''
-PYTHON_THEME_PROMPT_SUFFIX=''
-SCM_PREFIX='('
-SCM_SUFFIX=')'
+VIRTUALENV_THEME_PROMPT_PREFIX='('
+VIRTUALENV_THEME_PROMPT_SUFFIX=') '
+PYTHON_THEME_PROMPT_PREFIX='('
+PYTHON_THEME_PROMPT_SUFFIX=')'
+SCM_THEME_PROMPT_PREFIX=' ('
+SCM_THEME_PROMPT_SUFFIX=')'
+SCM_GIT_SHOW_DETAILS=false
+SCM_GIT_IGNORE_UNTRACKED=true
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]]  && infocmp gnome-256color >/dev/null 2>&1; then export TERM=gnome-256color
 elif [[ $TERM != dumb ]] && infocmp xterm-256color >/dev/null 2>&1; then export TERM=xterm-256color
@@ -47,7 +49,7 @@ parse_git_branch () {
 }
 
 function prompt_command() {
-PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$WHITE\]\$(scm_prompt_info) ${BOLD}${WHITE}$(python_version_prompt)\[$WHITE\]\n\$ \[$RESET\]"
+PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$WHITE\]\$(scm_prompt_info) ${BOLD}${WHITE}$(py_interp_prompt)\[$WHITE\]\n$(virtualenv_prompt)\$ \[$RESET\]"
 }
 
 PROMPT_COMMAND=prompt_command
