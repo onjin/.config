@@ -9,3 +9,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Source all extra completions
+for func in "$XDG_CONFIG_HOME/bash/bash_completion.d/"*; do
+	source "$func"
+done
+unset func

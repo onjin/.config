@@ -49,7 +49,7 @@ parse_git_branch () {
 }
 
 function prompt_command() {
-PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$WHITE\]\$(scm_prompt_info) ${BOLD}${WHITE}$(py_interp_prompt)\[$WHITE\]\n$(virtualenv_prompt)\$ \[$RESET\]"
+PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$WHITE\]\$(scm_prompt_info) ${BOLD}${WHITE}$(py_interp_prompt)\[$WHITE\]\n$(virtualenv_prompt) $(__docker_machine_ps1)\$ \[$RESET\]"
 }
 
 PROMPT_COMMAND=prompt_command
