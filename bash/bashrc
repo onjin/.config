@@ -49,6 +49,9 @@ xterm*|rxvt*)
     ;;
 esac
 
+# utilities
+source "$XDG_CONFIG_HOME/bash/utils"
+
 # aliases
 source "$XDG_CONFIG_HOME/bash/aliases"
 

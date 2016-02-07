@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# utilities functions
+
+github-latest-relese-url () {
+	releases_url=https://api.github.com/repos/$1/releases
+	search=${2:-h}
+	curl -s $releases_url | grep browser_download_url | grep $search | head -n 1 | cut -d\" -f 4
+}
+
+read-yes-no () {
+	msg=${1:-Are you sure?}
+	read -p "$msg [y/N] " -n 1 -r
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		echo 'yes'
+	else
+		echo 'no'
+	fi
+}

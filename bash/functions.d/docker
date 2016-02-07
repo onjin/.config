@@ -7,3 +7,20 @@ docker-clean-images () {
 docker-clean-containers () {
 	docker ps -a --no-trunc| grep 'Exit' | awk '{print $1}' | xargs -L 1 -r docker rm
 }
+
+docker-upgrade-machine () {
+	release=$(github-latest-relese-url docker/machine Linux-`uname -m`)
+	confirm=$(read-yes-no "Install $release?")
+	echo
+	if [[ "$confirm" == "yes" ]]; then
+		su -c "curl -L $release > /usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine"
+	fi
+}
+docker-upgrade-compose () {
+	release=$(github-latest-relese-url docker/compose Linux-`uname -m`)
+	confirm=$(read-yes-no "Install $release?")
+	echo
+	if [[ "$confirm" == "yes" ]]; then
+		su -c "curl -L $release > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose"
+	fi
+}
