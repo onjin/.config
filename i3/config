@@ -189,6 +189,7 @@ for_window [class="Gcalctool"] floating enable
 exec --no-startup-id ~/.config/screenlayout/setup.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
+exec --no-startup-id /usr/bin/rescuetime
 exec --no-startup-id redshift-gtk
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id python /home/onjin/.linconnect/LinConnectServer/main/linconnect_server.py
