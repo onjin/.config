@@ -185,6 +185,7 @@ assign [class="gvim"] 3
 for_window [class="(?i)skype"] floating enable
 for_window [class="(?i)gnome-calculator"] floating enable
 for_window [class="Gcalctool"] floating enable
+for_window [class="rdesktop"] floating enable
 
 exec --no-startup-id ~/.config/screenlayout/setup.sh
 exec --no-startup-id nm-applet
