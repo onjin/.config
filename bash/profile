@@ -4,5 +4,3 @@ source "$HOME/.config/bash/exports"
 source "$XDG_CONFIG_HOME/bash/bashrc"
 
 hash psql       2>/dev/null && export            PSQLRC="$XDG_CONFIG_HOME/psql/config"
-
-eval `ssh-agent -s` 
