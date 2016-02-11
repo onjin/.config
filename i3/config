@@ -187,6 +187,7 @@ for_window [class="(?i)gnome-calculator"] floating enable
 for_window [class="Gcalctool"] floating enable
 for_window [class="rdesktop"] floating enable
 for_window [class="Steam"] floating enable
+for_window [class="dontstarve_steam"] floating enable
 
 exec --no-startup-id ~/.config/screenlayout/setup.sh
 exec --no-startup-id nm-applet
