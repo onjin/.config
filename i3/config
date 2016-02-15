@@ -176,7 +176,7 @@ new_window pixel 1
 workspace 1 output HDMI1
 workspace 2 output VGA1
 workspace 3 output HDMI1
-workspace 4 output HDMI1
+workspace 4 output VGA1
 
 assign [class="gnome-terminal"] 1
 assign [class="google-chrome"] 2
