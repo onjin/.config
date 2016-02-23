@@ -24,3 +24,7 @@ docker-upgrade-compose () {
 		su -c "curl -L $release > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose"
 	fi
 }
+
+docker-list-vhosts () {
+  docker inspect --format '{{ index (index .Config.Env) 1 }}' $(docker ps -q) | grep VIRTUAL_HOST | cut -d\= -f 2
+}
