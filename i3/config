@@ -149,7 +149,6 @@ bindsym $mod+Shift+g mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-				tray_output primary
 				position top
 }
 bindsym $mod+m bar hidden_state toggle
@@ -193,6 +192,7 @@ exec --no-startup-id ~/.config/screenlayout/setup.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
 exec --no-startup-id /usr/bin/rescuetime
+exec --no-startup-id /usr/bin/fluxgui
 exec --no-startup-id redshift-gtk
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id python /home/onjin/.linconnect/LinConnectServer/main/linconnect_server.py
