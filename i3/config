@@ -180,6 +180,7 @@ workspace 4 output VGA1
 assign [class="gnome-terminal"] 1
 assign [class="google-chrome"] 2
 assign [class="gvim"] 3
+assign [class="(?i)spotify"] 4
 
 for_window [class="(?i)hipchat"] floating enable
 for_window [class="(?i)skype"] floating enable
