@@ -170,6 +170,10 @@ bindsym $mod+minus scratchpad show
 bindsym XF86HomePage exec nemo
 bindsym XF86Calculator exec gnome-calculator
 
+# emulate media next/prev by 4/5 buttons
+bindsym XF86Launch8 exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym XF86Launch9 exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
 new_window pixel 1
 
 workspace 1 output HDMI1
