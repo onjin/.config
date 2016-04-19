@@ -166,9 +166,14 @@ bindsym $mod+Shift+minus move scratchpad
 # show first from scratchpad
 bindsym $mod+minus scratchpad show
 
-# media keys
-bindsym XF86HomePage exec nemo
-bindsym XF86Calculator exec gnome-calculator
+# media keys to run programs
+bindsym $mod+XF86HomePage exec nemo
+bindsym $mod+XF86Calculator exec gnome-calculator
+bindsym $mod+XF86Launch7 exec spotify
+
+# unmap bottom keys (below space)
+bindsym XF86Back exec /bin/false
+bindsym XF86Forward exec /bin/false
 
 # emulate media next/prev by 4/5 buttons
 bindsym XF86Launch8 exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous

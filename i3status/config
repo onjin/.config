@@ -6,7 +6,8 @@ general {
 
 order += "disk /"
 order += "run_watch DHCP"
-order += "path_exists VPN"
+order += "path_exists VPNa"
+order += "path_exists VPNu"
 order += "wireless wlan0"
 order += "ethernet eth0"
 order += "battery 0"
@@ -44,7 +45,11 @@ run_watch VPNC {
         pidfile = "/var/run/vpnc/pid"
 }
 
-path_exists VPN {
+path_exists VPNa {
+        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        path = "/proc/sys/net/ipv4/conf/tap0"
+}
+path_exists VPNu{
         # path exists when a VPN tunnel launched by nmcli/nm-applet is active
         path = "/proc/sys/net/ipv4/conf/tun0"
 }
