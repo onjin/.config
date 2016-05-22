@@ -3,7 +3,7 @@
 export PREFIX=/usr
 
 export ANDROID_HOME=$HOME/tools/android/adt-bundle-linux-x86_64-20131030/sdk
-export PATH="$HOME/.local/bin:$HOME/node_modules/.bin:$PATH:bin:$HOME/bin:$ANDROID_HOME/tools"
+export PATH="$HOME/.local/bin:$HOME/.cabal/bin:$HOME/node_modules/.bin:$PATH:bin:$HOME/bin:$ANDROID_HOME/tools"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
