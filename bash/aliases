@@ -21,3 +21,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias _='sudo'
 
 alias ssh="cat ~/.ssh/config.d/* > ~/.ssh/config; TERM=xterm ssh"
+alias mutt-emps='mutt -F ~/.config/mutt/account.emps'

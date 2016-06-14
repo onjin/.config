@@ -28,9 +28,6 @@
 [branch]
     autosetuprebase = always
 
-[github]
-    user = onjin
-
 [alias]
     # remotes {{{
     #
@@ -90,6 +87,7 @@
     unstage = reset HEAD --
     fast-cherry-pick = !sh -c 'git pull' && sh -c 'git checkout $1' && sh -c 'git pull' && sh -c 'git cherry-pick -x $0'
     mylog = log --no-merges
+    finelog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     show-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; ls `f`"
     edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
     add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
@@ -101,11 +99,6 @@
     lg = log -p
     who = shortlog -s --
     exportfiles = !sh -c 'git diff $0 --name-only | "while read files; do mkdir -p \"$1/$(dirname $files)\"; cp -vf $files $1/$(dirname $files); done"
-    for-onjin = !sh -c 'git config user.name \"Marek Wywiał\" && git config user.email "onjinx@gmail.com"'
-    for-idc = !sh -c 'git config user.name \"Marek Wywiał\" && git config user.email "marek.wywial@i-dotcom.pl"'
-    for-ingre = !sh -c 'git config user.name \"Marek Wywiał\" && git config user.email "marek.wywial@ingre.pl"'
-    sec-for-onjin = !sh -c 'git config user.signingkey 1BF8C41D'
-    sec-for-idc = !sh -c 'git config user.signingkey 98C83196'
 
     # git flow relates
     afterfeature = !git checkout master && git pull && git fetch -p && git branch --merged

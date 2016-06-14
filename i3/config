@@ -210,4 +210,3 @@ exec --no-startup-id python /home/onjin/.linconnect/LinConnectServer/main/lincon
 exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
 exec --no-startup-id i3-msg 'workspace 1; exec gnome-terminal'
 exec --no-startup-id i3-msg 'workspace 2; exec google-chrome'
-exec --no-startup-id i3-msg 'workspace 3; exec gvim'
