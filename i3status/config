@@ -4,7 +4,7 @@ general {
         interval = 5
 }
 
-order += "disk /"
+order += "disk /dev/ubuntu-vg/root"
 order += "run_watch DHCP"
 order += "path_exists VPNa"
 order += "path_exists VPNu"
@@ -72,6 +72,6 @@ cpu_temperature 0 {
         path = "/sys/devices/platform/coretemp.0/temp1_input"
 }
 
-disk "/" {
+disk "/dev/ubuntu-vg/root" {
         format = "%free"
 }
