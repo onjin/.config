@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from i3pystatus import Status
+from itertools import takewhile
+import subprocess
+from i3pystatus import Status, IntervalModule
 
 
 status = Status()
@@ -47,8 +49,56 @@ status.register(
     "pulseaudio", format="♪{volume}",
 )
 
-#status.register(
+# status.register(
 #    'spotify', format='{status} {artist}/{title}/{album}'
-#)
+# )
+
+
+class VagrantWatch(IntervalModule):
+    settings = (
+        'format',
+    )
+    colors = {
+        'started': '#FF0000',
+        'halted': '#00FF00',
+        'unknown': '#FFFFFF',
+    }
+    name = 'vagrant'
+    format = '{name}: {running}/{all}'
+
+    def run(self):
+        status = 'halted'
+
+        def finish(x):
+            if x.startswith((' ', 'There are no')):
+                return False
+            return True
+
+        result = str(subprocess.check_output(
+            ['vagrant', 'global-status']
+        )).split('\\n')
+        rows = [
+            r for r in
+            takewhile(finish, result[2:])
+        ]
+        all_vagrants = len(rows)
+        running_vagrants = len([r for r in rows if 'running' in r])
+        if running_vagrants:
+            status = 'started'
+
+        color = self.colors.get(status, '#FFFFFF')
+        self.data = {
+            'name': self.name,
+            'status': status,
+            'all': all_vagrants,
+            'running': running_vagrants,
+        }
+        self.output = {
+            'full_text': self.format.format(**self.data),
+            'color': color
+        }
+
+status.register(VagrantWatch)
+
 
 status.run()
