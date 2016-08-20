@@ -31,9 +31,7 @@ status.register(
     "network", interface="wlan0", format_up="{essid} {quality:03.0f}% {v4}",
 )
 
-status.register(
-    'makewatch',
-)
+#status.register('makewatch', )
 
 # Shows disk usage of /
 # Format:
@@ -98,7 +96,7 @@ class VagrantWatch(IntervalModule):
             'color': color
         }
 
-status.register(VagrantWatch)
+# status.register(VagrantWatch)
 
 
 status.run()

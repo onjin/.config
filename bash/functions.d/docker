@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+docker-cleanup () {
+	docker rm $(docker ps -aq 2>/dev/null) 2>/dev/null
+	docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+docker-remove-stopped() {
+	local name
+	local state
+	name=$1
+	state=$(docker inspect --format "{{.State.Running}}" "$name" 2>/dev/null)
+	if [[ "$state" == "false" ]]; then
+		docker rm "$name"
+	fi
+}
 docker-clean-images () {
 	docker images -a --no-trunc | grep none | awk '{print $3}' | xargs -L 1 -r docker rmi
 }

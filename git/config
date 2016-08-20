@@ -108,6 +108,7 @@
     masup = !git checkout master && git pull
     donethis = log --pretty=format:'[x] %an -> %s , about %ar '
     save-donethis = !sh -c 'rm -f DONE.THIS.md' && git log --pretty=format:'[x] %an -> %s , about %ar ' > DONE.THIS.md
+    # amend-update =  commit --amend --date="$(date -R)"
 [apply]
     whitespace = nowarn
 [core]
