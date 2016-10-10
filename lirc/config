@@ -1,0 +1,145 @@
+# $HOME/.lircrc
+begin
+ prog = irexec
+ remote = RM-820
+ button = voldn
+ repeat = 1
+ config = pa-volume-down
+end
+
+begin
+ prog = irexec
+ remote = RM-820
+ button = knobvoldn
+ repeat = 1
+ config = pa-volume-down
+end
+
+begin
+ prog = irexec
+ remote = RM-820
+ button = mute
+ repeat = 1
+ config = pa-volume-toggle
+end
+
+begin
+ prog = irexec
+ remote = RM-820
+ button = knobMute
+ repeat = 1
+ config = pa-volume-toggle
+end
+
+begin
+ prog = irexec
+ remote = RM-820
+ button = volup
+ repeat = 1
+ config = pa-volume-up
+end
+
+begin
+ prog = irexec
+ remote = RM-820
+ button = knobvolup
+ repeat = 1
+ config = pa-volume-up
+end
+
+begin
+ prog = irexec
+ remote = RM-820
+ button = menu/back
+ repeat = 1
+ config = gnome-control-center sound &
+end
+
+begin
+ prog = irexec
+ remote = RM-820
+ button = menu/back-long
+ repeat = 1
+ config = spotify &
+end
+
+
+begin
+ prog = irexec
+ remote = RM-820
+ button = play-pause
+ repeat = 1
+ config = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+end
+
+#begin
+# prog = irexec
+# remote = RM-820
+# button = return
+# repeat = 1
+# config = bash ls
+#end
+
+#begin
+# prog = irexec
+# remote = RM-820
+# button = power
+# repeat = 1
+# config = pulseaudio --kill && sleep 1 && pulseaudio --start
+#end
+
+begin
+ prog = irexec
+ remote = RM-820
+ button = ff
+ repeat = 1
+ config = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+end
+
+begin
+ prog = irexec
+ remote = RM-820
+ button = bb
+ repeat = 1
+ config = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+end
+
+begin
+ prog = irxevent
+ remote = RM-820
+ button = up
+ repeat = 1
+ config = Key Up CurrentWindow
+end
+
+begin
+ prog = irxevent
+ remote = RM-820
+ button = down
+ repeat = 1
+ config = Key Down CurrentWindow
+end
+
+begin
+ prog = irxevent
+ remote = RM-820
+ button = left
+ repeat = 1
+ config = Key Left CurrentWindow
+end
+
+begin
+ prog = irxevent
+ remote = RM-820
+ button = right
+ repeat = 1
+ config = Key Right CurrentWindow
+end
+
+begin
+ prog = irxevent
+ remote = RM-820
+ button = ok
+ repeat = 1
+ config = Key Return CurrentWindow
+end

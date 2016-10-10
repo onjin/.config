@@ -115,6 +115,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
+bindsym $alt+Control+l exec gnome-screensaver-command -l
 bindsym $mod+Control+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Control+r restart
 bindsym $mod+Shift+r reload
@@ -148,14 +149,16 @@ bindsym $mod+Shift+g mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        # status_command i3status
+        status_command i3status | ${HOME}/.config/i3status/wrapper.py
         position top
+        tray_output primary
 }
 bindsym $mod+m bar hidden_state toggle
 bindsym $mod+Shift+m bar mode toggle
 
-bindsym $mod+x move workspace to output right
-bindsym $mod+Shift+x move workspace to output right
+bindsym $mod+x move workspace to output DVI-0
+bindsym $mod+Shift+x move workspace to output HDMI-0
 
 # remove current notifications
 bindsym $mod+n exec killall notify-osd
@@ -179,14 +182,21 @@ bindsym XF86Forward exec /bin/false
 bindsym XF86Launch8 exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym XF86Launch9 exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pa-volume-up
+bindsym XF86AudioLowerVolume exec --no-startup-id pa-volume-down
+bindsym XF86AudioMute exec --no-startup-id pa-volume-toggle
+
+bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
 
 new_window pixel 1
 
-workspace 1 output HDMI1
-workspace 2 output VGA1
-workspace 3 output VGA1
-workspace 4 output VGA1
-workspace 5 output HDMI1
+workspace 1 output DVI-0
+workspace 3 output DVI-0
+workspace 5 output DVI-0
+
+workspace 2 output HDMI-0
+workspace 4 output HDMI-0
 
 assign [class="gnome-terminal"] 1
 assign [class="google-chrome"] 2
@@ -202,12 +212,16 @@ for_window [class="Steam"] floating enable
 for_window [class="dontstarve_steam"] floating enable
 for_window [class="TeamViewer"] floating enable
 
-exec --no-startup-id ~/.config/screenlayout/setup.sh
+exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 exec --no-startup-id dropbox start
 exec --no-startup-id /usr/bin/rescuetime
-exec --no-startup-id /usr/bin/gtk-redshift
-exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id /usr/bin/indicator-cpufreq
+exec --no-startup-id pasystray
+exec --no-startup-id parcellite
+exec --no-startup-id irexec -d ${HOME}/.config/lirc/config
+
 exec --no-startup-id python /home/onjin/.linconnect/LinConnectServer/main/linconnect_server.py
 exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
 exec --no-startup-id i3-msg 'workspace 1; exec gnome-terminal'

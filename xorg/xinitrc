@@ -1,10 +1,12 @@
 
-source '~/.config/screenlayout/setup.sh'
+source ~/.config/screenlayout/setup.sh
 
 setxkbmap -layout pl
 
 # no speaker
 xset -b
+# set mouse speed
+xset m 3/2 0
 
 # hide mouse
 unclutter -idle 3 -jitter 5 -noevents &

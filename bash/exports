@@ -2,12 +2,15 @@
 
 export PREFIX=/usr
 
-export ANDROID_HOME=$HOME/tools/android/adt-bundle-linux-x86_64-20131030/sdk
+export ANDROID_HOME=$HOME/Workspace/tools/android/adt-bundle-linux-x86_64-20131030/sdk
 export PATH="$HOME/.local/bin:$HOME/.cabal/bin:$HOME/node_modules/.bin:$PATH:bin:$HOME/bin:$ANDROID_HOME/tools"
+export PATH="$HOME/.local/bin:$HOME/.cabal/bin:$HOME/node_modules/.bin:$PATH:bin:$HOME/bin:$ANDROID_HOME/platform-tools"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+# fix gnome-control-center
+export XDG_CURRENT_DESKTOP=GNOME
 
 export INPUTRC="$XDG_CONFIG_HOME/bash/inputrc"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"

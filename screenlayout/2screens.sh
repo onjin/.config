@@ -1,12 +1,11 @@
 #!/bin/sh
 
-if [ $VGA_SCREENS_COUNT = 1 ]; then
-	$SCREEN='VGA1'
+if [ $DVI_SCREENS_COUNT = 1 ]; then
+	SCREEN='DVI-0'
 fi
 
 if [ $HDMI_SCREENS_COUNT = 1 ]; then
-	$SCREEN='HDMI1'
+	SCREEN='HDMI-0'
 fi
 
-xrandr --output LVDS1 --off
-xrandr --output ${SCREEN} --primary --auto
+xrandr --output DVI-0 --primary --auto --below HDMI-0
