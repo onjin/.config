@@ -1,4 +1,4 @@
-
+#!/bin/sh
 source ~/.config/screenlayout/setup.sh
 
 setxkbmap -layout pl
@@ -7,6 +7,8 @@ setxkbmap -layout pl
 xset -b
 # set mouse speed
 xset m 3/2 0
+# disable mouse auto movements
+xinput  --set-prop " USB OPTICAL MOUSE" "Device Accel Constant Deceleration" 1.5
 
 # hide mouse
 unclutter -idle 3 -jitter 5 -noevents &

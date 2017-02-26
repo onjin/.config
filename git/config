@@ -27,6 +27,8 @@
     default = current
 [branch]
     autosetuprebase = always
+[formatX]
+  pretty = %C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s
 
 [alias]
     # remotes {{{
@@ -98,7 +100,7 @@
     df = diff
     lg = log -p
     who = shortlog -s --
-    exportfiles = !sh -c 'git diff $0 --name-only | "while read files; do mkdir -p \"$1/$(dirname $files)\"; cp -vf $files $1/$(dirname $files); done"
+    exportfiles = !sh -c 'git diff $0 --name-only | "while read files; do mkdir -p \"$1/$(dirname $files)\"; cp -vf $files $1/$(dirname $files); done"'
 
     # git flow relates
     afterfeature = !git checkout master && git pull && git fetch -p && git branch --merged
@@ -109,6 +111,10 @@
     donethis = log --pretty=format:'[x] %an -> %s , about %ar '
     save-donethis = !sh -c 'rm -f DONE.THIS.md' && git log --pretty=format:'[x] %an -> %s , about %ar ' > DONE.THIS.md
     # amend-update =  commit --amend --date="$(date -R)"
+    #
+    # branch moving
+    last = !git reflog |grep 'moving from'| cut -d\\  -f2,8|head -n 40|nl -v 0
+    back = "!git checkout \\${-$0}"
 [apply]
     whitespace = nowarn
 [core]
