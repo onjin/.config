@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+winie-install-ie11-win81 () {
+	mkdir -p ~/.cache/winie/ && cd ~/.cache/winie
+	wget -win8.1.txt -i https://gist.github.com/magnetikonline/5274656/raw/ie11-win8.1.txt
+	cat IE11.Win8.1.For.Linux.VirtualBox.zip.00? > IE11.Win8.1.For.Linux.VirtualBox.zip
+	rm IE11.Win8.1.For.Linux.VirtualBox.zip.00*
+	unzip IE11.Win8.1.For.Linux.VirtualBox.zip
+	rm IE11.Win8.1.For.Linux.VirtualBox.zip
+	tar -xf "IE11 - Win8.1.ova"
+	rm IE11*.ov?
+	ls "IE11 - Win8.1-disk1.vmdk"
+}
+

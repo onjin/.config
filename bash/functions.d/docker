@@ -40,5 +40,6 @@ docker-upgrade-compose () {
 }
 
 docker-list-vhosts () {
-  docker inspect --format '{{ index (index .Config.Env) 1 }}' $(docker ps -q) | grep VIRTUAL_HOST | cut -d\= -f 2
+  # docker inspect --format '{{ index (index .Config.Env) 1 }}' $(docker ps -q) | grep VIRTUAL_HOST | cut -d\= -f 2
+  docker inspect --format '{{range $index, $value := .Config.Env}}{{$value}}{{println}}{{end}}' $(docker ps -q) | grep VIRTUAL_HOST | cut -d\= -f 2 |sed -e 's/^/http:\/\//'
 }

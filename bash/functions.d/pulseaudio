@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Get the index of the selected sink:
+f-pa-getsink() {
+  pacmd list-sinks|grep ' \* index:'| awk '{print $3}'
+
+}
+
+# Get the selected sink volume
+f-pa-volume-up() {
+  pactl set-sink-volume $(f-pa-getsink) +5%
+}
+f-pa-volume-down() {
+  pactl set-sink-volume $(f-pa-getsink) -5%
+}
+f-pa-volume-toggle() {
+  pactl set-sink-mute $(f-pa-getsink) toggle
+}

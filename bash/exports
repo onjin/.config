@@ -14,3 +14,7 @@ export XDG_CURRENT_DESKTOP=GNOME
 
 export INPUTRC="$XDG_CONFIG_HOME/bash/inputrc"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"
+
+export GOPATH=$HOME/golang
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
