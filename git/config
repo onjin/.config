@@ -115,6 +115,7 @@
     # branch moving
     last = !git reflog |grep 'moving from'| cut -d\\  -f2,8|head -n 40|nl -v 0
     back = "!git checkout \\${-$0}"
+    scrum = !git log --since='1 day ago' --author=$(git config user.email) --oneline
 [apply]
     whitespace = nowarn
 [core]

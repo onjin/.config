@@ -1,24 +1,31 @@
 #!/usr/bin/env python
-
 import atexit
 import os
-import readline
-import rlcompleter
-
-readline.parse_and_bind('tab: complete')
-history = os.path.expanduser('~/.pythonhist')
 
 
-def save_history(history=history):
+try:
     import readline
-    readline.write_history_file(history)
+    import rlcompleter
+except ImportError:
+    readline = None
+    rlcompleter = None
 
-if os.path.exists(history):
-    try:
-        readline.read_history_file(history)
-    except IOError:
-        pass
+if readline:
+    readline.parse_and_bind('tab: complete')
 
+    history = os.path.expanduser('~/.pythonhist')
 
-atexit.register(save_history)
-del os, atexit, readline, rlcompleter, save_history, history
+    def save_history(history=history):
+        import readline
+        readline.write_history_file(history)
+
+    if os.path.exists(history):
+        try:
+            readline.read_history_file(history)
+        except IOError:
+            pass
+
+    atexit.register(save_history)
+    del save_history, history
+
+del os, atexit, readline, rlcompleter
