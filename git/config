@@ -128,3 +128,6 @@
 	clean = ~/.config/git/gitencrypt/clean_filter_openssl
 [diff "openssl"]
 	textconv = ~/.config/git/gitencrypt/diff_filter_openssl
+[diff "nodiff"]
+  # to skip fi. `*.mo` files in diff `echo '*.mo diff=nodiff' >> .gitattributes`
+	command = /bin/true
