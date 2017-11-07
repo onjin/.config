@@ -76,6 +76,9 @@
     #what do I have in my toolbox?
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 
+    # bookmarks
+    bookmarks = !sh -c 'git alias|egrep "^go-"'
+
 
     #fiat lux
     makegitrepo = !git init && git add . && git commit -m \"initial commit\"
@@ -110,12 +113,8 @@
     masup = !git checkout master && git pull
     donethis = log --pretty=format:'[x] %an -> %s , about %ar '
     save-donethis = !sh -c 'rm -f DONE.THIS.md' && git log --pretty=format:'[x] %an -> %s , about %ar ' > DONE.THIS.md
-    # amend-update =  commit --amend --date="$(date -R)"
-    #
-    # branch moving
-    last = !git reflog |grep 'moving from'| cut -d\\  -f2,8|head -n 40|nl -v 0
-    back = "!git checkout \\${-$0}"
-    scrum = !git log --since='1 day ago' --author=$(git config user.email) --oneline
+
+    standup = !git log --since='1 day ago' --author=$(git config user.email) --oneline
 [apply]
     whitespace = nowarn
 [core]

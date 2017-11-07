@@ -60,7 +60,11 @@ source "$XDG_CONFIG_HOME/bash/aliases"
 source "$XDG_CONFIG_HOME/bash/completion"
 
 # wirtualenv wrapper
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+# nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
 
 # theme
 source "$XDG_CONFIG_HOME/bash/themes/base.theme.bash"
@@ -71,3 +75,10 @@ for func in "$XDG_CONFIG_HOME/bash/functions.d/"*; do
 	source "$func"
 done
 unset func
+
+# dircolors for dark solarized gnome-terminal
+eval `dircolors ~/.config/bash/dircolors`
+
+stty stop undef
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

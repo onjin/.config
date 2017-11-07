@@ -18,3 +18,5 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"
 export GOPATH=$HOME/golang
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+
+export EDITOR=vim

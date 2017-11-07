@@ -8,8 +8,8 @@ PYTHON_THEME_PROMPT_PREFIX='('
 PYTHON_THEME_PROMPT_SUFFIX=')'
 SCM_THEME_PROMPT_PREFIX=' ('
 SCM_THEME_PROMPT_SUFFIX=')'
-SCM_GIT_SHOW_DETAILS=false
-SCM_GIT_IGNORE_UNTRACKED=true
+SCM_GIT_SHOW_DETAILS=true
+SCM_GIT_IGNORE_UNTRACKED=false
 
 #if [[ $COLORTERM = gnome-* && $TERM = xterm ]]  && infocmp gnome-256color >/dev/null 2>&1; then export TERM=gnome-256color
 #elif [[ $TERM != dumb ]] && infocmp xterm-256color >/dev/null 2>&1; then export TERM=xterm-256color

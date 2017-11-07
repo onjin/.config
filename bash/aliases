@@ -24,3 +24,4 @@ alias ssh="cat ~/.ssh/config.d/* > ~/.ssh/config; TERM=xterm ssh"
 alias mutt-emps='mutt -F ~/.config/mutt/account.emps'
 alias steamfix='rm ~/.steam/steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libstdc++.so.6'
 alias irexec='irexec ~/.config/lirc/config'
+alias dev-vagrant='VAGRANT_VAGRANTFILE=Vagrantfile.devtest VAGRANT_DOTFILE_PATH=.vagrant-devtest vagrant'
