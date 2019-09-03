@@ -3,4 +3,4 @@
 source "$XDG_CONFIG_HOME/git/vars"
 
 # Error messages are redirect to /dev/null.
-openssl enc -d -base64 -aes-256-ecb -k $GIT_ENCRYPT_PASS_FIXED -in "$1" 2> /dev/null || cat "$1"
+openssl enc -d -base64 -aes-256-ecb -pbkdf2 -iter 1000 -k $GIT_ENCRYPT_PASS_FIXED -in "$1" 2> /dev/null || cat "$1"

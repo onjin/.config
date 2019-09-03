@@ -5,8 +5,13 @@ VGA_SCREENS_COUNT=$(xrandr -q | grep " connected" | grep -c "VGA")
 DVI_SCREENS_COUNT=$(xrandr -q | grep " connected" | grep -c "DVI")
 HDMI_SCREENS_COUNT=$(xrandr -q | grep " connected" | grep -c "HDMI")
 
+DVI_NAME=$(xrandr -q |grep " connected" | grep "DVI"|cut -d\  -f 1)
+HDMI_NAME=$(xrandr -q |grep " connected" | grep "HDMI"|cut -d\  -f 1)
+
+echo $DVI_NAME
+
 if [ $SCREENS_COUNT = 2 ]; then
-  xrandr --output DVI-0 --primary --auto --below HDMI-0
+  xrandr --output ${DVI_NAME} --primary --auto --below ${HDMI_NAME}
 fi
 
 # nassty hack

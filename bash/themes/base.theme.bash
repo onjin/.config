@@ -297,6 +297,16 @@ function py_interp_prompt {
   echo -e "${PYTHON_THEME_PROMPT_PREFIX}${py_version}${PYTHON_THEME_PROMPT_SUFFIX}"
 }
 
+function node_interp_prompt {
+  node_version=$(node --version 2>&1 | awk '{print "node-"$1;}') || return
+  echo -e "${NODE_THEME_PROMPT_PREFIX}${node_version}${NODE_THEME_PROMPT_SUFFIX}"
+}
+
+function py_interp_prompt {
+  py_version=$(python --version 2>&1 | awk '{print "py-"$2;}') || return
+  echo -e "${PYTHON_THEME_PROMPT_PREFIX}${py_version}${PYTHON_THEME_PROMPT_SUFFIX}"
+}
+
 function python_version_prompt {
   echo -e "$(virtualenv_prompt)$(condaenv_prompt)$(py_interp_prompt)"
 }

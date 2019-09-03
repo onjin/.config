@@ -6,6 +6,8 @@ VIRTUALENV_THEME_PROMPT_PREFIX='('
 VIRTUALENV_THEME_PROMPT_SUFFIX=') '
 PYTHON_THEME_PROMPT_PREFIX='('
 PYTHON_THEME_PROMPT_SUFFIX=')'
+NODE_THEME_PROMPT_PREFIX='('
+NODE_THEME_PROMPT_SUFFIX=')'
 SCM_THEME_PROMPT_PREFIX=' ('
 SCM_THEME_PROMPT_SUFFIX=')'
 SCM_GIT_SHOW_DETAILS=true
@@ -51,7 +53,7 @@ parse_git_branch () {
 }
 
 function prompt_command() {
-PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$WHITE\]\$(scm_prompt_info) ${BOLD}${WHITE}$(py_interp_prompt)\[$WHITE\]\n$(virtualenv_prompt) $(__docker_machine_ps1)\$ \[$RESET\]"
+PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$WHITE\]\$(scm_prompt_info) ${BOLD}${WHITE}$(py_interp_prompt) $(node_interp_prompt)\[$WHITE\]\n$(virtualenv_prompt) $(__docker_machine_ps1)\$ \[$RESET\]"
 }
 
 PROMPT_COMMAND=prompt_command

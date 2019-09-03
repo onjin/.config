@@ -2,9 +2,10 @@
 
 export PREFIX=/usr
 
-export ANDROID_HOME=$HOME/Workspace/tools/android/adt-bundle-linux-x86_64-20131030/sdk
-export PATH="$HOME/.local/bin:$HOME/.cabal/bin:$HOME/node_modules/.bin:$PATH:bin:$HOME/bin:$ANDROID_HOME/tools"
-export PATH="$HOME/.local/bin:$HOME/.cabal/bin:$HOME/node_modules/.bin:$PATH:bin:$HOME/bin:$ANDROID_HOME/platform-tools"
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export ANDROID_HOME=/home/onjin/Workspace/tools/android/
+export PATH="$HOME/.local/bin:$HOME/.cabal/bin:$HOME/node_modules/.bin:$PATH:bin:$HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -20,3 +21,8 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 
 export EDITOR=vim
+export VISAUAL=vim
+
+export CC=`type -p gcc`
+
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"

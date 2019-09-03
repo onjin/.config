@@ -9,12 +9,12 @@ order += "disk /"
 # order += "path_exists VPNa"
 # order += "path_exists VPNu"
 # order += "wireless wlan0"
-order += "ethernet enp3s0"
+order += "ethernet enp0s31f6"
 # order += "battery 0"
-order += "cpu_temperature 2"
-order += "cpu_temperature 3"
-order += "cpu_temperature 4"
-order += "cpu_temperature 5"
+# order += "cpu_temperature 2"
+# order += "cpu_temperature 3"
+# order += "cpu_temperature 4"
+# order += "cpu_temperature 5"
 order += "load"
 order += "tztime local"
 
@@ -23,7 +23,7 @@ wireless wlan0 {
         format_down = "W: down"
 }
 
-ethernet enp3s0 {
+ethernet enp0s31f6 {
         # if you use %speed, i3status requires the cap_net_admin capability
         format_up = "E: %ip (%speed)"
         format_down = "E: down"

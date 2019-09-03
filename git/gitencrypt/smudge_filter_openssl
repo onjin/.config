@@ -4,4 +4,4 @@ source "$XDG_CONFIG_HOME/git/vars"
 
 # If decryption fails, use `cat` instead. 
 # Error messages are redirected to /dev/null.
-openssl enc -d -base64 -aes-256-ecb -k $GIT_ENCRYPT_PASS_FIXED 2> /dev/null || cat
+openssl enc -d -base64 -aes-256-ecb -pbkdf2 -iter 1000 -k $GIT_ENCRYPT_PASS_FIXED 2> /dev/null || cat

@@ -4,3 +4,6 @@ source "$HOME/.config/bash/exports"
 source "$XDG_CONFIG_HOME/bash/bashrc"
 
 hash psql       2>/dev/null && export            PSQLRC="$XDG_CONFIG_HOME/psql/config"
+complete -C '/home/onjin/.pyenv/versions/3.6.5/bin/aws_completer' aws
+
+export PATH="$HOME/.poetry/bin:$PATH"
