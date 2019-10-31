@@ -189,7 +189,7 @@ bindsym $mod+w [title="scratchterm"] scratchpad show
 for_window [title="scratchterm"] border pixel 1
 for_window [title="scratchterm"] floating enable sticky enable
 for_window [title="scratchterm"] move scratchpad
-for_window [title="scratchterm"] resize set 1920 600
+for_window [title="scratchterm"] resize set 1920 800
 for_window [title="scratchterm"] move position 0px 0px
 
 workspace 1 output DVI-I-0

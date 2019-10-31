@@ -119,6 +119,8 @@
     whitespace = nowarn
 [core]
     pager = less -r
+	quotepath = false
+	commitGraph = true
 [help]
     autocorrect = 1
 
@@ -130,3 +132,8 @@
 [diff "nodiff"]
   # to skip fi. `*.mo` files in diff `echo '*.mo diff=nodiff' >> .gitattributes`
 	command = /bin/true
+[user]
+	name = Gitea
+	email = gitea@fake.local
+[gc]
+	writeCommitGraph = true

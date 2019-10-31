@@ -1,0 +1,38 @@
+conky.config = {
+	xinerama_head = 1,
+	background = false,
+	use_xft = true,
+	font = 'Helvetica:size=15',
+	xftalpha = 0.9,
+	update_interval = 3.0,
+	total_run_times = 0,
+	own_window = true,
+	own_window_type = 'desktop',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	minimum_width = 1200,
+	maximum_width = 1200,
+	draw_shades = true,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = true,
+	default_color = '#808080',
+	default_shade_color = '#101319',
+	default_outline_color = 'green',
+	alignment = 'top_left',
+	gap_x = 505,
+	gap_y = 715,
+	no_buffers = true,
+	uppercase = false,
+	cpu_avg_samples = 2,
+	override_utf8_locale = true,
+
+};
+
+conky.text = [[
+${color ce2c51}RAM: ${goto 160}CPU: ${goto 400}System: ${goto 650}Top: 
+${color ffffff}${mem} ${goto 160}${cpu cpu0}% ${goto 400}la: ${loadavg}${goto 650}CPU: ${top name 1}${goto 780} ${top cpu 1}% ${color}
+${color grey}${memfree} ${goto 160}${freq}Hz ${goto 400}${kernel}${goto 650}MEM: ${top_mem name 1}${goto 780} ${top_mem mem 1}% ${color}
+${color 737373}${memmax} ${goto 160}${exec echo $(/usr/bin/acpi -t|cut -d, -f2|awk '{print $1 }')}°C ${goto 400}${if_gw}wlan: ${wireless_essid wlan0}${else}N/A${endif}${goto 650}I/O: ${top_io name 1}${goto 780} ${top_io io_perc 1}%
+]];
