@@ -184,13 +184,20 @@ bindsym XF86AudioMute exec --no-startup-id pa-volume-toggle
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
 
-# dropdown terminal
-bindsym $mod+w [title="scratchterm"] scratchpad show
-for_window [title="scratchterm"] border pixel 1
-for_window [title="scratchterm"] floating enable sticky enable
-for_window [title="scratchterm"] move scratchpad
-for_window [title="scratchterm"] resize set 1920 800
-for_window [title="scratchterm"] move position 0px 0px
+# dropdown terminals
+bindsym $mod+w [title="scratchtermtop"] scratchpad show
+for_window [title="scratchtermtop"] border pixel 1
+for_window [title="scratchtermtop"] floating enable sticky enable
+for_window [title="scratchtermtop"] move scratchpad
+for_window [title="scratchtermtop"] resize set 1920 800
+for_window [title="scratchtermtop"] move position 0px 0px
+
+bindsym $mod+Shift+w [title="scratchtermbot"] scratchpad show
+for_window [title="scratchtermbot"] border pixel 1
+for_window [title="scratchtermbot"] floating enable sticky enable
+for_window [title="scratchtermbot"] move scratchpad
+for_window [title="scratchtermbot"] resize set 1920 800
+for_window [title="scratchtermbot"] move position 0px 280px
 
 workspace 1 output DVI-I-0
 workspace 2 output DVI-I-0
@@ -228,7 +235,8 @@ exec --no-startup-id dropbox start
 exec --no-startup-id nagstamon
 exec --no-startup-id pasystray
 exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
-exec --no-startup-id sakura -t scratchterm
+exec --no-startup-id sakura -t scratchtermtop
+exec --no-startup-id sakura -t scratchtermbot
 exec --no-startup-id conky -d --config ~/.config/conky/conkyhr
 exec --no-startup-id conky -d --config ~/.config/conky/conkymin
 exec --no-startup-id conky -d --config ~/.config/conky/conkydate
