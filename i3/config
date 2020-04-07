@@ -185,19 +185,19 @@ bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 
 
 # dropdown terminals
-bindsym $mod+w [title="scratchtermtop"] scratchpad show
-for_window [title="scratchtermtop"] border pixel 1
-for_window [title="scratchtermtop"] floating enable sticky enable
-for_window [title="scratchtermtop"] move scratchpad
-for_window [title="scratchtermtop"] resize set 1920 800
-for_window [title="scratchtermtop"] move position 0px 0px
+bindsym $mod+w [instance="termtop"] scratchpad show
+for_window [instance="termtop"] border pixel 1
+for_window [instance="termtop"] floating enable sticky enable
+for_window [instance="termtop"] move scratchpad
+for_window [instance="termtop"] resize set 1920 800
+for_window [instance="termtop"] move position 0px 0px
 
-bindsym $mod+Shift+w [title="scratchtermbot"] scratchpad show
-for_window [title="scratchtermbot"] border pixel 1
-for_window [title="scratchtermbot"] floating enable sticky enable
-for_window [title="scratchtermbot"] move scratchpad
-for_window [title="scratchtermbot"] resize set 1920 800
-for_window [title="scratchtermbot"] move position 0px 280px
+bindsym $mod+Shift+w [instance="termbot"] scratchpad show
+for_window [instance="termbot"] border pixel 1
+for_window [instance="termbot"] floating enable sticky enable
+for_window [instance="termbot"] move scratchpad
+for_window [instance="termbot"] resize set 1920 800
+for_window [instance="termbot"] move position 0px 280px
 
 workspace 1 output DVI-I-0
 workspace 2 output DVI-I-0
@@ -212,6 +212,7 @@ workspace 0 output HDMI-A-0
 workspace 10 output HDMI-A-0
 
 assign [class="gnome-terminal"] 1
+assign [class="st"] 1
 assign [class="(?i)google-chrome"] 2
 assign [class="gvim"] 3
 assign [class="(?i)slack"] 5
@@ -235,8 +236,13 @@ exec --no-startup-id dropbox start
 exec --no-startup-id nagstamon
 exec --no-startup-id pasystray
 exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
-exec --no-startup-id sakura -t scratchtermtop
-exec --no-startup-id sakura -t scratchtermbot
+# exec --no-startup-id sleep 1 && /usr/bin/variety
+# exec --no-startup-id sakura -t termtop
+# exec --no-startup-id sakura -t termbot
+#
+exec --no-startup-id i3-sensible-terminal -n termbot
+exec --no-startup-id i3-sensible-terminal -n termtop
+
 exec --no-startup-id conky -d --config ~/.config/conky/conkyhr
 exec --no-startup-id conky -d --config ~/.config/conky/conkymin
 exec --no-startup-id conky -d --config ~/.config/conky/conkydate

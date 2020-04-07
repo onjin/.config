@@ -87,7 +87,8 @@
     find = !sh -c 'git ls-tree -r --name-only HEAD | grep --color $1' -
 
     #Deletes all branches that were safely merged into the master. All other are skipped (no worries).
-    cleanup = !git branch --merged master | grep -v 'master$' | xargs git branch -d
+    cleanup = !git branch --merged master --color=never| grep -v 'master$' | xargs git branch -d
+    cleanup-remote = !git branch -r --color=never |grep origin|grep -v master|cut -d\\/ -f 2-|xargs git push origin --delete
 
     unstage = reset HEAD --
     fast-cherry-pick = !sh -c 'git pull' && sh -c 'git checkout $1' && sh -c 'git pull' && sh -c 'git cherry-pick -x $0'
@@ -113,8 +114,8 @@
     releasenotes = log --pretty=format:'%Cgreen%d %Creset%s' --date=iso --no-merges
     devup = !git checkout develop && git pull
     masup = !git checkout master && git pull
-    donethis = log --pretty=format:'[x] %an -> %s , about %ar '
-    save-donethis = !sh -c 'rm -f DONE.THIS.md' && git log --pretty=format:'[x] %an -> %s , about %ar ' > DONE.THIS.md
+    donethis = log --pretty=format:'[x] %an -> %s , about %ar ' --no-merges
+    save-donethis = !sh -c 'rm -f DONE.THIS.md' && git log --pretty=format:'[x] %an -> %s , about %ar '  --no-merges > DONE.THIS.md
 
     standup = !git log --since='1 day ago' --author=$(git config user.email) --oneline
 [apply]
@@ -134,8 +135,5 @@
 [diff "nodiff"]
   # to skip fi. `*.mo` files in diff `echo '*.mo diff=nodiff' >> .gitattributes`
 	command = /bin/true
-[user]
-	name = Gitea
-	email = gitea@fake.local
 [gc]
 	writeCommitGraph = true
