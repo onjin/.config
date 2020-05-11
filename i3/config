@@ -117,8 +117,8 @@ bindsym $mod+Ctrl+8 workspace number $ws18
 bindsym $mod+Ctrl+9 workspace number $ws19
 bindsym $mod+Ctrl+0 workspace number $ws20
 
-## Navigate // Slack (Workspace 5) // <> q ##
-bindsym $mod+q workspace 5
+## Navigate // Slack (Workspace 11) // <> q ##
+bindsym $mod+q workspace number 11
 
 
 ## Navigate // Next Workspace // <><Alt> l ##
@@ -139,8 +139,8 @@ bindsym $mod+w [instance="termtop"] scratchpad show
 for_window [instance="termbot"] border pixel 1
 for_window [instance="termbot"] floating enable sticky enable
 for_window [instance="termbot"] move scratchpad
-for_window [instance="termbot"] resize set 1920 800
-for_window [instance="termbot"] move position 0px 260px
+for_window [instance="termbot"] resize set 1920 400
+for_window [instance="termbot"] move position 0px 660px
 bindsym $mod+Shift+w [instance="termbot"] scratchpad show
 
 workspace $ws1 output DVI-I-0
@@ -188,8 +188,8 @@ bindsym $mod+Ctrl+Shift+Down move workspace to output down
 bindsym $mod+Ctrl+Shift+Up move workspace to output up
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
-## Modify // Next Window Orientation // <> Backspace ##
-bindsym $mod+BackSpace split toggle
+## Modify // Next Window Orientation // <> ; ##
+bindsym $mod+semicolon split toggle
 
 ## Modify // Window Fullscreen Toggle // <> f ##
 bindsym $mod+f fullscreen toggle
@@ -201,10 +201,10 @@ bindsym $mod+Shift+f floating toggle
 bindsym $mod+Ctrl+m move to scratchpad
 
 ## Modify // Tile/Float Focus Toggle // <><Shift> t ##
-bindsym $mod+Shift+t focus mode_toggle
+#bindsym $mod+Shift+t focus mode_toggle
 
 ## Modify // Window Layout Mode // <> t ##
-bindsym $mod+t layout toggle tabbed splith splitv stacking
+bindsym $mod+e layout toggle tabbed splith splitv stacked
 
 ## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0..9 ##
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -231,7 +231,7 @@ bindsym $mod+Shift+Ctrl+0 move container to workspace number $ws20
 
 # move focused container to workspace, move to workspace
 ## Modify // Carry Window to Workspace 1 - 10// <><Alt> 0..9 ##
-bindsym $mod+$alt+1 move container to workspace number $ws1; workspace number $ws1  
+bindsym $mod+$alt+1 move container to workspace number $ws1; workspace number $ws1
 bindsym $mod+$alt+2 move container to workspace number $ws2; workspace number $ws2
 bindsym $mod+$alt+3 move container to workspace number $ws3; workspace number $ws3
 bindsym $mod+$alt+4 move container to workspace number $ws4; workspace number $ws4
@@ -302,7 +302,7 @@ set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /
 bindsym $mod+n exec $i3-wm.program.notification_ui
 
 ## Session // Lock Screen // <> Escape ##
-set_from_resource $i3-wm.program.lock i3-wm.program.lock /usr/bin/i3lock
+set_from_resource $i3-wm.program.lock i3-wm.program.lock /usr/bin/i3lock -f  -i /home/onjin/Dropbox/backgrounds/plain/Painkillers_broken.png  -t
 bindsym $mod+Escape exec $i3-wm.program.lock
 
 
@@ -312,9 +312,9 @@ bindsym $mod+Escape exec $i3-wm.program.lock
 
 # i3-snapshot for load/save current layout
 ## Modify // Save Window Layout // <> , ##
-bindsym $mod+comma  exec /usr/bin/i3-snapshot -o > /tmp/i3-snapshot 
+bindsym $mod+comma  exec i3-layout-save
 ## Modify // Load Window Layout // <> . ##
-bindsym $mod+period exec /usr/bin/i3-snapshot -c < /tmp/i3-snapshot
+bindsym $mod+period exec i3-layout-load
 
 # Toggle bar visibility
 ## Modify // Toggle Bar // <> i ##
@@ -360,7 +360,7 @@ mode "Resize Mode" {
         bindsym Shift+minus gaps inner current minus 12
         bindsym Shift+plus gaps inner current plus 12
 
-        ## Resize // Exit Resize Mode // Escape or Enter ## 
+        ## Resize // Exit Resize Mode // Escape or Enter ##
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
@@ -463,11 +463,11 @@ font $i3-wm.font
 ###############################################################################
 # i3 Bar
 ###############################################################################
-set_from_resource $i3-wm.bar.position i3-wm.bar.position bottom
-set_from_resource $i3-wm.bar.font i3-wm.bar.font pango:Source Code Pro Medium 8, Material Design Icons 8
+set_from_resource $i3-wm.bar.position i3-wm.bar.position top
+set_from_resource $i3-wm.bar.font i3-wm.bar.font pango:Source Code Pro Medium 8, Material Design Icons 8, FontAwesome 8 
 set_from_resource $i3-wm.bar.separator i3-wm.bar.separator " "
 set_from_resource $i3-wm.bar.trayoutput i3-wm.bar.trayoutput primary
-set_from_resource $i3-wm.bar.stripworkspacenumbers i3-wm.bar.stripworkspacenumbers yes
+set_from_resource $i3-wm.bar.stripworkspacenumbers i3-wm.bar.stripworkspacenumbers no
 
 set_from_resource $i3-wm.bar.status_command i3-wm.bar.status_command i3status
 
@@ -481,9 +481,9 @@ bar {
   # status_command i3status | ${HOME}/.config/i3status/wrapper.py
   tray_output $i3-wm.bar.trayoutput
   strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
-  mode hide
-  hidden_state hide
-  modifier Mod1
+  # mode hide
+  # hidden_state hide
+  modifier none
   colors {
       background $i3-wm.bar.background.color
       statusline $i3-wm.bar.statusline.color
@@ -551,22 +551,14 @@ set $volumestep 5
 bindsym XF86AudioRaiseVolume exec $volumepath -np -i $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioLowerVolume exec $volumepath -np -d $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioMute        exec $volumepath -mn -t $statuscmd -u $statussig
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pa-volume-up
-# bindsym XF86AudioLowerVolume exec --no-startup-id pa-volume-down
-# bindsym XF86AudioMute exec --no-startup-id pa-volume-toggle
 
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
 
-
-
-assign [class="gnome-terminal"] 1
-assign [class="st"] 1
-assign [class="(?i)google-chrome"] 2
-assign [class="gvim"] 3
-assign [class="(?i)slack"] 5
-assign [title="Spotify Premium"] 10
-assign [title="(?i)spotify"] 10
+assign [class="(?i)google-chrome"] number 2
+assign [class="(?i)slack"] number 11
+assign [title="Spotify Premium"] number 10
+assign [title="(?i)spotify"] number 10
 for_window [class="(?i)hipchat"] floating enable
 for_window [class="(?i)shutter"] floating enable
 for_window [class="(?i)pavucontrol"] floating enable
@@ -584,12 +576,14 @@ for_window [class="TeamViewer"] floating enable
 # External programs launched with i3
 ###############################################################################
 exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id /usr/bin/rofication-daemon
+exec --no-startup-id /home/onjin/bin/rofication-status-write
+exec --no-startup-id /usr/local/bin/i3-workspace-names-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
 exec --no-startup-id nagstamon
 exec --no-startup-id pasystray
 exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
-# exec --no-startup-id sleep 1 && /usr/bin/variety
 # exec --no-startup-id sakura -t termtop
 # exec --no-startup-id sakura -t termbot
 #

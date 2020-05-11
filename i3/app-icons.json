@@ -1,0 +1,19 @@
+{
+  "pavucontrol": "volume-up",
+  "spotify": "spotify",
+  "Spotify": "spotify",
+  "slack": "slack",
+  "firefox": "firefox",
+  "chromium-browser": "chrome",
+  "chrome": "chrome",
+  "google-chrome": "chrome",
+  "x-terminal-emulator": "terminal",
+  "st": "terminal",
+  "thunderbird": "envelope",
+  "jetbrains-idea-ce": "edit",
+  "nautilus": "folder-open",
+  "clementine": "music",
+  "vlc": "play",
+  "signal": "comment",
+  "_no_match": "question"
+}
