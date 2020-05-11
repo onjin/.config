@@ -16,7 +16,7 @@ unclutter -idle 3 -jitter 5 -noevents &
 
 # dpms && screensaver
 xset dpms 1800 &
-xautolock -time 30 -locker i3lock &
+xautolock -time 30 -locker /usr/bin/i3lock -f -i /home/onjin/Dropbox/backgrounds/plain/Painkillers_broken.png  -t &
 /usr/bin/redshift-gtk &
 /usr/bin/rescuetime &
 

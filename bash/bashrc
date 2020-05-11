@@ -96,3 +96,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [[ -s "/home/onjin/.gvm/scripts/gvm" ]] && source "/home/onjin/.gvm/scripts/gvm"
+
+eval "$(thefuck --alias)"

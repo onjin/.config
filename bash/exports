@@ -27,3 +27,7 @@ export TERMINAL=st
 export CC=`type -p gcc`
 
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+
+export DENO_INSTALL="/home/onjin/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+

@@ -1,6 +1,9 @@
 *.swp
 *.log
 *.cache
+.mypy_cache
+
+/i3blocks/i3blocks-contrib
 
 /user-dirs.*
 /monitors.xml*

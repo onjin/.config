@@ -109,6 +109,7 @@
     # git flow relates
     afterfeature = !git checkout master && git pull && git fetch -p && git branch --merged
     upfork = !git fetch upstream && git rebase upstream/master
+    upfork-branch = !git checkout master && git fetch upstream && git rebase upstream/master && git checkout - && git rebase master
     feature = !sh -c 'git checkout -b feature/$0 master'
     fix = !sh -c 'git checkout -b fix/$0 master'
     releasenotes = log --pretty=format:'%Cgreen%d %Creset%s' --date=iso --no-merges

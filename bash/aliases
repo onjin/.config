@@ -54,3 +54,6 @@ alias cpuinfo='lscpu'
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 alias v='vim'
+
+## cleaner df
+alias dfc='df -h -x squashfs -x tmpfs -x devtmpfs'

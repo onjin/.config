@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# now output the data for all workspaces
+workspaces=$(i3-msg  -t get_workspaces|jq -c '.[] | select (.visible == true) | "\(.name) (\(.output))"' -M)
+
+for name in "${workspaces}"; do
+	printf '%s ' "$name"
+done
