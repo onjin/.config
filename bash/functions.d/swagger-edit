@@ -1,0 +1,4 @@
+function swagger-edit() {
+  # docker run -ti --rm --volume="$(pwd)":/swagger -p 8080:8080 zixia/swagger-edit "$@"
+  docker run -ti --rm swaggerapi/swagger-editor "$@"
+}

@@ -1,8 +1,9 @@
 Xcursor.size: 32
 *.font:	Fira Code:pixelsize=14:style=Light:antialias=true:autohint=true;
+*.alpha: 0.95
 
 st.font: Fira Code:style=Light:pixelsize=14:antialias=true
-st.alpha: 0.9
+st.alpha: 0.95
 
 !! #include ".config/xorg/Xresources.d/theme-solarized-light"
 !! #include ".config/xorg/Xresources.d/theme-solarized-dark"

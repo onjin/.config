@@ -128,19 +128,19 @@ bindsym $mod+$alt+l workspace next
 bindsym $mod+$alt+h workspace prev
 
 ## Navigate // Open drop down terminal // <> w ##
-for_window [instance="termtop"] border pixel 1
+for_window [instance="termtop"] border pixel 3
 for_window [instance="termtop"] floating enable sticky enable
 for_window [instance="termtop"] move scratchpad
-for_window [instance="termtop"] resize set 1920 800
+for_window [instance="termtop"] resize set 1914 800
 for_window [instance="termtop"] move position 0px 20px
 bindsym $mod+w [instance="termtop"] scratchpad show
 
 ## Navigate // Open go up terminal // <><Shift> w ##
-for_window [instance="termbot"] border pixel 1
+for_window [instance="termbot"] border pixel 3
 for_window [instance="termbot"] floating enable sticky enable
 for_window [instance="termbot"] move scratchpad
-for_window [instance="termbot"] resize set 1920 400
-for_window [instance="termbot"] move position 0px 660px
+for_window [instance="termbot"] resize set 1914 400
+for_window [instance="termbot"] move position 0px 630px
 bindsym $mod+Shift+w [instance="termbot"] scratchpad show
 
 workspace $ws1 output DVI-I-0
@@ -522,9 +522,6 @@ new_window pixel 1
 ###############################################################################
 # Media keys
 ###############################################################################
-# emulate media next/prev by 4/5 buttons
-bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 set $volumepath ~/.local/bin/volume
 
@@ -553,14 +550,21 @@ bindsym XF86AudioRaiseVolume exec $volumepath -i $volumestep -t $i3-wm.bar.statu
 bindsym XF86AudioLowerVolume exec $volumepath -d $volumestep -t $i3-wm.bar.status_command -u $statussig
 bindsym XF86AudioMute        exec $volumepath -m -t $statuscmd -u $statussig
 
-bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+#bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+#bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+#bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
+# User playerctl instead of dbus-send
+bindsym XF86AudioPlay exec playerctl -p spotify play-pause
+bindsym XF86AudioPrev exec playerctl -p spotify previous
+bindsym XF86AudioNext exec playerctl -p spotify next
 
 
 assign [class="(?i)google-chrome"] number 2
 assign [class="(?i)slack"] number 11
 assign [title="Spotify Premium"] number 10
 assign [title="(?i)spotify"] number 10
+
 for_window [class="Yad"] floating enable
 for_window [class="(?i)hipchat"] floating enable
 for_window [class="(?i)shutter"] floating enable
@@ -571,29 +575,33 @@ for_window [class="(?i)gnome-calculator"] floating enable
 for_window [class="Gcalctool"] floating enable
 for_window [class="rdesktop"] floating enable
 for_window [class="Steam"] floating enable
-for_window [class="dontstarve_steam"] floating enable
 for_window [class="TeamViewer"] floating enable
 
 
 ###############################################################################
 # External programs launched with i3
 ###############################################################################
-# exec --no-startup-id compton -b
+
+# Base daemons
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id /usr/bin/rofication-daemon
-# exec --no-startup-id /home/onjin/bin/rofication-status-write
+
+# Put program icons in workspace names
 exec --no-startup-id /usr/local/bin/i3-workspace-names-daemon
+
+# Tray programs
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
 exec --no-startup-id nagstamon
-exec --no-startup-id pasystray
-exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
-# exec --no-startup-id sakura -t termtop
-# exec --no-startup-id sakura -t termbot
-#
+
+# Scratch terms
 exec --no-startup-id i3-sensible-terminal -n termbot
 exec --no-startup-id i3-sensible-terminal -n termtop
 
+# Restore background
+exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
+
+# desktop time and date
 exec --no-startup-id conky -d --config ~/.config/conky/conkyhr
 exec --no-startup-id conky -d --config ~/.config/conky/conkymin
 exec --no-startup-id conky -d --config ~/.config/conky/conkydate
