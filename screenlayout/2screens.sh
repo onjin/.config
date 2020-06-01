@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $DVI_SCREENS_COUNT = 1 ]; then
 	SCREEN='DVI-0'

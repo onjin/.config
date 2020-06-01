@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ -z $(pgrep -f conkyhr) ]; then
+  conky -d --config ~/.config/conky/conkyhr
+fi
+if [ -z $(pgrep -f conkymin) ]; then
+  conky -d --config ~/.config/conky/conkymin
+fi
+if [ -z $(pgrep -f conkydate) ]; then
+  conky -d --config ~/.config/conky/conkydate
+fi

@@ -117,10 +117,6 @@ bindsym $mod+Ctrl+8 workspace number $ws18
 bindsym $mod+Ctrl+9 workspace number $ws19
 bindsym $mod+Ctrl+0 workspace number $ws20
 
-## Navigate // Slack (Workspace 11) // <> q ##
-bindsym $mod+q workspace number 11
-
-
 ## Navigate // Next Workspace // <><Alt> l ##
 bindsym $mod+$alt+l workspace next
 
@@ -602,6 +598,4 @@ exec --no-startup-id i3-sensible-terminal -n termtop
 exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
 
 # desktop time and date
-exec --no-startup-id conky -d --config ~/.config/conky/conkyhr
-exec --no-startup-id conky -d --config ~/.config/conky/conkymin
-exec --no-startup-id conky -d --config ~/.config/conky/conkydate
+exec --no-startup-id ~/.config/bin/conkytime
