@@ -59,22 +59,9 @@ source "$XDG_CONFIG_HOME/bash/aliases"
 # completion
 source "$XDG_CONFIG_HOME/bash/completion"
 
-# wirtualenv wrapper
-# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-
-# nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
-
 # theme
 source "$XDG_CONFIG_HOME/bash/themes/base.theme.bash"
 source "$XDG_CONFIG_HOME/bash/themes/current"
-
-# Source all extra functions
-for func in "$XDG_CONFIG_HOME/bash/functions.d/"*; do
-	source "$func"
-done
-unset func
 
 # dircolors for dark solarized gnome-terminal
 eval `dircolors ~/.config/bash/dircolors`
@@ -86,15 +73,13 @@ stty stop undef
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [ -f /home/onjin/node_modules/tabtab/.completions/serverless.bash ] && . /home/onjin/node_modules/tabtab/.completions/serverless.bash
+
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [ -f /home/onjin/node_modules/tabtab/.completions/sls.bash ] && . /home/onjin/node_modules/tabtab/.completions/sls.bash
-eval "$(direnv hook bash)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[[ -s "/home/onjin/.gvm/scripts/gvm" ]] && source "/home/onjin/.gvm/scripts/gvm"
-
-eval "$(thefuck --alias)"
+# Source all extra functions
+for func in "$XDG_CONFIG_HOME/bash/functions.d/"*; do
+	source "$func"
+done
+unset func
