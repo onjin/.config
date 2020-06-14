@@ -1,0 +1,1 @@
+hash psql       2>/dev/null && export            PSQLRC="$XDG_CONFIG_HOME/psql/config"
