@@ -2,6 +2,7 @@
 *.log
 *.cache
 .mypy_cache
+/systemd/user/*.wants
 
 /i3blocks/i3blocks-contrib
 

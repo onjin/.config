@@ -496,9 +496,6 @@ bar {
 }
 
 
-# split in vertical orientation
-bindsym $mod+v split v
-
 # toggle tiling / floating
 # bindsym $mod+Shift+space floating toggle
 
@@ -511,9 +508,10 @@ bindsym $mod+Shift+s sticky toggle
 
 
 new_window pixel 1
-# remove current notifications
-#
-#
+
+###############################################################################
+# VPN's
+###############################################################################
 
 ###############################################################################
 # Media keys
@@ -581,9 +579,6 @@ for_window [class="TeamViewer"] floating enable
 # Base daemons
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id /usr/bin/rofication-daemon
-
-# Put program icons in workspace names
-exec --no-startup-id /usr/local/bin/i3-workspace-names-daemon
 
 # Tray programs
 exec --no-startup-id nm-applet

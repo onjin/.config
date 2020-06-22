@@ -1,0 +1,15 @@
+[Unit]
+Description=rename workspace names (i3)
+Documentation=man:i3(1)
+
+[Service]
+Type=exec
+Environment=DISPLAY=:0
+ExecStart=/usr/local/bin/i3-workspace-names-daemon
+ExecStop=/usr/bin/killall i3-workspace-names-daemon
+KillMode=none
+
+RestartSec=2
+
+[Install]
+WantedBy=xinitrc.target
