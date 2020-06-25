@@ -52,8 +52,8 @@ set_from_resource $ws20 i3-wm.workspace.20.name "20"
 ## Launch // Terminal // <> Enter ##
 bindsym $mod+Return exec i3-sensible-terminal
 
-## Launch // Browser // <><Shift> Enter ##
-bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
+# Xaunch // Browser // <><Shift> Enter ##
+# bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
 
 set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
 

@@ -29,6 +29,18 @@ separator_block_width=15
 markup=none
 signal=10
 
+[primary]
+label=
+command=echo "$(xclip -o |  grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
+interval=2
+color=gray
+
+[clipboard]
+label=
+command=echo "$(xclip -o -selection "clipboard" | grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
+interval=2
+color=gray
+
 [mediaplayer]
 label=♪:
 instance=spotify
@@ -132,6 +144,10 @@ interval=30
 command=LC_ALL=C.utf8 ~/.config/i3blocks/i3blocks-contrib/apt-upgrades/apt-upgrades
 signal=1
 interval=once
+
+[systemctl]
+command=~/.config/i3blocks/blocks/systemctl-failed
+interval=60
 
 # Date Time
 #
