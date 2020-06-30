@@ -147,7 +147,7 @@ interval=once
 
 [systemctl]
 command=~/.config/i3blocks/blocks/systemctl-failed
-interval=60
+interval=30
 
 # Date Time
 #

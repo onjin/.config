@@ -145,4 +145,4 @@ _poetry_dae819386d46ad9d_complete()
 }
 
 complete -o default -F _poetry_dae819386d46ad9d_complete poetry
-complete -o default -F _poetry_dae819386d46ad9d_complete /home/onjin/.poetry/bin/poetry
+complete -o default -F _poetry_dae819386d46ad9d_complete ${HOME}/.poetry/bin/poetry

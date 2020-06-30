@@ -1,2 +1,2 @@
-[[ -s "/home/onjin/.gvm/scripts/gvm" ]] && source "/home/onjin/.gvm/scripts/gvm"
+[[ -s "${HOME}/.gvm/scripts/gvm" ]] && source "${HOME}/.gvm/scripts/gvm"
 

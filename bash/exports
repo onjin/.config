@@ -3,7 +3,7 @@
 export PREFIX=/usr
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export ANDROID_HOME=/home/onjin/Workspace/tools/android/
+export ANDROID_HOME=${HOME}/Workspace/tools/android/
 export PATH="$HOME/.local/bin:$HOME/.cabal/bin:$HOME/node_modules/.bin:$PATH:bin:$HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
@@ -28,6 +28,6 @@ export CC=`type -p gcc`
 
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 
-export DENO_INSTALL="/home/onjin/.deno"
+export DENO_INSTALL="${HOME}/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
