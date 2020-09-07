@@ -13,6 +13,8 @@
   "google-chrome": "chrome",
   "x-terminal-emulator": "terminal",
   "st": "terminal",
+  "kitty": "terminal",
+  "gnome-terminal": "terminal",
   "thunderbird": "envelope",
   "jetbrains-idea-ce": "edit",
   "nautilus": "folder-open",

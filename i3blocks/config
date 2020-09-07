@@ -31,13 +31,15 @@ signal=10
 
 [primary]
 label=
-command=echo "$(xclip -o |  grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
+#command=echo "$(xclip -o |  grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
+command=~/.config/i3blocks/blocks/clipboard
 interval=2
 color=gray
 
 [clipboard]
 label=
-command=echo "$(xclip -o -selection "clipboard" | grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
+#command=echo "$(xclip -o -selection "clipboard" | grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
+command=~/.config/i3blocks/blocks/clipboard clipboard
 interval=2
 color=gray
 
@@ -99,8 +101,8 @@ instance=/
 interval=30
 
 [disk]
-label= Workspace
-instance=/home/onjin/Workspace
+label= home
+instance=/home/onjin
 interval=30
 
 # Network interface monitoring
@@ -125,10 +127,13 @@ separator=false
 # openvpn support
 #
 # Support multiple VPN, with colors.
-[nm-vpn]
-label=VPN:
-interval=5
-command=~/.config/i3blocks/i3blocks-contrib/nm-vpn/nm-vpn
+[nm-vpn-cint]
+interval=1
+command=~/.config/i3blocks/blocks/nm-vpn cint
+
+[nm-vpn-otarf]
+interval=1
+command=~/.config/i3blocks/blocks/nm-vpn otarf
 
 
 # Battery indicator
@@ -156,10 +161,10 @@ interval=30
 #interval=5
 
 [calendar]
-command=LABEL= HEIGHT=0 ~/.config/i3blocks/i3blocks-contrib/calendar/calendar
+command=LABEL=' ' DATEFMT='+%a %d.%m.%Y %H:%M:%S' SHORTFMT='+%a %d.%m.%Y %H:%M:%S' HEIGHT=0 ~/.config/i3blocks/i3blocks-contrib/calendar/calendar
 interval=1
-#DATEFMT=+%H:%M:%S
-# SHORTFMT=+%H:%M:%S
+
+
 #HEIGHT=180
 #WIDTH=220
 

@@ -1,6 +1,27 @@
 #!/bin/bash
+
+WIDTH=${WIDTH:-700}
+HEIGHT=${HEIGHT:-100}
+
 failed=$(systemctl --failed)
+status=$(systemctl --failed|grep failed|cut -d\  -f 2|tr '\n' ' | '|cat)
 regex="([0-9]+) loaded units listed.*"
+
+case "$BLOCK_BUTTON" in
+  1|2|3) 
+
+	# the position of the upper left corner of the popup
+	posX=$(($BLOCK_X - $WIDTH / 2))
+	posY=$(($BLOCK_Y))
+
+	i3-msg -q "exec echo '$status' | yad --text-info \
+        --width=$WIDTH --height=$HEIGHT \
+	    --undecorated --fixed \
+	    --close-on-unfocus --no-buttons \
+	    --posx=$posX --posy=$posY \
+	    > /dev/null"
+esac
+
 if [[ "$failed" =~ $regex ]]
 then
     failed_count="${BASH_REMATCH[1]}"

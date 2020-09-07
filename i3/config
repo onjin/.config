@@ -139,27 +139,27 @@ for_window [instance="termbot"] resize set 1914 400
 for_window [instance="termbot"] move position 0px 630px
 bindsym $mod+Shift+w [instance="termbot"] scratchpad show
 
-workspace $ws1 output DVI-I-0
-workspace $ws2 output DVI-I-0
-workspace $ws3 output DVI-I-0
-workspace $ws4 output DVI-I-0
-workspace $ws5 output DVI-I-0
-workspace $ws11 output DVI-I-0
-workspace $ws12 output DVI-I-0
-workspace $ws13 output DVI-I-0
-workspace $ws14 output DVI-I-0
-workspace $ws15 output DVI-I-0
+workspace $ws1 output DVI-D-1
+workspace $ws2 output DVI-D-1
+workspace $ws3 output DVI-D-1
+workspace $ws4 output DVI-D-1
+workspace $ws5 output DVI-D-1
+workspace $ws11 output DVI-D-1
+workspace $ws12 output DVI-D-1
+workspace $ws13 output DVI-D-1
+workspace $ws14 output DVI-D-1
+workspace $ws15 output DVI-D-1
 
-workspace $ws6 output HDMI-A-0
-workspace $ws7 output HDMI-A-0
-workspace $ws8 output HDMI-A-0
-workspace $ws9 output HDMI-A-0
-workspace $ws10 output HDMI-A-0
-workspace $ws16 output HDMI-A-0
-workspace $ws17 output HDMI-A-0
-workspace $ws18 output HDMI-A-0
-workspace $ws19 output HDMI-A-0
-workspace $ws20 output HDMI-A-0
+workspace $ws6 output HDMI-1
+workspace $ws7 output HDMI-1
+workspace $ws8 output HDMI-1
+workspace $ws9 output HDMI-1
+workspace $ws10 output HDMI-1
+workspace $ws16 output HDMI-1
+workspace $ws17 output HDMI-1
+workspace $ws18 output HDMI-1
+workspace $ws19 output HDMI-1
+workspace $ws20 output HDMI-1
 
 
 ###############################################################################
@@ -286,6 +286,10 @@ bindsym $mod+Ctrl+r restart
 ###############################################################################
 ## Launch // Shutter // <><Shift> p ##
 bindsym $mod+Shift+p exec shutter -s
+
+## Utils // Clipboard // <><Ctrl> c  ""
+bindsym $mod+Ctrl+c exec --no-startup-id xsel -bc && xsel -pc
+
 
 ## Modify // Settings // <> c ##
 set_from_resource $i3-wm.program.settings i3-wm.program.settings gnome-control-center
@@ -554,10 +558,10 @@ bindsym XF86AudioPrev exec playerctl -p spotify previous
 bindsym XF86AudioNext exec playerctl -p spotify next
 
 
-assign [class="(?i)google-chrome"] number 2
 assign [class="(?i)slack"] number 11
-assign [title="Spotify Premium"] number 10
-assign [title="(?i)spotify"] number 10
+for_window [class="brave-browser"] move to workspace number 2
+for_window [class="google-chrome"] move to workspace number 2
+for_window [class="Spotify"] move to workspace number 10
 
 for_window [class="Yad"] floating enable
 for_window [class="(?i)hipchat"] floating enable
@@ -586,8 +590,8 @@ exec --no-startup-id dropbox start
 exec --no-startup-id nagstamon
 
 # Scratch terms
-exec --no-startup-id i3-sensible-terminal -n termbot
-exec --no-startup-id i3-sensible-terminal -n termtop
+exec --no-startup-id st -n termbot
+exec --no-startup-id st -n termtop
 
 # Restore background
 exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore

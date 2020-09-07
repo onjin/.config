@@ -20,9 +20,10 @@ export GOPATH=$HOME/golang
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 
-export EDITOR=vim
-export VISAUAL=vim
+export EDITOR=nvim
+export VISAUAL=nvim
 export TERMINAL=st
+export TERMINAL=kitty
 
 export CC=`type -p gcc`
 

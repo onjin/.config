@@ -1,6 +1,7 @@
 [Unit]
 Description=rename workspace names (i3)
 Documentation=man:i3(1)
+After=display-manager.service
 
 [Service]
 Type=simple
@@ -9,9 +10,8 @@ ExecStart=/usr/local/bin/i3-workspace-names-daemon
 ExecStop=/usr/bin/killall i3-workspace-names-daemon
 KillMode=none
 
-RemainAfterExit=no
-Restart=on-failure
-RestartSec=5s
+Restart=always
+RestartSec=5
 
 [Install]
-WantedBy=xinitrc.target
+WantedBy=default.target
