@@ -590,8 +590,8 @@ exec --no-startup-id dropbox start
 exec --no-startup-id nagstamon
 
 # Scratch terms
-exec --no-startup-id st -n termbot
-exec --no-startup-id st -n termtop
+exec --no-startup-id kitty --name termbot
+exec --no-startup-id kitty --name termtop
 
 # Restore background
 exec --no-startup-id sleep 1 && /usr/bin/nitrogen --restore
