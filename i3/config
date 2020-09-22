@@ -251,23 +251,9 @@ hide_edge_borders smart
 # Session Management
 ###############################################################################
 
-## Session // Exit App // <><Shift> q ##
-bindsym $mod+Shift+q [con_id="__focused__"] kill
-
-## Session // Terminate App // <><Alt> q ##
-bindsym $mod+$alt+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
-
-## Session // Reload i3 Config // <><Shift> c ##
-bindsym $mod+Shift+c reload
-
 ## Session // Refresh Session // <><Shift> r ##
 set_from_resource $i3-wm.program.refresh_ui i3-wm.program.refresh_ui /usr/bin/regolith-look refresh
 bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
-
-
-## Session // Quit // <><Shift> e ##
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Control+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 ## Session // Restart i3 // <><Ctrl> r ##
 bindsym $mod+Ctrl+r restart
@@ -310,10 +296,6 @@ bindsym $mod+comma  exec i3-layout-save
 ## Modify // Load Window Layout // <> . ##
 bindsym $mod+period exec i3-layout-load
 
-# Toggle bar visibility
-## Modify // Toggle Bar // <> i ##
-bindsym $mod+i bar mode toggle
-
 # Cause Settings app to float above tiled windows
 floating_maximum_size -1 x -1
 for_window [class="Gnome-control-center"] floating enable
@@ -321,12 +303,11 @@ for_window [class="Gnome-control-center"] floating enable
 ###############################################################################
 # Window Resize and Gaps
 ###############################################################################
-#
-## Resize // Enter Resize Mode // <> r ##
+## Resize Mode // Start Resize Mode // <> r ##
 mode "Resize Mode" {
         # These bindings trigger as soon as you enter the resize mode
 
-        ## Resize // Resize Window // ↑ ↓ ← → ##
+        ## Resize Mode // Resize Window // ↑ ↓ ← → ##
         bindsym Left resize shrink width 6 px or 6 ppt
         bindsym Down resize grow height 6 px or 6 ppt
         bindsym Up resize shrink height 6 px or 6 ppt
@@ -337,7 +318,7 @@ mode "Resize Mode" {
         bindsym Shift+Up resize shrink height 12 px or 12 ppt
         bindsym Shift+Right resize grow width 12 px or 12 ppt
 
-        ## Resize // Resize Window // k j h l ##
+        ## Resize Mode // Resize Window // k j h l ##
         bindsym h resize shrink width 6 px or 6 ppt
         bindsym k resize grow height 6 px or 6 ppt
         bindsym j resize shrink height 6 px or 6 ppt
@@ -348,33 +329,66 @@ mode "Resize Mode" {
         bindsym Shift+j resize shrink height 12 px or 12 ppt
         bindsym Shift+l resize grow width 12 px or 12 ppt
 
-        ## Resize // Window Gaps // + - ##
+        ## Resize Mode // Window Gaps // + - ##
         bindsym minus gaps inner current minus 6
         bindsym plus gaps inner current plus 6
         bindsym Shift+minus gaps inner current minus 12
         bindsym Shift+plus gaps inner current plus 12
 
-        ## Resize // Exit Resize Mode // Escape or Enter ##
+        ## Resize Mode // Exit Resize Mode // Escape or Enter ##
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "Resize Mode"
 
-## Spawn // Enter Spawn Mode // <> s ##
+## Spawn Mode // Start Spawn Mode // <> s ##
 mode "Spawn Mode" {
         # These bindings trigger as soon as you enter the spawn mode
 
-        ## Spawn // htop // h ##
-        bindsym Left resize shrink width 6 px or 6 ppt
+        ## Spawn Mode // htop // h ##
         bindsym h			exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn htop ;; mode "default"
 
-        ## Spawn // Exit Spawn Mode // Escape or Enter ##
+        ## Spawn Mode // google translate shell // t ##
+        # apt get install translate-shell
+        bindsym t			exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn trans -shell;; mode "default"
+
+        ## Spawn Mode // xkill // x ##
+        bindsym x           exec  xkill ;; mode "default"
+
+        ## Spawn Mode // Exit Spawn Mode // Escape or Enter ##
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
 bindsym $mod+s mode "Spawn Mode"
+
+## Interface Mode // Start Interface Mode // <> i ##
+mode "Interface Mode" {
+    ## Interface Mode // Toggle Bar // b ##
+    bindsym b bar mode toggle ;; mode "default"
+
+    ## Interface Mode // Reload interface // r ##
+    bindsym r reload ;; mode "default"
+
+    ## Interface Mode // Restart interface // <Shift> r ##
+    bindsym Shift+r restart ;; mode "default"
+
+    ## Interface Mode // Exit App // q ##
+    bindsym q [con_id="__focused__"] kill ;; mode "default"
+
+    ## Interface Mode // Kill App // <Alt> q ##
+    bindsym $alt+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid) ;; mode "default"
+
+    ## Interface Mode // Logout // <Control> q ##
+    bindsym Control+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'" ;; mode "default"
+
+    ## Interface Mode // Exit Spawn Mode // Escape or Enter ##
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+i mode "Interface Mode"
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
@@ -385,6 +399,9 @@ for_window [instance="dropdown_*"] scratchpad show
 
 for_window [instance="dropdown_htop"] resize set 1200 800
 for_window [instance="dropdown_htop"] border pixel 3
+
+for_window [instance="dropdown_trans"] resize set 1200 800
+for_window [instance="dropdown_trans"] border pixel 3
 
 
 for_window [instance="dropdown_*"] move position center
