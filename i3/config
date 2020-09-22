@@ -127,17 +127,9 @@ bindsym $mod+$alt+h workspace prev
 for_window [instance="termtop"] border pixel 3
 for_window [instance="termtop"] floating enable sticky enable
 for_window [instance="termtop"] move scratchpad
-for_window [instance="termtop"] resize set 1914 800
+for_window [instance="termtop"] resize set 1914 400
 for_window [instance="termtop"] move position 0px 20px
 bindsym $mod+w [instance="termtop"] scratchpad show
-
-## Navigate // Open go up terminal // <><Shift> w ##
-for_window [instance="termbot"] border pixel 3
-for_window [instance="termbot"] floating enable sticky enable
-for_window [instance="termbot"] move scratchpad
-for_window [instance="termbot"] resize set 1914 400
-for_window [instance="termbot"] move position 0px 630px
-bindsym $mod+Shift+w [instance="termbot"] scratchpad show
 
 workspace $ws1 output DVI-D-1
 workspace $ws2 output DVI-D-1
@@ -301,7 +293,7 @@ bindsym $mod+Shift+n exec $i3-wm.program.files
 
 ## Launch // Notification Viewer // <> n ##
 set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
-bindsym $mod+n exec $i3-wm.program.notification_ui
+bindsym $mod+n exec kill -s USR1 $(pidof deadd-notification-center)
 
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock /usr/bin/i3lock -f  -i /home/onjin/Dropbox/backgrounds/plain/Painkillers_broken.png  -t
@@ -369,6 +361,34 @@ mode "Resize Mode" {
 }
 bindsym $mod+r mode "Resize Mode"
 
+## Spawn // Enter Spawn Mode // <> s ##
+mode "Spawn Mode" {
+        # These bindings trigger as soon as you enter the spawn mode
+
+        ## Spawn // htop // h ##
+        bindsym Left resize shrink width 6 px or 6 ppt
+        bindsym h			exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn htop ;; mode "default"
+
+        ## Spawn // Exit Spawn Mode // Escape or Enter ##
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+s mode "Spawn Mode"
+
+# #---Dropdown Windows---# #
+# General dropdown window traits. The order can matter.
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] sticky enable
+for_window [instance="dropdown_*"] scratchpad show
+
+for_window [instance="dropdown_htop"] resize set 1200 800
+for_window [instance="dropdown_htop"] border pixel 3
+
+
+for_window [instance="dropdown_*"] move position center
+
 ###############################################################################
 # i3 Appearance and Behavior
 ###############################################################################
@@ -382,12 +402,12 @@ set_from_resource $i3-wm.floatingwindow.border.size i3-wm.floatingwindow.border.
 # Specify the distance between windows in pixels. (i3-gaps)
 set_from_resource $i3-wm.gaps.inner.size i3-wm.gaps.inner.size 5
 set_from_resource $i3-wm.gaps.outer.size i3-wm.gaps.outer.size 0
-# gaps inner $i3-wm.gaps.inner.size
-# gaps outer $i3-wm.gaps.outer.size
+gaps inner $i3-wm.gaps.inner.size
+gaps outer $i3-wm.gaps.outer.size
 
 # Only enable gaps on a workspace when there is at least one container
 set_from_resource $i3-wm.gaps.smart i3-wm.gaps.smart on
-# smart_gaps $i3-wm.gaps.smart
+smart_gaps $i3-wm.gaps.smart
 
 # Enable popup during fullscreen
 set_from_resource $i3-wm.gaps.popup_during_fullscreen i3-wm.gaps.popup_during_fullscreen smart
@@ -576,13 +596,15 @@ for_window [class="Steam"] floating enable
 for_window [class="TeamViewer"] floating enable
 
 
+
 ###############################################################################
 # External programs launched with i3
 ###############################################################################
 
 # Base daemons
 exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id /usr/bin/rofication-daemon
+# exec --no-startup-id /usr/bin/rofication-daemon
+# exec --no-startup-id deadd-notification-center
 
 # Tray programs
 exec --no-startup-id nm-applet
@@ -590,7 +612,6 @@ exec --no-startup-id dropbox start
 exec --no-startup-id nagstamon
 
 # Scratch terms
-exec --no-startup-id kitty --name termbot
 exec --no-startup-id kitty --name termtop
 
 # Restore background

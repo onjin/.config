@@ -5,6 +5,9 @@ export PREFIX=/usr
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export ANDROID_HOME=${HOME}/Workspace/tools/android/
 export PATH="$HOME/.local/bin:$HOME/.cabal/bin:$HOME/node_modules/.bin:$PATH:bin:$HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin"
+export PATH="$PATH:$XDG_CONFIG_HOME/bin/"
+export PATH="$PATH:$XDG_CONFIG_HOME/i3/i3-cmds/"
+
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -32,3 +35,4 @@ export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 export DENO_INSTALL="${HOME}/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
+ 

@@ -88,7 +88,8 @@
 
     #Deletes all branches that were safely merged into the master. All other are skipped (no worries).
     cleanup = !git branch --merged master --color=never| grep -v 'master$' | xargs git branch -d
-    cleanup-remote = !git branch -r --color=never |grep origin|grep -v master|cut -d\\/ -f 2-|xargs git push origin --delete
+    cleanup-remote-all = !git branch -r --color=never |grep origin|grep -v master|cut -d\\/ -f 2-|xargs git push origin --delete
+    cleanup-remote = !git branch -r --color=never --merged |grep origin|grep -v master|cut -d\\/ -f 2-|xargs git push origin --delete
 
     unstage = reset HEAD --
     fast-cherry-pick = !sh -c 'git pull' && sh -c 'git checkout $1' && sh -c 'git pull' && sh -c 'git cherry-pick -x $0'
@@ -98,6 +99,8 @@
     edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
     add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
     st = status
+    cha = status -uno
+    changes = status -uno
     ci = commit
     br = branch
     co = checkout
