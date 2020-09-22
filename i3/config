@@ -349,9 +349,12 @@ mode "Spawn Mode" {
         ## Spawn Mode // htop // h ##
         bindsym h			exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn htop ;; mode "default"
 
-        ## Spawn Mode // google translate shell // t ##
         # apt get install translate-shell
-        bindsym t			exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn trans -shell;; mode "default"
+        ## Spawn Mode // google translate shell // t ##
+        bindsym t			exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn ~/.config/i3/i3-cmds/trans-pl -shell;; mode "default"
+
+        ## Spawn Mode // google translate shell // <Shift> t ##
+        bindsym Shift+t			exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn ~/.config/i3/i3-cmds/trans-en -shell;; mode "default"
 
         ## Spawn Mode // xkill // x ##
         bindsym x           exec  xkill ;; mode "default"
