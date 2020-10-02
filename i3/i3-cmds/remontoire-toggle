@@ -1,0 +1,10 @@
+#!/bin/bash
+# If remontoire is running, kill it.  Otherwise start it.
+
+remontoire_PID=$(pidof remontoire)
+
+if [ -z "$remontoire_PID" ]; then
+    /usr/bin/remontoire -c /home/onjin/.config/i3/config &
+else
+    kill $remontoire_PID
+fi

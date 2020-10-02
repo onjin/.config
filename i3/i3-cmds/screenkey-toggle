@@ -1,0 +1,10 @@
+#!/bin/bash
+# If screenkey is running, kill it.  Otherwise start it.
+
+screenkey_PID=$(pidof -x screenkey)
+
+if [ -z "$screenkey_PID" ]; then
+    /usr/bin/screenkey &
+else
+    kill $screenkey_PID
+fi
