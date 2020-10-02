@@ -39,6 +39,7 @@
     # git gra origin user/repo
     gra = "!f() { git remote add $1 https://github.com/$2.git; }; f"
     # remotes }}}
+	makemine = "!sh -c 'git config user.name \"Marek Wywiał\"' && git config user.email \"onjinx@gmail.com\""
 
     # history {{{
     hist = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
@@ -71,6 +72,8 @@
     #better versions
     purr = pull --rebase
     difff = diff --color-words #just words
+    diffh = diff HEAD --color-words
+
     bbranch = branch -v
 
     #what do I have in my toolbox?
@@ -105,6 +108,7 @@
     br = branch
     co = checkout
     df = diff
+    df = diff HEAD
     lg = log -p
     who = shortlog -s --
     exportfiles = !sh -c 'git diff $0 --name-only | "while read files; do mkdir -p \"$1/$(dirname $files)\"; cp -vf $files $1/$(dirname $files); done"'
