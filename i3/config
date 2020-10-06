@@ -270,6 +270,9 @@ bindsym $mod+Shift+p exec shutter -s
 ## Launch // Screenkey (toggle) // <><Shift> o ##
 bindsym $mod+Shift+o exec --no-startup-id screenkey-toggle
 
+## Launch // Pavucontrol // <><Shift> v ##
+bindsym $mod+Shift+v exec pavucontrol
+
 ## Utils // Clipboard // <><Shift> c  ##
 bindsym $mod+Shift exec --no-startup-id xsel -bc && xsel -pc
 
@@ -401,6 +404,7 @@ mode "Interface Mode" {
     bindsym $mod+r mode "default"
 }
 bindsym $mod+i mode "Interface Mode"
+bindsym $mod+Control+q [con_id="__focused__"] kill ;; mode "default"
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
@@ -599,6 +603,7 @@ set $volumestep 5
 bindsym XF86AudioRaiseVolume exec $volumepath -i $volumestep -t $i3-wm.bar.status_command -u $statussig
 bindsym XF86AudioLowerVolume exec $volumepath -d $volumestep -t $i3-wm.bar.status_command -u $statussig
 bindsym XF86AudioMute        exec $volumepath -m -t $statuscmd -u $statussig
+bindsym XF86AudioStop        exec --no-startup-id ~/.config/i3/i3-cmds/a2dp_toggle.sh
 
 #bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 #bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
