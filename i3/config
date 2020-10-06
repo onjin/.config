@@ -281,14 +281,14 @@ bindsym $mod+Shift exec --no-startup-id xsel -bc && xsel -pc
 set_from_resource $i3-wm.program.settings i3-wm.program.settings gnome-control-center
 bindsym $mod+c exec $i3-wm.program.settings
 
-## Launch // File Browser // <><Shift> n ##
-set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nautilus --new-window
-bindsym $mod+Shift+n exec $i3-wm.program.files
-
 ## Launch // Notification Viewer // <> n ##
-set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
-# bindsym $mod+n exec kill -s USR1 $(pidof deadd-notification-center)
+# toogle notifications window visibility
 bindsym $mod+n exec kill -s USR1 $(ps aux | grep notifications_center.py | grep -v grep | awk '{ print $2 }')
+
+
+## Launch // Clear notifications // <> Shift n ##
+# clear notifications (mark as read)
+bindsym $mod+Shift+n exec kill -s USR2 $(ps aux | grep notifications_center.py | grep -v grep | awk '{ print $2 }')
 
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock /usr/bin/i3lock -f  -i /home/onjin/Dropbox/backgrounds/plain/Painkillers_broken.png  -t

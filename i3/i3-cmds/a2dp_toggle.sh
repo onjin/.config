@@ -1,6 +1,7 @@
 #!/bin/bash
 
 HEADPHONES_ID="HD 4.5"
+
 CARD=$(pacmd list-cards|grep bluez_card|tr '>' '<'| cut -d'<' -f2)
 CARD_NUMBER=$(echo $CARD|cut -d. -f2)
 
@@ -34,18 +35,13 @@ if [ "$1" == "listen" ] ; then
   ## Get what's between <...>
   SINK_NAME=`echo "$LINE" | tr '>' '<' | cut -d'<' -f2`;
 
-  ## The above gives an ID according to the active profile.
-  ## To set manually:
-  #SINK_NAME="bluez_sink.00_19_5D_25_6F_6C.headset_head_unit"
-  #SINK_NAME="bluez_sink.00_19_5D_25_6F_6C.a2dp_sink"
-
   ## Switch the output to that.
   echo "Switching audio output to $SINK_NAME";
   pacmd set-default-sink "$SINK_NAME"
 
   #### Change profile to quality output + no mic. From `pacmd list-cards`:
   PROFILE="a2dp_sink"   
-  notify-send "Switching audio profile to $PROFILE";
+  notify-send "$0" "Switching audio profile to A2DP";
   pacmd set-card-profile $CARD $PROFILE
   exit;
 fi;
@@ -58,8 +54,7 @@ if [ "$1" == "speak" ] ; then
   LINE=`pacmd list-sources | grep '\(name:\|alias\)' | grep -B1 "${HEADPHONES_ID}"  | head -1`
   if [ "$LINE" == "" ] ; then echo "${HEADPHONES_ID} mic not found"; exit; fi
   SOURCE_NAME=`echo "$LINE" | tr '>' '<' | cut -d'<' -f2`;
-  #SOURCE_NAME="bluez_source.00_19_5D_25_6F_6C.headset_head_unit"
-  #SOURCE_NAME="bluez_sink.00_19_5D_25_6F_6C.a2dp_sink.monitor"
-  notify-send "Switching audio input to $SOURCE_NAME";
+
+  notify-send "$0" "Switching audio input to HSP/HFP";
   pacmd set-default-source "$SOURCE_NAME" || echo 'Try `pacmd list-sources`.';
 fi;
