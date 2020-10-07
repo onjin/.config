@@ -283,12 +283,12 @@ bindsym $mod+c exec $i3-wm.program.settings
 
 ## Launch // Notification Viewer // <> n ##
 # toogle notifications window visibility
-bindsym $mod+n exec kill -s USR1 $(ps aux | grep notifications_center.py | grep -v grep | awk '{ print $2 }')
+bindsym $mod+n exec kill -s USR1 $(pidof -x onjin_notifications_center)
 
 
 ## Launch // Clear notifications // <> Shift n ##
 # clear notifications (mark as read)
-bindsym $mod+Shift+n exec kill -s USR2 $(ps aux | grep notifications_center.py | grep -v grep | awk '{ print $2 }')
+bindsym $mod+Shift+n exec kill -s USR2 $(pidof -x onjin_notifications_center)
 
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock /usr/bin/i3lock -f  -i /home/onjin/Dropbox/backgrounds/plain/Painkillers_broken.png  -t
@@ -642,7 +642,7 @@ for_window [class="TeamViewer"] floating enable
 exec --no-startup-id gnome-settings-daemon
 # exec --no-startup-id /usr/bin/rofication-daemon
 # exec --no-startup-id deadd-notification-center
-exec --no-startup-id notifications_center.py
+exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center &
 
 # Tray programs
 exec --no-startup-id nm-applet
