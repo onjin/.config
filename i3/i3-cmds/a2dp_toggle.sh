@@ -41,7 +41,7 @@ if [ "$1" == "listen" ] ; then
 
   #### Change profile to quality output + no mic. From `pacmd list-cards`:
   PROFILE="a2dp_sink"   
-  notify-send "$0" "Switching audio profile to A2DP";
+  # notify-send "$0" "Switching audio profile to A2DP";
   pacmd set-card-profile $CARD $PROFILE
   exit;
 fi;
@@ -55,6 +55,6 @@ if [ "$1" == "speak" ] ; then
   if [ "$LINE" == "" ] ; then echo "${HEADPHONES_ID} mic not found"; exit; fi
   SOURCE_NAME=`echo "$LINE" | tr '>' '<' | cut -d'<' -f2`;
 
-  notify-send "$0" "Switching audio input to HSP/HFP";
+  # notify-send "$0" "Switching audio input to HSP/HFP";
   pacmd set-default-source "$SOURCE_NAME" || echo 'Try `pacmd list-sources`.';
 fi;

@@ -642,7 +642,7 @@ for_window [class="TeamViewer"] floating enable
 exec --no-startup-id gnome-settings-daemon
 # exec --no-startup-id /usr/bin/rofication-daemon
 # exec --no-startup-id deadd-notification-center
-exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center &
+exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center --gui &
 
 # Tray programs
 exec --no-startup-id nm-applet
