@@ -292,7 +292,7 @@ bindsym $mod+Shift+n exec kill -s USR2 $(pidof -x onjin_notifications_center)
 
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock /usr/bin/i3lock -f  -i /home/onjin/Dropbox/backgrounds/plain/Painkillers_broken.png  -t
-bindsym $mod+Escape exec $i3-wm.program.lock
+bindsym $mod+Shift+Escape exec $i3-wm.program.lock
 
 
 ###############################################################################
