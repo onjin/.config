@@ -1,0 +1,17 @@
+[Unit]
+Description=Onjin Notifications Center Listener
+Documentation=man:i3(1)
+After=display-manager.service
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/home/onjin/.pyenv/shims/onjin_notifications_center --listener
+ExecStop=/usr/bin/killall onjin_notifications_center
+KillMode=none
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

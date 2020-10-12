@@ -1,0 +1,58 @@
+#!/bin/sh
+
+change_color=${change_color:-#FF0000}
+off_color=${off_color:-#AAAAAA}
+on_color=${on_color:-#00FF00}
+export init_color on_color
+name=${1}
+
+vpn_exists() {
+  vpn=$(nmcli -t connection show |grep vpn|cut -d: -f 1|tr '\n' ' '|grep "$1")
+  if [ -z "${vpn}" ]]; then
+    echo 0
+  else
+    echo 1
+  fi
+}
+vpn_active() {
+  vpn=$(nmcli -t connection show --active|grep vpn|cut -d: -f 1|tr '\n' ' '|grep "$1")
+  if [ -z "${vpn}" ]]; then
+    echo 0
+  else
+    echo 1
+  fi
+}
+exists=$(vpn_exists $name)
+active=$(vpn_active $name)
+
+vpn=$(nmcli -t connection show --active|grep vpn|cut -d: -f 1|tr '\n' ' ')
+vpn=$(nmcli -t connection show |grep vpn|cut -d: -f 1|tr '\n' ' ')
+
+button=${BLOCK_BUTTON:-}
+
+full_text="VPN: ${name}"
+short_text=${full_text}
+
+background_color=""
+if [ "$exists" -eq "1" ]; then
+  if [ "$active" -eq "1" ]; then
+    color="${on_color}"
+
+    if [ "$button" = "3" ]; then
+      background_color="${change_color}"
+      color="${change_color}"
+      nmcli c down ${name} &
+    fi
+  else
+    color="${off_color}"
+    if [ "$button" = "3" ]; then
+      background_color="${change_color}"
+      color="${change_color}"
+      nmcli c up ${name} &
+    fi
+  fi
+fi
+echo ${full_text}
+echo ${short_text}
+echo ${color}
+echo ${background_color}

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+SELECTION=${1:-}
+
+CMD=$(which xclip)
+CMD_PARAMS=-o
+CMD_SELECTION=
+
+
+if [[ ! -z "${SELECTION}" ]]; then
+    CMD_SELECTION="-selection ${SELECTION}"
+fi
+
+
+case $BLOCK_BUTTON in
+  1) notify-send "1" ;; # left click
+  2) notify-send "2" ;; # mid click
+  3) 
+    if [[ ! -z "${SELECTION}" ]]; then
+      xsel -c -b
+    else
+      xsel -c
+    fi
+    ;;
+esac
+
+
+RESULT=$(${CMD} ${CMD_PARAMS} ${CMD_SELECTION}|grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')
+echo $RESULT
