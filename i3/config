@@ -13,10 +13,23 @@
 ###############################################################################
 # Meta Key Mappings
 # Alt key is Mod1, and Windows key is Mod4
+#  $ xmodmap 
+# xmodmap:  up to 4 keys per modifier, (keycodes in parentheses):
+
+# shift       Shift_L (0x32),  Shift_R (0x3e)
+# lock        Caps_Lock (0x42)
+# control     Control_L (0x25),  Control_R (0x69)
+# mod1        Alt_L (0x40),  Meta_L (0xcd)
+# mod2        Num_Lock (0x4d)
+# mod3      
+# mod4        Super_L (0x85),  Super_R (0x86),  Super_L (0xce),  Hyper_L (0xcf)
+# mod5        ISO_Level3_Shift (0x5c),  Mode_switch (0xcb)
 ###############################################################################
 
-set_from_resource $mod  i3-wm.mod Mod4
 set_from_resource $alt  i3-wm.alt Mod1
+set_from_resource $mod  i3-wm.mod Mod4
+set_from_resource $meh  i3-wm.meh Mod1+Ctrl+Shift
+set_from_resource $hyper i3-wm.hyper Mod4+Mod1+Ctrl+Shift
 
 ###############################################################################
 # Workspace Names
@@ -95,6 +108,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+
 ## Navigate // Workspaces 1-10 // <> 0..9 ##
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -138,17 +152,17 @@ workspace $ws2 output DVI-D-1
 workspace $ws3 output DVI-D-1
 workspace $ws4 output DVI-D-1
 workspace $ws5 output DVI-D-1
-workspace $ws11 output DVI-D-1
-workspace $ws12 output DVI-D-1
-workspace $ws13 output DVI-D-1
-workspace $ws14 output DVI-D-1
-workspace $ws15 output DVI-D-1
+workspace $ws6 output DVI-D-1
+workspace $ws7 output DVI-D-1
+workspace $ws8 output DVI-D-1
+workspace $ws9 output DVI-D-1
+workspace $ws10 output DVI-D-1
 
-workspace $ws6 output HDMI-1
-workspace $ws7 output HDMI-1
-workspace $ws8 output HDMI-1
-workspace $ws9 output HDMI-1
-workspace $ws10 output HDMI-1
+workspace $ws11 output HDMI-1
+workspace $ws12 output HDMI-1
+workspace $ws13 output HDMI-1
+workspace $ws14 output HDMI-1
+workspace $ws15 output HDMI-1
 workspace $ws16 output HDMI-1
 workspace $ws17 output HDMI-1
 workspace $ws18 output HDMI-1
@@ -615,9 +629,16 @@ bindsym XF86AudioPrev exec playerctl -p spotify previous
 bindsym XF86AudioNext exec playerctl -p spotify next
 
 
-assign [class="(?i)slack"] number 11
+# app to workspace bindings
 for_window [class="brave-browser"] move to workspace number 2
 for_window [class="google-chrome"] move to workspace number 2
+
+## press $mod+q to go slack, press $mod+q to go back to previous workspace
+workspace_auto_back_and_forth yes      # enable go to previous workspace 
+assign [class="(?i)slack"] number 9    # put slack at 9th workspace
+bindsym $mod+q workspace number $ws9   # map $mod+q to 9th workspace as additional shortcut
+
+# additional aliases
 for_window [class="Spotify"] move to workspace number 10
 
 for_window [class="Yad"] floating enable
@@ -631,6 +652,34 @@ for_window [class="Gcalctool"] floating enable
 for_window [class="rdesktop"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="TeamViewer"] floating enable
+
+
+###############################################################################
+# Meh / Hyper additional shortcuts
+###############################################################################
+bindsym $meh+a workspace number $ws1
+bindsym $meh+s workspace number $ws2
+bindsym $meh+d workspace number $ws3
+bindsym $meh+f workspace number $ws4
+bindsym $meh+g workspace number $ws5
+bindsym $meh+q workspace number $ws6
+bindsym $meh+w workspace number $ws7
+bindsym $meh+e workspace number $ws8
+bindsym $meh+r workspace number $ws9
+bindsym $meh+t workspace number $ws10
+
+bindsym $hyper+a workspace number $ws11
+bindsym $hyper+s workspace number $ws12
+bindsym $hyper+d workspace number $ws13
+bindsym $hyper+f workspace number $ws14
+bindsym $hyper+g workspace number $ws15
+bindsym $hyper+q workspace number $ws16
+bindsym $hyper+w workspace number $ws17
+bindsym $hyper+e workspace number $ws18
+bindsym $hyper+r workspace number $ws19
+bindsym $hyper+t workspace number $ws20
+
+
 
 
 
