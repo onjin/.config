@@ -634,9 +634,9 @@ for_window [class="brave-browser"] move to workspace number 2
 for_window [class="google-chrome"] move to workspace number 2
 
 ## press $mod+q to go slack, press $mod+q to go back to previous workspace
-workspace_auto_back_and_forth yes      # enable go to previous workspace 
-assign [class="(?i)slack"] number 9    # put slack at 9th workspace
-bindsym $mod+q workspace number $ws9   # map $mod+q to 9th workspace as additional shortcut
+workspace_auto_back_and_forth yes
+assign [class="(?i)slack"] number 9
+bindsym $mod+q workspace number $ws9
 
 # additional aliases
 for_window [class="Spotify"] move to workspace number 10
