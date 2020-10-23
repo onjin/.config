@@ -8,4 +8,5 @@ URxvt*font: xft:FireCode:pixelsize=13:antialias=true:hinting=true,xft:FiraCode:p
 
 !! #include ".config/xorg/Xresources.d/theme-solarized-light"
 !! #include ".config/xorg/Xresources.d/theme-solarized-dark"
-#include ".config/xorg/Xresources.d/theme-PaperColor"
+!! #include ".config/xorg/Xresources.d/theme-PaperColor"
+!! #include ".config/xorg/Xresources.d/theme-hybrid"

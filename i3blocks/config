@@ -29,19 +29,25 @@ separator_block_width=15
 markup=none
 signal=10
 
-[primary]
-label=
-#command=echo "$(xclip -o |  grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
-command=~/.config/i3blocks/blocks/clipboard
-interval=2
-color=gray
+[toggl]
+label=🕑:
+command=~/.config/i3blocks/blocks/toggl
+interval=60
+color=#50C878
 
-[clipboard]
-label=
-#command=echo "$(xclip -o -selection "clipboard" | grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
-command=~/.config/i3blocks/blocks/clipboard clipboard
-interval=2
-color=gray
+#[primary]
+#label=
+##command=echo "$(xclip -o |  grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
+#command=~/.config/i3blocks/blocks/clipboard
+#interval=2
+#color=gray
+
+#[clipboard]
+#label=
+##command=echo "$(xclip -o -selection "clipboard" | grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
+#command=~/.config/i3blocks/blocks/clipboard clipboard
+#interval=2
+#color=gray
 
 [mediaplayer]
 label=♪:

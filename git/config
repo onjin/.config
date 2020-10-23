@@ -134,6 +134,7 @@
     pager = less -r
 	quotepath = false
 	commitGraph = true
+	attributesfile = ~/.config/git/gitattributes
 [help]
     autocorrect = 1
 

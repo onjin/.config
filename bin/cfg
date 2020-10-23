@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+ROOT=${HOME}/.config/
+TARGET_NAME=${1:-default}
+EDITOR=${EDITOR:-vim}
+
+if [[ "${TARGET_NAME}" == "default" ]]; then
+    IFS='
+    '
+    cd $ROOT && files=$(ls ${ROOT} |fzf-tmux --select-1 --exit-0 --preview "bat --style=numbers --color=always --line-range :500 {}")
+    echo $files
+    [[ -n "$files" ]] && ${EDITOR} "${files[@]}"
+fi
+
+TARGET="${ROOT}${TARGET_NAME}"
+
+if [[ -d ${TARGET} ]]; then
+    if [[ -f ${TARGET}/config ]]; then
+        ${EDITOR} ${TARGET}/config
+    else
+        ${EDITOR} ${TARGET}
+    fi
+else
+    echo "target directory does not exists"
+fi
+
+

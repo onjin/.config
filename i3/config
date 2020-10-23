@@ -691,7 +691,7 @@ bindsym $hyper+t workspace number $ws20
 exec --no-startup-id gnome-settings-daemon
 # exec --no-startup-id /usr/bin/rofication-daemon
 # exec --no-startup-id deadd-notification-center
-exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center --gui &
+exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center  &
 
 # Tray programs
 exec --no-startup-id nm-applet
@@ -709,3 +709,4 @@ exec --no-startup-id ~/.config/bin/conkytime
 
 # Composite manager
 # exec --no-startup-id compton --dbus &
+# vim:ft=i3config:

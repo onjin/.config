@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+# fix gnome-control-center
+export XDG_CURRENT_DESKTOP=GNOME
 
 export PREFIX=/usr
 
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export ANDROID_HOME=${HOME}/Workspace/tools/android/
 export PATH="$HOME/.local/bin:$HOME/.cabal/bin:$HOME/node_modules/.bin:$PATH:bin:$HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$XDG_CONFIG_HOME/bin/"
@@ -11,29 +16,19 @@ export PATH="$PATH:$XDG_CONFIG_HOME/i3/i3-cmds/"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-# fix gnome-control-center
-export XDG_CURRENT_DESKTOP=GNOME
-
-export INPUTRC="$XDG_CONFIG_HOME/bash/inputrc"
-export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"
-
 export GOPATH=$HOME/golang
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 
-export EDITOR=nvim
-export VISAUAL=nvim
-export TERMINAL=st
-export TERMINAL=kitty
-
-export CC=`type -p gcc`
-
-export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
-
 export DENO_INSTALL="${HOME}/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
- 
+export INPUTRC="$XDG_CONFIG_HOME/bash/inputrc"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"
+
+# need this profile to use in i3
+export TERMINAL=st
+export TERMINAL=kitty
+
+export EDITOR=nvim
+export VISAUAL=nvim
