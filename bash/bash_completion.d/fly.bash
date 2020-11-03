@@ -5,3 +5,4 @@ _fly_compl() {
 	return 0
 }
 complete -F _fly_compl fly
+complete -F _fly_compl ffly
