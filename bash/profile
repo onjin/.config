@@ -2,3 +2,5 @@
 
 source "$HOME/.config/bash/exports"
 source "$XDG_CONFIG_HOME/bash/bashrc"
+
+export PATH="$HOME/.poetry/bin:$PATH"
