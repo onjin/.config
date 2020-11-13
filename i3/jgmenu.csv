@@ -1,0 +1,22 @@
+@rect,,10,10,180,25,3,left,top,#666666 15,#000000 0,content
+@search,,10,10,180,25,3,left,top,#666666 90,#222222 3,Type to search...
+@icon,^root(root),10,50,24,24,3,left,top,#2222dd 50,#eeeeee 20,/usr/share/icons/Adwaita/24x24/emblems/emblem-favorite-symbolic.symbolic.png
+@icon,^root(system),44,50,24,24,3,left,top,#2222dd 50,#eeeeee 20,/usr/share/icons/Adwaita/24x24/emblems/emblem-system-symbolic.symbolic.png
+@icon,^root(media),78,50,24,24,3,left,top,#2222dd 50,#eeeeee 20,/usr/share/icons/Adwaita/24x24/emblems/emblem-photos-symbolic.symbolic.png
+
+root menu,^tag(root)
+Media,^checkout(media)
+System,^checkout(system)
+Slack,slack,slack
+Spotify,spotify,spotify
+Zoom,zoom,zoom
+
+System,^tag(system)
+Slack,slack,slack
+Spotify,spotify,spotify
+Zoom,zoom,zoom
+
+Media,^tag(media)
+Blender,blender,blender
+Gimp,gimp,gimp
+Pavucontrol,pavucontrol,pavucontrol
