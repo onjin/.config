@@ -130,6 +130,15 @@
     save-donethis = !sh -c 'rm -f DONE.THIS.md' && git log --pretty=format:'[x] %an -> %s , about %ar '  --no-merges > DONE.THIS.md
 
     standup = !git log --since='1 day ago' --author=$(git config user.email) --oneline
+
+    # local ignore/exclude {{{
+    local-ignore = !sh -c 'cat .git/info/exclude'
+    local-ignore-add = "!sh -c 'echo $0 >> .git/info/exclude; cat .git/info/exclude'"
+    local-ignore-edit = "!sh -c '$EDITOR .git/info/exclude'"
+    li = !git local-ignore
+    lia = !git local-ignore-add
+    lie = !git local-ignore-edit
+    # local ignore/exclude }}}
 [apply]
     whitespace = nowarn
 [core]
