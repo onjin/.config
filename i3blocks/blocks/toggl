@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+ENTRY=$(toggl ls --today|grep running|tr -s " ")
+if [ ! -z "${ENTRY}" ]; then
+    echo ${ENTRY}
+    # echo "running"
+    # echo "#ffffff"
+    # echo
+fi

@@ -29,6 +29,13 @@ separator_block_width=15
 markup=none
 signal=10
 
+[bitcoint]
+label=BTC/
+command=~/.config/i3blocks/blocks/bitcoin
+interval=1
+signal=60
+color=#aa8888
+
 [toggl]
 label=🕑:
 command=~/.config/i3blocks/blocks/toggl
