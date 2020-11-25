@@ -16,7 +16,6 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # alias default editor
-alias e='nvim'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -57,6 +56,9 @@ alias cpuinfo='lscpu'
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 alias v='vim'
+alias ve='vim -u ~/.vim/vimrc-encrypt -x'
+alias e='nvim'
+alias ee='nvim -u ~/.vim/vimrc-encrypt -x'
 
 ## cleaner df
 alias dfc='df -h -x squashfs -x tmpfs -x devtmpfs|grep -v snap'
