@@ -29,6 +29,14 @@ separator_block_width=15
 markup=none
 signal=10
 
+[currency]
+label=PLN/
+command=~/.config/i3blocks/blocks/currency
+interval=1
+signal=60
+color=#aa8888
+
+
 [bitcoint]
 label=BTC/
 command=~/.config/i3blocks/blocks/bitcoin
