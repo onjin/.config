@@ -152,22 +152,22 @@ workspace $ws2 output DVI-D-1
 workspace $ws3 output DVI-D-1
 workspace $ws4 output DVI-D-1
 workspace $ws5 output DVI-D-1
-workspace $ws6 output DVI-D-1
-workspace $ws7 output DVI-D-1
-workspace $ws8 output DVI-D-1
-workspace $ws9 output DVI-D-1
-workspace $ws10 output DVI-D-1
+workspace $ws6 output DP-1-1
+workspace $ws7 output DP-1-1
+workspace $ws8 output DP-1-1
+workspace $ws9 output DP-1-1
+workspace $ws10 output DP-1-1
 
-workspace $ws11 output HDMI-1
-workspace $ws12 output HDMI-1
-workspace $ws13 output HDMI-1
-workspace $ws14 output HDMI-1
-workspace $ws15 output HDMI-1
-workspace $ws16 output HDMI-1
-workspace $ws17 output HDMI-1
-workspace $ws18 output HDMI-1
-workspace $ws19 output HDMI-1
-workspace $ws20 output HDMI-1
+workspace $ws11 output HDMI-4
+workspace $ws12 output HDMI-4
+workspace $ws13 output HDMI-4
+workspace $ws14 output HDMI-4
+workspace $ws15 output HDMI-4
+workspace $ws16 output HDMI-4
+workspace $ws17 output HDMI-4
+workspace $ws18 output HDMI-4
+workspace $ws19 output HDMI-4
+workspace $ws20 output HDMI-4
 
 
 ###############################################################################
