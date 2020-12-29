@@ -11,4 +11,4 @@ esac
 
 PRICE=$(curl -s https://blockchain.info/ticker|jq ".${CURRENCY}.last")
 
-echo "${CURRENCY} ${PRICE}"
+echo "${PRICE}"

@@ -9,4 +9,4 @@ case $BLOCK_BUTTON in
 esac
 PRICE=$(curl -s $URL${CURRENCY}|jq '.rates[0].bid')
 
-echo "${CURRENCY} ${PRICE}"
+echo "${PRICE}"

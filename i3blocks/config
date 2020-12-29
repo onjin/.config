@@ -30,25 +30,25 @@ markup=none
 signal=10
 
 [currency]
-label=PLN/
+label=$/PLN
 command=~/.config/i3blocks/blocks/currency
 interval=1
 signal=60
 color=#aa8888
 
 
-[bitcoint]
-label=BTC/
+[bitcoin]
+label=₿/$
 command=~/.config/i3blocks/blocks/bitcoin
 interval=1
 signal=60
 color=#aa8888
 
-[toggl]
-label=🕑:
-command=~/.config/i3blocks/blocks/toggl
-interval=60
-color=#50C878
+#[toggl]
+#label=🕑:
+#command=~/.config/i3blocks/blocks/toggl
+#interval=60
+#color=#50C878
 
 #[primary]
 #label=
@@ -72,12 +72,12 @@ interval=1
 signal=10
 color=#50C878
 
-[notifications]
-label=
-command=rofication-status
-interval=1
-markup=pango
-
+#[notifications]
+#label=
+#command=rofication-status
+#interval=1
+#markup=pango
+#
 [volume-pulseaudio]
 command=~/.config/i3blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio -C #93a1a1
 interval=once
@@ -166,20 +166,21 @@ label=BAT
 #instance=1
 interval=30
 
-[apt-upgrades]
-command=LC_ALL=C.utf8 ~/.config/i3blocks/i3blocks-contrib/apt-upgrades/apt-upgrades
-signal=1
-interval=once
+#[apt-upgrades]
+#command=LC_ALL=C.utf8 ~/.config/i3blocks/i3blocks-contrib/apt-upgrades/apt-upgrades
+#signal=1
+#interval=once
 
-[systemctl]
-command=~/.config/i3blocks/blocks/systemctl-failed
-interval=30
+#[systemctl]
+#command=~/.config/i3blocks/blocks/systemctl-failed
+#interval=30
 
 # Date Time
 #
-#[time]
-#command=date '+%Y-%m-%d %H:%M:%S'
-#interval=5
+[time]
+label=UTC
+command=date --utc '+%Y-%m-%d %H:%M:%S'
+interval=5
 
 [calendar]
 command=LABEL=' ' DATEFMT='+%a %d.%m.%Y %H:%M:%S' SHORTFMT='+%a %d.%m.%Y %H:%M:%S' HEIGHT=0 ~/.config/i3blocks/i3blocks-contrib/calendar/calendar

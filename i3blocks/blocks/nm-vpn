@@ -30,7 +30,7 @@ vpn=$(nmcli -t connection show |grep vpn|cut -d: -f 1|tr '\n' ' ')
 
 button=${BLOCK_BUTTON:-}
 
-full_text="VPN: ${name}"
+full_text="V: ${name}"
 short_text=${full_text}
 
 background_color=""
