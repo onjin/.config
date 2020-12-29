@@ -143,9 +143,9 @@ bindsym $mod+$alt+h workspace prev
 for_window [instance="termtop"] border pixel 3
 for_window [instance="termtop"] floating enable sticky enable
 for_window [instance="termtop"] move scratchpad
-for_window [instance="termtop"] resize set 1914 400
-for_window [instance="termtop"] move position 0px 20px
-bindsym $mod+w [instance="termtop"] scratchpad show
+for_window [instance="termtop"] resize set 1920 600
+for_window [instance="termtop"] move position 1080px 1080px
+bindsym $mod+w [instance="termtop"] scratchpad show move position 1080px 1080px
 
 workspace $ws1 output DVI-D-1
 workspace $ws2 output DVI-D-1
@@ -305,7 +305,7 @@ bindsym $mod+n exec kill -s USR1 $(pidof -x onjin_notifications_center)
 bindsym $mod+Shift+n exec kill -s USR2 $(pidof -x onjin_notifications_center)
 
 ## Session // Lock Screen // <> Escape ##
-set_from_resource $i3-wm.program.lock i3-wm.program.lock /usr/bin/i3lock -f  -i /home/onjin/Dropbox/backgrounds/plain/Painkillers_broken.png  -t
+set_from_resource $i3-wm.program.lock i3-wm.program.lock /usr/bin/i3lock -f  -i /home/onjin/Dropbox/backgrounds/boxes/small-boxes.png   -t
 bindsym $mod+Shift+Escape exec $i3-wm.program.lock
 bindsym $mod+Escape         exec --no-startup-id jgmenu  --at-pointer --simple --config-file=/home/onjin/.config/i3/jgmenurc --csv-file=/home/onjin/.config/i3/jgmenu.csv
 
@@ -428,10 +428,13 @@ for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
 
-for_window [instance="dropdown_htop"] resize set 1200 800
+for_window [instance="dropdown_*"] resize set 1080 800
+for_window [instance="dropdown_*"] border pixel 3
+
+for_window [instance="dropdown_htop"] resize set 1080 800
 for_window [instance="dropdown_htop"] border pixel 3
 
-for_window [instance="dropdown_trans"] resize set 1200 800
+for_window [instance="dropdown_trans"] resize set 1080 800
 for_window [instance="dropdown_trans"] border pixel 3
 
 for_window [instance="dropdown_*"] move position center
@@ -510,19 +513,20 @@ client.urgent           $urgent.color.border               $urgent.color.backgro
 
 # Create variables from Xresources for i3bars's look.
 set_from_resource $i3-wm.bar.background.color i3-wm.bar.background.color "#002b36"
+set_from_resource $i3-wm.bar.background.color i3-wm.bar.background.color "#000000"
 set_from_resource $i3-wm.bar.statusline.color i3-wm.bar.statusline.color "#93a1a1"
 set_from_resource $i3-wm.bar.separator.color i3-wm.bar.separator.color "#268bd2"
 
 set_from_resource $i3-wm.bar.workspace.focused.border.color i3-wm.bar.workspace.focused.border.color "4b7a86"
-set_from_resource $i3-wm.bar.workspace.focused.background.color i3-wm.bar.workspace.focused.background.color "#4b7a86"
-set_from_resource $i3-wm.bar.workspace.focused.text.color i3-wm.bar.workspace.focused.text.color "#eee8d5"
+set_from_resource $i3-wm.bar.workspace.focused.background.color i3-wm.bar.workspace.focused.background.color "#000000"
+set_from_resource $i3-wm.bar.workspace.focused.text.color i3-wm.bar.workspace.focused.text.color "#cccccc"
 
 set_from_resource $i3-wm.bar.workspace.active.border.color i3-wm.bar.workspace.active.border.color "##073642"
-set_from_resource $i3-wm.bar.workspace.active.background.color i3-wm.bar.workspace.active.background.color "#073642"
+set_from_resource $i3-wm.bar.workspace.active.background.color i3-wm.bar.workspace.active.background.color "#000000"
 set_from_resource $i3-wm.bar.workspace.active.text.color i3-wm.bar.workspace.active.text.color "#8cafb9"
 
 set_from_resource $i3-wm.bar.workspace.inactive.border.color i3-wm.bar.workspace.inactive.border.color "#002b36"
-set_from_resource $i3-wm.bar.workspace.inactive.background.color i3-wm.bar.workspace.inactive.background.color "#002b36"
+set_from_resource $i3-wm.bar.workspace.inactive.background.color i3-wm.bar.workspace.inactive.background.color "#000000"
 set_from_resource $i3-wm.bar.workspace.inactive.text.color i3-wm.bar.workspace.inactive.text.color "#586e75"
 
 set_from_resource $i3-wm.bar.workspace.urgent.border.color i3-wm.bar.workspace.urgent.border.color "#dc322f"
