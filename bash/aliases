@@ -62,3 +62,6 @@ alias ee='nvim -u ~/.vim/vimrc-encrypt -x'
 
 ## cleaner df
 alias dfc='df -h -x squashfs -x tmpfs -x devtmpfs|grep -v snap'
+
+## git
+alias git-amend-update-date-to-now='GIT_COMMITTER_DATE="$(date -Ins)" git commit --amend --no-edit --date "$(date -Ins)"'
