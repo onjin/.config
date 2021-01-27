@@ -32,7 +32,7 @@ signal=10
 [currency]
 label=$/PLN
 command=~/.config/i3blocks/blocks/currency
-interval=1
+interval=120
 signal=60
 color=#aa8888
 
@@ -40,7 +40,7 @@ color=#aa8888
 [bitcoin]
 label=₿/$
 command=~/.config/i3blocks/blocks/bitcoin
-interval=1
+interval=120
 signal=60
 color=#aa8888
 
@@ -68,7 +68,7 @@ color=#aa8888
 label=♪:
 instance=spotify
 command=~/.config/i3blocks/i3blocks-contrib/mediaplayer/mediaplayer
-interval=1
+interval=60
 signal=10
 color=#50C878
 
@@ -103,13 +103,13 @@ interval=30
 # see the script for details.
 [cpu_usage]
 label=💻
-interval=10
+interval=30
 min_width=💻 100.00%
 #separator=false
 
 [load_average]
 label=
-interval=10
+interval=30
 
 # Disk usage
 #
@@ -119,12 +119,12 @@ interval=10
 [disk]
 label= /
 instance=/
-interval=30
+interval=120
 
 [disk]
 label= home
 instance=/home/onjin
-interval=30
+interval=120
 
 # Network interface monitoring
 #
@@ -149,11 +149,11 @@ separator=false
 #
 # Support multiple VPN, with colors.
 [nm-vpn-cint]
-interval=1
+interval=60
 command=~/.config/i3blocks/blocks/nm-vpn cint
 
 [nm-vpn-otarf]
-interval=1
+interval=60
 command=~/.config/i3blocks/blocks/nm-vpn otarf
 
 
