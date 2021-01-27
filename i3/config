@@ -144,8 +144,8 @@ for_window [instance="termtop"] border pixel 3
 for_window [instance="termtop"] floating enable sticky enable
 for_window [instance="termtop"] move scratchpad
 for_window [instance="termtop"] resize set 1920 600
-for_window [instance="termtop"] move position 1080px 1080px
-bindsym $mod+w [instance="termtop"] scratchpad show move position 1080px 1080px
+for_window [instance="termtop"] move position 1080px 1100px
+bindsym $mod+w [instance="termtop"] scratchpad show move position 1080px 1100px
 
 workspace $ws1 output DVI-D-1
 workspace $ws2 output DVI-D-1
