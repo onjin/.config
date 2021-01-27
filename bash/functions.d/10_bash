@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+CFG_HOME="$HOME/.config/bash"
+
+_reload () {
+    file="$CFG_HOME/$1"
+    echo "+ reloading $file"
+    source $file
+}
+
+reload-aliases () {
+ _reload "aliases"
+}
+
+reload-rc () {
+ _reload "bashrc"
+}
+
