@@ -138,6 +138,8 @@
     li = !git local-ignore
     lia = !git local-ignore-add
     lie = !git local-ignore-edit
+
+    pr = "!sh -c 'gh pr $0 $1 $2 $3'"
     # local ignore/exclude }}}
 [apply]
     whitespace = nowarn
