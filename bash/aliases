@@ -67,3 +67,7 @@ alias dfc='df -h -x squashfs -x tmpfs -x devtmpfs|grep -v snap'
 alias git-amend-update-date-to-now='GIT_COMMITTER_DATE="$(date -Ins)" git commit --amend --no-edit --date "$(date -Ins)"'
 
 alias strace-files='strace -e trace=open,close,read,write,connect,accept'
+
+## import-linter
+alias lint-imports-top='lint-imports | grep "is not allowed"'
+alias lint-imports-bottom='lint-imports | grep -v "is not allowed" | grep "> points2shop.model.profiler" | tr "-" " " | cut -d\> -f 1 | tr -d " " | sort -u'
