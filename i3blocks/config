@@ -39,7 +39,7 @@ color=#aa8888
 
 [bitcoin]
 label=₿/$
-command=~/.config/i3blocks/blocks/bitcoin
+command=btcprice
 interval=120
 signal=60
 color=#aa8888
