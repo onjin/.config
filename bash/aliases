@@ -71,3 +71,6 @@ alias strace-files='strace -e trace=open,close,read,write,connect,accept'
 ## import-linter
 alias lint-imports-top='lint-imports | grep "is not allowed"'
 alias lint-imports-bottom='lint-imports | grep -v "is not allowed" | grep "> points2shop.model.profiler" | tr "-" " " | cut -d\> -f 1 | tr -d " " | sort -u'
+
+## i3
+alias termtop='kitty --name termtop --hold --detach --directory $HOME tmux new -s termtop'

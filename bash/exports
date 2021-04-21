@@ -23,6 +23,8 @@ export PATH=$PATH:$GOBIN
 export DENO_INSTALL="${HOME}/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
+export PATH="$PATH:/home/onjin/Workspace/tools/git-fuzzy/bin"
+
 export INPUTRC="$XDG_CONFIG_HOME/bash/inputrc"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"
 

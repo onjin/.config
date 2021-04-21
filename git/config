@@ -59,7 +59,7 @@
     whois = "!sh -c 'git log -i -1 --pretty=\"format::%an <%ae>\n\" --author=\"$1\"' -"
     whatis = "show -s --pretty='tformat::%h (%s, %ad)' --date=short"
     howmany = "!sh -c 'git log -a --pretty=oneline | wc -l'"
-    howmanybywhom = shortlog -sn
+    howmanybywhom = shortlog -snc --no-merges
 
     #what's going on, I don't even
     anychanges = !sh -c 'git fetch' && git log --oneline HEAD..origin/$1
@@ -114,7 +114,6 @@
     df = diff
     df = diff HEAD
     lg = log -p
-    who = shortlog -s --
     exportfiles = !sh -c 'git diff $0 --name-only | "while read files; do mkdir -p \"$1/$(dirname $files)\"; cp -vf $files $1/$(dirname $files); done"'
 
     # git flow relates

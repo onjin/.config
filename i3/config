@@ -25,7 +25,7 @@
 # mod4        Super_L (0x85),  Super_R (0x86),  Super_L (0xce),  Hyper_L (0xcf)
 # mod5        ISO_Level3_Shift (0x5c),  Mode_switch (0xcb)
 ###############################################################################
-
+set_from_resource $home echo "$HOME"
 set_from_resource $alt  i3-wm.alt Mod1
 set_from_resource $mod  i3-wm.mod Mod4
 set_from_resource $meh  i3-wm.meh Mod1+Ctrl+Shift
@@ -708,7 +708,7 @@ exec --no-startup-id dropbox start
 exec --no-startup-id nagstamon
 
 # Scratch terms
-exec --no-startup-id kitty --name termtop
+exec --no-startup-id kitty --name termtop --hold --directory $home tmux new -s termtop
 
 # Restore background
 exec --no-startup-id /usr/bin/nitrogen --restore
@@ -717,6 +717,9 @@ exec --no-startup-id /usr/bin/nitrogen --restore
 exec --no-startup-id ~/.config/bin/conkytime
 
 exec --no-startup-id /usr/bin/kdeconnect-indicator
+
+# screenshots taker
+exec --no-startup-id /usr/bin/flameshot
 
 # Composite manager
 # exec --no-startup-id compton --dbus &

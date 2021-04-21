@@ -30,8 +30,8 @@ markup=none
 signal=10
 
 [currency]
-label=$/PLN
-command=~/.config/i3blocks/blocks/currency
+label=€/PLN
+command=~/.config/i3blocks/blocks/currency EUR
 interval=120
 signal=60
 color=#aa8888
@@ -82,6 +82,7 @@ color=#50C878
 command=~/.config/i3blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio -C #93a1a1
 interval=once
 signal=1
+interval=2
 
 # Memory usage
 #
