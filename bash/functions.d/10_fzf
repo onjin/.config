@@ -109,3 +109,9 @@ fshow() {
                 {}
 FZF-EOF"
 }
+
+ftmuxp() {
+  local config_dir=~/.config/tmuxp/
+  local config
+  config=$(ls $config_dir | fzf-tmux --preview "bat --color=always $config_dir/{}") &&  tmuxp load $config_dir$config
+}
