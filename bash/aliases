@@ -60,6 +60,8 @@ alias ve='vim -u ~/.vim/vimrc-encrypt -x'
 alias e='nvim'
 alias ee='nvim -u ~/.vim/vimrc-encrypt -x'
 
+alias j='jira'
+
 ## cleaner df
 alias dfc='df -h -x squashfs -x tmpfs -x devtmpfs|grep -v snap'
 
@@ -74,3 +76,6 @@ alias lint-imports-bottom='lint-imports | grep -v "is not allowed" | grep "> poi
 
 ## i3
 alias termtop='kitty --name termtop --hold --detach --directory $HOME tmux new -s termtop'
+
+## http-prompt
+alias http-prompt-udc-ir='http-prompt http://prod-app-01.p2internal.com:7794/ --spec http://prod-app-01.p2internal.com:7794/openapi.json --env ~/.cache/http-prompt/session-udc-ir'
