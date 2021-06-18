@@ -27,7 +27,7 @@ docker-upgrade-machine () {
 	confirm=$(read-yes-no "Install $release?")
 	echo
 	if [[ "$confirm" == "yes" ]]; then
-		su -c "curl -L $release > /usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine"
+		sudo  "curl -L $release > /usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine"
 	fi
 }
 docker-upgrade-compose () {
@@ -35,7 +35,7 @@ docker-upgrade-compose () {
 	confirm=$(read-yes-no "Install $release?")
 	echo
 	if [[ "$confirm" == "yes" ]]; then
-		su -c "curl -L $release > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose"
+		sudo "curl -L $release > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose"
 	fi
 }
 

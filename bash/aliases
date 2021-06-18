@@ -22,7 +22,8 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias _='sudo'
 
-alias ssh="cat ~/.ssh/config.d/* > ~/.ssh/config; TERM=xterm ssh"
+# nowadays we can use `Include config.d/*` in ssh config :)
+# alias ssh="cat ~/.ssh/config.d/* > ~/.ssh/config; TERM=xterm ssh"
 alias mutt-emps='mutt -F ~/.config/mutt/account.emps'
 alias steamfix='find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" -o -name "libgpg-error.so*" \) -print -delete'
 alias steamfix2='find ~/.local/share/Steam/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" -o -name "libgpg-error.so*" \) -print -delete'
@@ -57,8 +58,10 @@ alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 alias v='vim'
 alias ve='vim -u ~/.vim/vimrc-encrypt -x'
-alias e='nvim'
+# alias e='nvim'
 alias ee='nvim -u ~/.vim/vimrc-encrypt -x'
+
+alias j='jira'
 
 ## cleaner df
 alias dfc='df -h -x squashfs -x tmpfs -x devtmpfs|grep -v snap'
@@ -74,3 +77,6 @@ alias lint-imports-bottom='lint-imports | grep -v "is not allowed" | grep "> poi
 
 ## i3
 alias termtop='kitty --name termtop --hold --detach --directory $HOME tmux new -s termtop'
+
+## http-prompt
+alias http-prompt-udc-ir='http-prompt http://prod-app-01.p2internal.com:7794/ --spec http://prod-app-01.p2internal.com:7794/openapi.json --env ~/.cache/http-prompt/session-udc-ir'

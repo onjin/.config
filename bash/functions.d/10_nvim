@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
 update-nvim-nightly () {
+    previous=$(nvim --version|grep '^NVIM')
+    echo "found installed version ${previous}"
+    sleep 1
     curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage > ~/.local/bin/nvim
     chmod +x ~/.local/bin/nvim
-    echo "nvim updated"
+    current=$(nvim --version|grep '^NVIM')
+    echo "nvim updated from ${previous} to ${current}"
+}
+update-nvim-plugins () {
+    nvim +CocUpdate +UpdateRemotePlugins +PlugUpgrade +PlugUpdate +PlugDiff
 }
