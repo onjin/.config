@@ -1,3 +1,3 @@
-if which pack &> /dev/null;
+if which pack &> /dev/null; then
 . $(pack completion)
 fi
