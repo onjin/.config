@@ -68,7 +68,7 @@ color=#aa8888
 label=♪:
 instance=spotify
 command=~/.config/i3blocks/i3blocks-contrib/mediaplayer/mediaplayer
-interval=60
+interval=5
 signal=10
 color=#50C878
 
@@ -150,11 +150,15 @@ separator=false
 #
 # Support multiple VPN, with colors.
 [nm-vpn-cint]
-interval=60
+interval=5
 command=~/.config/i3blocks/blocks/nm-vpn cint
 
+[nm-vpn-p2s]
+interval=5
+command=~/.config/i3blocks/blocks/nm-vpn p2s
+
 [nm-vpn-otarf]
-interval=60
+interval=5
 command=~/.config/i3blocks/blocks/nm-vpn otarf
 
 

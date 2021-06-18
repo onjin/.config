@@ -9,14 +9,14 @@ xset -b
 xset m 3/2 0
 
 # disable mouse auto movements
-xinput  --set-prop " USB OPTICAL MOUSE" "Device Accel Constant Deceleration" 1.5
+# xinput  --set-prop " USB OPTICAL MOUSE" "Device Accel Constant Deceleration" 1.5
 
 # hide mouse
 unclutter -idle 3 -jitter 5 -noevents &
 
 # dpms && screensaver
-xset dpms 1800 &
-xautolock -time 30 -locker /usr/bin/i3lock -f -i /home/onjin/Dropbox/backgrounds/plain/Painkillers_broken.png  -t &
+xset dpms 600 &
+xautolock -time 30 -locker "/usr/bin/i3lock -f -i /home/onjin/Dropbox/backgrounds/plain/Painkillers_broken.png  -t" &
 /usr/bin/redshift-gtk &
 /usr/bin/rescuetime &
 

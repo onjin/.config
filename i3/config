@@ -630,9 +630,9 @@ bindsym XF86AudioStop        exec --no-startup-id ~/.config/i3/i3-cmds/a2dp_togg
 #bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 # User playerctl instead of dbus-send
-bindsym XF86AudioPlay exec "playerctl -p spotify play-pause ; pkill -SIGRTMIN+10 i3blocks"
-bindsym XF86AudioPrev exec "playerctl -p spotify previous ; pkill -SIGRTMIN+10 i3blocks"
-bindsym XF86AudioNext exec "playerctl -p spotify next ; pkill -SIGRTMIN+10 i3blocks"
+bindsym XF86AudioPlay exec "playerctl -p spotify play-pause && pkill -SIGRTMIN+10 i3blocks"
+bindsym XF86AudioPrev exec "playerctl -p spotify previous && pkill -SIGRTMIN+10 i3blocks"
+bindsym XF86AudioNext exec "playerctl -p spotify next && pkill -SIGRTMIN+10 i3blocks"
 
 
 # app to workspace bindings
@@ -647,7 +647,7 @@ bindsym $mod+q workspace number $ws9
 assign [class="(?i)discord"] number 8
 bindsym $mod+shift+q workspace number $ws8
 
-# additional aliases
+# additional aliases (use xprop to inspect windows)
 for_window [class="Spotify"] move to workspace number 10
 
 for_window [class="Yad"] floating enable
@@ -661,6 +661,7 @@ for_window [class="Gcalctool"] floating enable
 for_window [class="rdesktop"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="TeamViewer"] floating enable
+for_window [class="protonvpn"] floating enable
 
 
 ###############################################################################
@@ -697,11 +698,11 @@ bindsym $hyper+t workspace number $ws20
 ###############################################################################
 
 # Base daemons
-exec --no-startup-id gnome-settings-daemon
+# exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id powerline-daemon -q
 # exec --no-startup-id /usr/bin/rofication-daemon
 # exec --no-startup-id deadd-notification-center
-exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center  &
+# exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center  &
 
 # Tray programs
 exec --no-startup-id nm-applet
