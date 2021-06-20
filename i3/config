@@ -140,12 +140,14 @@ bindsym $mod+$alt+l workspace next
 bindsym $mod+$alt+h workspace prev
 
 ## Navigate // Open drop down terminal // <> w ##
+set_from_resource $i3-wm.termtop.position-x i3-wm.termtop.position-x 0px
+set_from_resource $i3-wm.termtop.position-y i3-wm.termtop.position-y 30px
 for_window [instance="termtop"] border pixel 3
 for_window [instance="termtop"] floating enable sticky enable
 for_window [instance="termtop"] move scratchpad
 for_window [instance="termtop"] resize set 1920 600
-for_window [instance="termtop"] move position 1080px 1100px
-bindsym $mod+w [instance="termtop"] scratchpad show move position 1080px 1100px
+for_window [instance="termtop"] move position $i3-wm.termtop.position-x $i3-wm.termtop.position-y
+bindsym $mod+w [instance="termtop"] scratchpad show move position $i3-wm.termtop.position-x $i3-wm.termtop.position-y
 
 workspace $ws1 output DVI-D-1
 workspace $ws2 output DVI-D-1

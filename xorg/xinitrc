@@ -1,5 +1,8 @@
 #!/bin/sh
-source ~/.config/screenlayout/setup.sh
+# using autorandr
+#source ~/.config/screenlayout/setup.sh
+# pip install autorandr -
+autorandr --change
 
 setxkbmap -layout pl
 
