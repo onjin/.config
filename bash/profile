@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source "$HOME/.config/bash/exports"
+eval "$(~/.pyenv/bin/pyenv init --path)"
+export PATH="$HOME/.poetry/bin:$PATH"
 source "$XDG_CONFIG_HOME/bash/bashrc"
 
-export PATH="$HOME/.poetry/bin:$PATH"
-eval "$(pyenv init --path)"
