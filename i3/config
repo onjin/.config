@@ -724,6 +724,7 @@ exec --no-startup-id /usr/bin/kdeconnect-indicator
 
 # screenshots taker
 exec --no-startup-id /usr/bin/flameshot
+exec --no-startup-id /usr/bin/blueman-tray
 
 # Composite manager
 # exec --no-startup-id compton --dbus &
