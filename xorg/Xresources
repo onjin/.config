@@ -10,3 +10,5 @@ URxvt*font: xft:FireCode:pixelsize=13:antialias=true:hinting=true,xft:FiraCode:p
 !! #include ".config/xorg/Xresources.d/theme-solarized-dark"
 !! #include ".config/xorg/Xresources.d/theme-PaperColor"
 !! #include ".config/xorg/Xresources.d/theme-hybrid"
+i3-wm.termtop.position-x: 1080px
+i3-wm.termtop.position-y: 1100px
