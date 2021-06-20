@@ -16,10 +16,10 @@ DP_NAME=$(xrandr -q |grep " connected" | grep "DP"|cut -d\  -f 1)
 
 echo "Found ${SCREENS_COUNT} screens"
 
-if [ $SCREENS_COUNT = 2  ]; then
+if [ $SCREENS_COUNT = 3  ]; then
   echo "setting 2 screens"
   xrandr --output ${DVI_NAME} --primary --auto --below ${HDMI_NAME} --output ${DP_NAME} --auto --rotate right --left-of ${HDMI_NAME}
-elif [ $SCREENS_COUNT = 3 ]; then
+elif [ $SCREENS_COUNT = 2 ]; then
   echo "setting 3 screens"
   xrandr --output ${DVI_NAME} --primary --auto --below ${HDMI_NAME}
 else
