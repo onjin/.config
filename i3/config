@@ -378,6 +378,9 @@ mode "Spawn Mode" {
         ## Spawn Mode // scratch term // Enter ##
         bindsym Return    exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn tmux;; mode "default"
 
+        ## Spawn Mode // scratch term // b ##
+        bindsym b    exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn bash;; mode "default"
+
         # apt get install translate-shell
         ## Spawn Mode // google translate shell // t ##
         bindsym t			exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn ~/.config/i3/i3-cmds/trans-pl -shell;; mode "default"
@@ -705,6 +708,7 @@ exec --no-startup-id powerline-daemon -q
 # exec --no-startup-id /usr/bin/rofication-daemon
 # exec --no-startup-id deadd-notification-center
 # exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center  &
+exec --no-startup-id /usr/lib/mate-notification-daemon/mate-notification-daemon  -r &
 
 # Tray programs
 exec --no-startup-id nm-applet
