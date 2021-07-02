@@ -1,2 +1,6 @@
-i3-wm.termtop.position-x: 0px
-i3-wm.termtop.position-y: 30px
+i3-wm.termtop.position-x: 1366px
+;i3-wm.termtop.position-x: 0px
+i3-wm.termtop.position-y: 20px
+i3-wm.monitor-main.name: DP-2
+i3-wm.monitor-top.name: DP-2
+i3-wm.monitor-side.name: DVI-I-1-1

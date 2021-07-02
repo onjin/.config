@@ -10,5 +10,10 @@ URxvt*font: xft:FireCode:pixelsize=13:antialias=true:hinting=true,xft:FiraCode:p
 !! #include ".config/xorg/Xresources.d/theme-solarized-dark"
 !! #include ".config/xorg/Xresources.d/theme-PaperColor"
 !! #include ".config/xorg/Xresources.d/theme-hybrid"
+!
 i3-wm.termtop.position-x: 1080px
 i3-wm.termtop.position-y: 1100px
+
+i3-wm.monitor-main.name: DVI-D-1
+i3-wm.monitor-top.name: HDMI-4
+i3-wm.monitor-side.name: DP-1-1

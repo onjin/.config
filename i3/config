@@ -149,27 +149,31 @@ for_window [instance="termtop"] resize set 1920 600
 for_window [instance="termtop"] move position $i3-wm.termtop.position-x $i3-wm.termtop.position-y
 bindsym $mod+w [instance="termtop"] scratchpad show move position $i3-wm.termtop.position-x $i3-wm.termtop.position-y
 
-workspace $ws1 output DVI-D-1
-workspace $ws2 output DVI-D-1
-workspace $ws3 output DVI-D-1
-workspace $ws4 output DVI-D-1
-workspace $ws5 output DVI-D-1
-workspace $ws6 output DP-1-1
-workspace $ws7 output DP-1-1
-workspace $ws8 output DP-1-1
-workspace $ws9 output DP-1-1
-workspace $ws10 output DP-1-1
+set_from_resource $i3-wm.monitor-main.name i3-wm.monitor-main.name
+set_from_resource $i3-wm.monitor-top.name i3-wm.monitor-top.name
+set_from_resource $i3-wm.monitor-side.name i3-wm.monitor-side.name
 
-workspace $ws11 output HDMI-4
-workspace $ws12 output HDMI-4
-workspace $ws13 output HDMI-4
-workspace $ws14 output HDMI-4
-workspace $ws15 output HDMI-4
-workspace $ws16 output HDMI-4
-workspace $ws17 output HDMI-4
-workspace $ws18 output HDMI-4
-workspace $ws19 output HDMI-4
-workspace $ws20 output HDMI-4
+workspace $ws1 output $i3-wm.monitor-main.name
+workspace $ws2 output $i3-wm.monitor-main.name
+workspace $ws3 output $i3-wm.monitor-main.name
+workspace $ws4 output $i3-wm.monitor-main.name
+workspace $ws5 output $i3-wm.monitor-main.name
+workspace $ws6 output $i3-wm.monitor-side.name
+workspace $ws7 output $i3-wm.monitor-side.name
+workspace $ws8 output $i3-wm.monitor-side.name
+workspace $ws9 output $i3-wm.monitor-side.name
+workspace $ws10 output $i3-wm.monitor-side.name
+
+workspace $ws11 output  $i3-wm.monitor-top.name
+workspace $ws12 output  $i3-wm.monitor-top.name
+workspace $ws13 output  $i3-wm.monitor-top.name
+workspace $ws14 output  $i3-wm.monitor-top.name
+workspace $ws15 output  $i3-wm.monitor-top.name
+workspace $ws16 output  $i3-wm.monitor-top.name
+workspace $ws17 output  $i3-wm.monitor-top.name
+workspace $ws18 output  $i3-wm.monitor-top.name
+workspace $ws19 output  $i3-wm.monitor-top.name
+workspace $ws20 output  $i3-wm.monitor-top.name
 
 
 ###############################################################################
@@ -704,7 +708,7 @@ bindsym $hyper+t workspace number $ws20
 
 # Base daemons
 # exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id powerline-daemon -q
+exec --no-startup-id powerline-daemon -q && powerline-config tmux setup
 # exec --no-startup-id /usr/bin/rofication-daemon
 # exec --no-startup-id deadd-notification-center
 # exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center  &
