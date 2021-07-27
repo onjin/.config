@@ -1,4 +1,5 @@
 #!/bin/bash
+killall -9 conky
 if [ -z $(pgrep -f conkyhr) ]; then
   conky -d --config ~/.config/conky/conkyhr
 fi
