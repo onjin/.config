@@ -15,5 +15,5 @@ i3-wm.termtop.position-x: 1080px
 i3-wm.termtop.position-y: 1100px
 
 i3-wm.monitor-main.name: DVI-D-1
-i3-wm.monitor-top.name: HDMI-4
-i3-wm.monitor-side.name: DP-1-1
+i3-wm.monitor-top.name: HDMI-1
+i3-wm.monitor-side.name: DP-1
