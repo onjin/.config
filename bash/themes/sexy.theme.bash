@@ -45,8 +45,64 @@ parse_git_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-function prompt_command() {
-PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$WHITE\]\$(scm_prompt_info) ${BOLD}${WHITE}$(py_interp_prompt) $(node_interp_prompt)\[$WHITE\]\n$(virtualenv_prompt) $(__docker_machine_ps1)\$ \[$RESET\]"
+# timing {{{
+function timer_start {
+  timer=${timer:-$SECONDS}
 }
 
-PROMPT_COMMAND=prompt_command
+trap 'timer_start' DEBUG
+
+# timing }}}
+
+function prompt_command() {
+  PS1="\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$WHITE\]\$(scm_prompt_info) ${BOLD}${WHITE}$(py_interp_prompt) $(node_interp_prompt)\[$WHITE\] $(__docker_machine_ps1)\$ \[$RESET\] "
+  PS1=$(printf "%*s\r%s\n\$ " "$(tput cols)" ${RIGHT_PS} ${LEFT_PS})
+
+}
+
+function prompt_right() {
+  if [ $EXIT != 0 ]; then
+    exit_status=" exit:$EXIT "
+  else
+    exit_status=''
+  fi
+  echo -e "\033[1;32m${exit_status}\\033[1;33m$ORANGE\]${timer_prompt}\033[0;36m[\\\t]\033[0m"
+}
+
+function prompt_left() {
+  echo -e "\n\[${BOLD}${MAGENTA}\]\u\[$WHITE\]@\[$ORANGE\]\h\[$WHITE\]:\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$WHITE\]\$(scm_prompt_info) ${BOLD}${WHITE}$(py_interp_prompt) $(node_interp_prompt)\[$WHITE\]\n$(virtualenv_prompt) $(__docker_machine_ps1)\$ \[$RESET\]"
+}
+
+function prompt() {
+  local EXIT="$?"
+  local CMD=$(history -a; tail -n 1 $HOME/.bash_history)
+  timer_show=$(($SECONDS - $timer))
+  if [[ $timer_show -eq 0 ]]; then
+    timer_prompt=''
+  else
+    timer_prompt=" ${timer_show}s "
+  fi
+  unset timer
+  compensate=26
+  PS1=$(printf "%*s\r%s" "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
+
+  # send notifications about ending long processes
+  if [ $timer_show -ge 5 ]; then
+    # skip interactive tools
+    skip_prg=("vim nvim tmux e screen m")
+    basecmd=$(echo $CMD | awk '{print $1}')
+
+    if [[ ! " ${skip_prg[*]} " =~ " ${basecmd} " ]]; then
+      if [ $EXIT != 0 ]; then
+        local title="FAIL[${EXIT}]"
+        local icon='face-sad'
+      else
+        local title="DONE"
+        local icon='face-smile'
+      fi
+      notify-send -t 0 -u critical -i ${icon} -a ${basecmd} "[CLI] ${title} within ${timer_show} seconds" "${CMD}"
+      unset title
+    fi
+  fi
+}
+PROMPT_COMMAND=prompt
