@@ -64,13 +64,13 @@ color=#aa8888
 #interval=2
 #color=gray
 
-[mediaplayer]
-label=♪:
-instance=spotify
-command=~/.config/i3blocks/i3blocks-contrib/mediaplayer/mediaplayer
-interval=5
-signal=10
-color=#50C878
+#[mediaplayer]
+#label=♪:
+#instance=spotify
+#command=~/.config/i3blocks/i3blocks-contrib/mediaplayer/mediaplayer
+#interval=5
+#signal=10
+#color=#50C878
 
 #[notifications]
 #label=
@@ -87,10 +87,10 @@ interval=2
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-[memory]
-label=⛁
-separator=false
-interval=30
+#[memory]
+#label=⛁
+#separator=false
+#interval=30
 
 #[memory]
 #label=SWAP
@@ -102,15 +102,27 @@ interval=30
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[cpu_usage]
-label=💻
-interval=30
-min_width=💻 100.00%
-#separator=false
+#[cpu_usage]
+#label=💻
+#interval=30
+#min_width=💻 100.00%
+##separator=false
 
 [load_average]
 label=
 interval=30
+
+[fan_cpu]
+label=CPU:
+command=echo "$(sensors nct6798-isa-0290|grep CPUTIN|awk '{ print $2 }') / $(sensors nct6798-isa-0290|grep fan2|awk '{ print $2 }') RPM"
+interval=2
+#color=gray
+
+[fan_gpu]
+label=GPU:
+command=echo "$(sensors amdgpu-pci-0900|grep edge|awk '{ print $2 }') / $(sensors amdgpu-pci-0900|grep fan1|awk '{ print $2 }') RPM"
+interval=2
+#color=gray
 
 # Disk usage
 #
@@ -152,10 +164,6 @@ separator=false
 [nm-vpn-cint]
 interval=5
 command=~/.config/i3blocks/blocks/nm-vpn cint
-
-[nm-vpn-p2s]
-interval=5
-command=~/.config/i3blocks/blocks/nm-vpn p2s
 
 [nm-vpn-otarf]
 interval=5

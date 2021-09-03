@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+DOMAIN=${1}
+DOMAIN=$(basename $DOMAIN)
+
+IPS=$(dig +short ${DOMAIN} | grep '^[.0-9]*$')
+VPN_IP=10.23.100.59
+
+for IP in $IPS; do
+    echo "adding ${IP} to cint vpn via ${VPN_IP}"
+    sudo ip route add ${IP} via ${VPN_IP}
+done

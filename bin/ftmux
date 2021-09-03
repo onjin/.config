@@ -1,0 +1,4 @@
+#!/bin/bash
+config_dir=~/.config/tmuxp/
+config
+config=$(ls $config_dir | fzf-tmux --preview "bat --color=always $config_dir/{}") &&  tmuxp load $config_dir$config

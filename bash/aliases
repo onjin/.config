@@ -80,3 +80,4 @@ alias termtop='kitty --name termtop --hold --detach --directory $HOME tmux new -
 
 ## http-prompt
 alias http-prompt-udc-ir='http-prompt http://prod-app-01.p2internal.com:7794/ --spec http://prod-app-01.p2internal.com:7794/openapi.json --env ~/.cache/http-prompt/session-udc-ir'
+alias wakeonlan-sniff="sudo tcpdump -i enp7s0 '(udp and port 7) or (udp and port 9)'"
