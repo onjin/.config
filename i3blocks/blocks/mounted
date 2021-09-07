@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+OUTPUT=""
+MOUNTED_WD=0
+MOUNT_PATH=${1}
+echo " "  # short
+echo " "  # long
+
+if mountpoint -q "${MOUNT_PATH}"; then
+    MOUNTED_WD=1
+    echo "#00FF00"  # color
+else
+    echo "#FF0000"  # color
+fi
+
+echo ""  # background
