@@ -30,7 +30,7 @@ vpn=$(nmcli -t connection show |grep vpn|cut -d: -f 1|tr '\n' ' ')
 
 button=${BLOCK_BUTTON:-}
 
-full_text="V: ${name}"
+full_text="嬨 ${name}"
 short_text=${full_text}
 
 background_color=""
@@ -44,6 +44,7 @@ if [ "$exists" -eq "1" ]; then
       nmcli c down ${name} &
     fi
   else
+    exit 0
     color="${off_color}"
     if [ "$button" = "3" ]; then
       background_color="${change_color}"

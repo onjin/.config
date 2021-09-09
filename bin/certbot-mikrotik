@@ -1,0 +1,1 @@
+certbot -d home.onjin.net --manual --preferred-challenges dns certonly --work-dir=/home/onjin/Dropbox/letsencrypt --logs-dir=/home/onjin/Dropbox/letsencrypt --config-dir=/home/onjin/Dropbox/letsencrypt

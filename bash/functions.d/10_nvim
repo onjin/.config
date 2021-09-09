@@ -21,5 +21,6 @@ update-nvim () {
         echo "[update-nvim] installed version ${current}"
     else
         echo "[update-nvim] Invalid file ${file_type}; exiting"
+        return 1
     fi
 }

@@ -1,0 +1,10 @@
+ #!/bin/bash
+ names=$(nmcli c show|grep vpn|cut -d\  -f 1)
+ cmd="i3-nagbar -t warning -m 'VPN'"
+
+for name in ${names}; do
+  cmd="${cmd} -b '${name} UP' 'exec nmcli c up ${name}' "
+  cmd="${cmd} -b '${name} DOWN' 'exec nmcli c down ${name}' "
+done
+$cmd
+

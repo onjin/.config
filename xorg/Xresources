@@ -1,5 +1,5 @@
 Xcursor.size: 32
-*.font:	Fira Code:pixelsize=14:style=Light:antialias=true:autohint=true;
+*.font:	Fira Code Nerd Font:pixelsize=14:style=Light:antialias=true:autohint=true;
 *.alpha: 0.95
 
 st.font: Fira Code:style=Light:pixelsize=14:antialias=true
@@ -17,3 +17,5 @@ i3-wm.termtop.position-y: 1100px
 i3-wm.monitor-main.name: DVI-D-1
 i3-wm.monitor-top.name: HDMI-1
 i3-wm.monitor-side.name: DP-1
+
+i3-wm.program.lock: dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock

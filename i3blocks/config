@@ -49,21 +49,31 @@ interval=once
 signal=11
 separator=false
 
+# openvpn support
+#
+# Support multiple VPN, with colors.
+[nm-vpn-cint]
+interval=5
+command=~/.config/i3blocks/blocks/nm-vpn cint
 
-[currency]
-label=€/PLN
-command=~/.config/i3blocks/blocks/currency EUR
-interval=3600
-signal=60
-color=#aa8888
+[nm-vpn-otarf]
+interval=5
+command=~/.config/i3blocks/blocks/nm-vpn otarf
 
-
-[bitcoin]
-label=₿/$
-command=btcprice
-interval=3600
-signal=60
-color=#aa8888
+#[currency]
+#label=€/PLN
+#command=~/.config/i3blocks/blocks/currency EUR
+#interval=3600
+#signal=60
+#color=#aa8888
+#
+#
+#[bitcoin]
+#label=₿/$
+#command=btcprice
+#interval=3600
+#signal=60
+#color=#aa8888
 
 #[toggl]
 #label=🕑:
@@ -129,9 +139,9 @@ interval=2
 #min_width=💻 100.00%
 ##separator=false
 
-[load_average]
-label=
-interval=30
+#[load_average]
+#label=
+#interval=30
 
 #[fan_cpu]
 #label=CPU:
@@ -188,16 +198,6 @@ separator=true
 #instance=eth0
 #interval=5
 
-# openvpn support
-#
-# Support multiple VPN, with colors.
-[nm-vpn-cint]
-interval=5
-command=~/.config/i3blocks/blocks/nm-vpn cint
-
-[nm-vpn-otarf]
-interval=5
-command=~/.config/i3blocks/blocks/nm-vpn otarf
 
 
 # Battery indicator

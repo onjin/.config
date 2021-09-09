@@ -12,3 +12,6 @@ fi
 if [ -z $(pgrep -f conkytemp) ]; then
   conky -d --config ~/.config/conky/conkytemp
 fi
+if [ -z $(pgrep -f conkymoney) ]; then
+  conky -d --config ~/.config/conky/conkymoney
+fi
