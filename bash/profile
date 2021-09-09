@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+#LOG="$HOME/profile-invocations"
+#date >> $LOG
+#echo "-----" >>$LOG
+#echo "Caller: $0" >>$LOG
+#echo "DESKTOP_SESSION: $DESKTOP_SESSION" >>$LOG
+#echo "GDMSESSION: $GDMSESSION" >>$LOG
+#echo "HOME: $HOME" >>$LOG
+#echo "XDG_CONFIG_HOME: $XDG_CONFIG_HOME" >>  $LOG
 
 source "$HOME/.config/bash/exports"
 eval "$(~/.pyenv/bin/pyenv init --path)"

@@ -1,4 +1,5 @@
 #!/bin/sh
+source "$HOME/.config/bash/exports"
 # using autorandr
 #source ~/.config/screenlayout/setup.sh
 # pip install autorandr -
