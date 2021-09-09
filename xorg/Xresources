@@ -1,5 +1,5 @@
 Xcursor.size: 32
-*.font:	Fira Code:pixelsize=14:style=Light:antialias=true:autohint=true;
+*.font:	Fira Code:pixelsize=12:style=Light:antialias=true:autohint=true;
 *.alpha: 0.95
 
 st.font: Fira Code:style=Light:pixelsize=14:antialias=true
