@@ -18,4 +18,4 @@ i3-wm.monitor-main.name: DVI-D-1
 i3-wm.monitor-top.name: HDMI-1
 i3-wm.monitor-side.name: DP-1
 
-i3-wm.program.lock: dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
+!! i3-wm.program.lock: dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock

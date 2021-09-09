@@ -312,7 +312,7 @@ bindsym $mod+n exec kill -s USR1 $(pidof -x onjin_notifications_center)
 bindsym $mod+Shift+n exec kill -s USR2 $(pidof -x onjin_notifications_center)
 
 ## Session // Lock Screen // <> Escape ##
-set_from_resource $i3-wm.program.lock i3-wm.program.lock /usr/bin/i3lock -f  -i /home/onjin/Dropbox/backgrounds/boxes/small-boxes.png   -t
+set_from_resource $i3-wm.program.lock i3-wm.program.lock betterlockscreen -l dim
 bindsym $mod+Shift+Escape exec $i3-wm.program.lock
 bindsym $mod+Escape         exec --no-startup-id jgmenu  --at-pointer --simple --config-file=/home/onjin/.config/i3/jgmenurc --csv-file=/home/onjin/.config/i3/jgmenu.csv
 
@@ -741,9 +741,10 @@ exec --no-startup-id nagstamon
 exec --no-startup-id ~/.local/bin/kitty --name termtop --hold --directory $home tmux new -s termtop
 
 # Restore background
-exec_always --no-startup-id autorandr --change && /usr/bin/nitrogen --restore
-#exec_always --no-startup-id ~/.config/screenlayout/setup.sh --change && /usr/bin/nitrogen --restore
+exec --no-startup-id autorandr --change
 #exec_always --no-startup-id /usr/bin/nitrogen --restore
+#exec_always --no-startup-id /usr/bin/nitrogen --restore
+exec --no-startup-id betterlockscreen -w dim
 
 # desktop time and date
 exec --no-startup-id ~/.config/bin/conkytime
