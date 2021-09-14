@@ -1,6 +1,10 @@
-i3-wm.termtop.position-x: 1366px
-;i3-wm.termtop.position-x: 0px
+Xcursor.size: 32
+*.font:	Fira Code:pixelsize=14:style=Light:antialias=true:autohint=true;
+*.alpha: 0.95
+
+;i3-wm.termtop.position-x: 1366px
+i3-wm.termtop.position-x: 0px
 i3-wm.termtop.position-y: 20px
-i3-wm.monitor-main.name: DP-2
-i3-wm.monitor-top.name: DP-2
-i3-wm.monitor-side.name: DVI-I-1-1
+i3-wm.monitor-main.name: eDP-1-0
+i3-wm.monitor-top.name: eDP-1-0
+i3-wm.monitor-side.name: DVI-I-2-1
