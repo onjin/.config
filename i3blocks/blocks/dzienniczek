@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+
+# 1 - left click, 2 - mid click, 3 - right click
+case $BLOCK_BUTTON in
+    1) notify-send "Sprawdzam wiadomości" ;;
+    3) google-chrome https://futura.psp5.pl/index > /dev/null 2>&1;;
+esac
+LINE=$(dzienniczek.py news --ou|head -n1|cut -d\| -f 1|cut -d\  -f 2-)
+COUNT=$(dzienniczek.py news --ou -c)
+echo -n "[PSP5] "
+if [[ ! ${COUNT} -eq 0 ]]; then
+    echo "(${COUNT}) ${LINE}"
+else
+    echo "(0)"
+fi

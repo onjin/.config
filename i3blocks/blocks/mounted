@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 MOUNT_PATH=${1}
+LABEL=${2:-}
 
 if mountpoint -q "${MOUNT_PATH}"; then
-    echo " "  # short
-    echo " "  # long
+    echo " ${LABEL}"  # short
+    echo " ${LABEL}"  # long
     echo "#00FF00"  # color
 else
     echo ""  # short

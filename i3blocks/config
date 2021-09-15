@@ -34,17 +34,24 @@ signal=10
 #command=~/.config/i3blocks/blocks/mounted /home/onjin/wd
 #interval=5
 #separator=false
+[dzienniczek]
+#label=
+command=~/.config/i3blocks/blocks/dzienniczek
+interval=once
+color=#7777FF
+signal=11
+separator=false
 
 [mounted_cint]
-label=cint
-command=~/.config/i3blocks/blocks/mounted /home/onjin/Workspace/p/cint
+#label=
+command=~/.config/i3blocks/blocks/mounted /home/onjin/Workspace/p/cint cint
 interval=once
 signal=11
 separator=false
 
 [mounted_hint]
-label=hint
-command=~/.config/i3blocks/blocks/mounted /home/onjin/Workspace/p/hint
+#label=
+command=~/.config/i3blocks/blocks/mounted /home/onjin/Workspace/p/hint hint
 interval=once
 signal=11
 separator=false
