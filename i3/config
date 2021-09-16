@@ -70,18 +70,16 @@ bindsym $mod+Shift+Return exec ~/.local/bin/kitty-with-title
 # Xaunch // Browser // <><Shift> Enter ##
 # bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
 
-set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
-
 ## Launch // Application // <> Space ##
-set_from_resource $i3-wm.program.launcher.app i3-wm.program.launcher.app rofi -show drun -theme $rofiTheme
+set_from_resource $i3-wm.program.launcher.app i3-wm.program.launcher.app rofi -show drun
 bindsym $mod+space exec $i3-wm.program.launcher.app
 
 ## Launch // Command // <><Shift> Space ##
-set_from_resource $i3-wm.program.launcher.cmd i3-wm.program.launcher.cmd rofi -show run -theme $rofiTheme
+set_from_resource $i3-wm.program.launcher.cmd i3-wm.program.launcher.cmd rofi -show run
 bindsym $mod+Shift+space exec $i3-wm.program.launcher.cmd
 
 ## Navigate // Window by Name // <><Ctrl> Space ##
-# set_from_resource $i3-wm.program.launcher.window i3-wm.program.launcher.window rofi -show window -theme $rofiTheme
+# set_from_resource $i3-wm.program.launcher.window i3-wm.program.launcher.window rofi -show window
 set_from_resource $i3-wm.program.launcher.window i3-wm.program.launcher.window ~/.config/i3/i3-cmds/i3-container-commander.py --menu rofi
 bindsym $mod+Ctrl+space exec $i3-wm.program.launcher.window
 
