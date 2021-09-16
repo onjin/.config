@@ -1,0 +1,37 @@
+conky.config = {
+	background = True,
+	use_xft = true,
+	font = 'FiraCode:size=12',
+	xftalpha = 0.9,
+	update_interval = 3.0,
+	total_run_times = 0,
+	own_window = true,
+    own_window_class= 'Conky',
+	own_window_type = 'override',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	minimum_width = 220,
+	maximum_width = 1200,
+	draw_shades = true,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = true,
+	default_color = '#808080',
+	default_shade_color = '#101319',
+	default_outline_color = 'green',
+	alignment = 'top_left',
+	gap_x = 1450,
+	gap_y = -110,
+	no_buffers = true,
+	uppercase = false,
+	cpu_avg_samples = 2,
+	override_utf8_locale = true,
+
+};
+
+conky.text = [[
+    ${alignc}${color}EUR: ${alignc}${color #F0FF00}${exec echo $(~/.config/i3blocks/blocks/currency EUR)} PLN
+    ${alignc}${color}BTC: ${alignc}${color #F0FF00}${exec echo $(btcprice)} USD
+]];
+

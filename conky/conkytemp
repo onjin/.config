@@ -1,0 +1,37 @@
+conky.config = {
+	background = True,
+	use_xft = true,
+	font = 'Helvetica:size=12',
+	xftalpha = 0.9,
+	update_interval = 3.0,
+	total_run_times = 0,
+	own_window = true,
+    own_window_class= 'Conky',
+	own_window_type = 'override',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	minimum_width = 220,
+	maximum_width = 400,
+	draw_shades = true,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = true,
+	default_color = '#808080',
+	default_shade_color = '#101319',
+	default_outline_color = 'green',
+	alignment = 'top_left',
+	gap_x = 1050,
+	gap_y = -100,
+	no_buffers = true,
+	uppercase = false,
+	cpu_avg_samples = 2,
+	override_utf8_locale = true,
+
+};
+
+conky.text = [[
+    ${alignc}${color}CPU: ${alignc}${color #F0FF00}${exec echo $(sensors nct6798-isa-0290|grep CPUTIN| awk '{ print $2}')} / ${hwmon 2 fan 2} RPM
+    ${alignc}${color}SYS: ${alignc}${color #F0FF00}${exec echo $(sensors nct6798-isa-0290|grep SYSTIN| awk '{ print $2}')} / ${hwmon 2 fan 1} RPM
+    ${alignc}${color}GPU: ${alignc}${color #F0FF00}${exec echo $(sensors amdgpu-pci-0900|grep edge| awk '{ print $2}')} / ${hwmon 1 fan 1} RPM
+]];
