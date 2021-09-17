@@ -391,6 +391,10 @@ mode "Spawn Mode" {
         ## Spawn Mode // google translate shell // <Shift> t ##
         bindsym Shift+t			exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn ~/.config/i3/i3-cmds/trans-en -shell;; mode "default"
 
+        ## Spawn Mode // rofi-pass //  p ##
+        bindsym p  exec --no-startup-id rofi-pass;; mode "default"
+
+
         ## Spawn Mode // xkill // x ##
         bindsym x           exec  xkill ;; mode "default"
 
