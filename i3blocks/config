@@ -184,11 +184,16 @@ interval=120
 command=wget -qO - icanhazip.com
 interval=once
 
-[iface]
-instance=enp7s0
-color=#00FF00
+[private-ip]
+command=ip route get 1| awk '{print $7}'
 interval=once
-separator=true
+color=#00FF00
+
+#[iface]
+#instance=enp7s0
+#color=#00FF00
+#interval=once
+#separator=true
 
 #[iface]
 #instance=wlp8s0
