@@ -83,7 +83,13 @@ function prompt() {
   if [[ $timer_show -eq 0 ]]; then
     timer_prompt=''
   else
-    timer_prompt=" ${timer_show}s "
+    if [[ $timer_show -gt 3600 ]]; then
+        timer_prompt="${timer_show}s / "$(date -d "1970-01-01 + $timer_show seconds" "+%Hh %Mm %Ss ")
+    elif [[ $timer_show -gt 60 ]]; then
+        timer_prompt="${timer_show}s / "$(date -d "1970-01-01 + $timer_show seconds" "+%Mm %Ss ")
+    else
+        timer_prompt=" ${timer_show}s "
+    fi
   fi
   unset timer
   compensate=26
