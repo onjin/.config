@@ -398,6 +398,15 @@ mode "Spawn Mode" {
         ## Spawn Mode // xkill // x ##
         bindsym x           exec  xkill ;; mode "default"
 
+        ## Spawn Mode // Slack -> W1 -> #random-pl // q ##
+        #bindsym q exec xdotool windowactivate `xdotool search --name "Slack" | sort | head -1` && xdotool key ctrl+k && xdotool type "random-pl" && xdotool key Return && sleep 2 && xdotool key Return;; mode "default"
+
+        ## Spawn Mode // Slack -> W1 -> #development_python // w ##
+        #bindsym w exec xdotool windowactivate `xdotool search --name "Slack" | sort | head -1` && xdotool key ctrl+k && xdotool type "development_python" && xdotool key Return && sleep 2 && xdotool key Return;; mode "default"
+
+        ## Spawn Mode // Slack -> W1 -> #cintdev-team-datacollection // e ##
+        #bindsym e exec xdotool windowactivate `xdotool search --name "Slack" | sort | head -1` && xdotool key ctrl+k && xdotool type "cintdev-data-collection" && xdotool key Return && sleep 2 && xdotool key Return;; mode "default"
+
         ## Spawn Mode // Exit Spawn Mode // Escape or Enter ##
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -649,7 +658,7 @@ bindsym XF86AudioNext exec "playerctl -p spotify next && pkill -SIGRTMIN+10 i3bl
 # app to workspace bindings
 for_window [class="brave-browser"] move to workspace number 2
 for_window [class="google-chrome"] move to workspace number 2
-for_window [class="corectrl"] move to workspace 7
+for_window [class="zoom"] move to workspace number 5
 
 ## press $mod+q to go slack, press $mod+q to go back to previous workspace
 workspace_auto_back_and_forth yes
@@ -709,6 +718,8 @@ bindsym $hyper+t workspace number $ws20
 ###############################################################################
 # External programs launched with i3
 ###############################################################################
+# set screens layout
+exec --no-startup-id autorandr --change
 
 # gnome integration
 
@@ -725,14 +736,13 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 exec --no-startup-id gnome-flashback
 
 # screensaver 
-# exec --no-startup-id /usr/bin/gnome-screensaver  # I'm using betterlockscreen now
 
 # Base daemons
 exec --no-startup-id powerline-daemon -q && powerline-config tmux setup
 # exec --no-startup-id /usr/bin/rofication-daemon
 # exec --no-startup-id deadd-notification-center
 # exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center  &
-exec --no-startup-id /usr/lib/mate-notification-daemon/mate-notification-daemon  -r &
+# exec --no-startup-id /usr/lib/mate-notification-daemon/mate-notification-daemon  -r &
 
 # Tray programs
 exec --no-startup-id nm-applet
@@ -742,14 +752,6 @@ exec --no-startup-id nagstamon
 # Scratch terms
 exec --no-startup-id ~/.local/bin/kitty --name termtop --hold --directory $home tmux new -s termtop
 
-# Restore background
-exec --no-startup-id autorandr --change
-#exec_always --no-startup-id /usr/bin/nitrogen --restore
-#exec_always --no-startup-id /usr/bin/nitrogen --restore
-exec --no-startup-id betterlockscreen -w dim
-
-# desktop time and date
-exec --no-startup-id ~/.config/bin/conkytime
 
 exec --no-startup-id /usr/bin/kdeconnect-indicator
 
