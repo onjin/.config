@@ -4,7 +4,7 @@
 remontoire_PID=$(pidof remontoire)
 
 if [ -z "$remontoire_PID" ]; then
-    /usr/bin/remontoire -c /home/onjin/.config/i3/config &
+    /usr/bin/remontoire -c ~/.config/i3/config  -t ~/.config/i3/remontoire.css &
 else
     kill $remontoire_PID
 fi

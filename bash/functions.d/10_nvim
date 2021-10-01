@@ -19,6 +19,8 @@ update-nvim () {
         chmod +x ~/.local/bin/nvim
         current=$(nvim --version|grep '^NVIM')
         echo "[update-nvim] installed version ${current}"
+        echo "[update-nvim] updating plugins"
+        update-nvim-plugins
     else
         echo "[update-nvim] Invalid file ${file_type}; exiting"
         return 1

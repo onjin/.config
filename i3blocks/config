@@ -219,7 +219,7 @@ color=#00FF00
 label=BAT
 #label=⚡
 #instance=1
-interval=30
+interval=60
 
 #[apt-upgrades]
 #command=LC_ALL=C.utf8 ~/.config/i3blocks/i3blocks-contrib/apt-upgrades/apt-upgrades

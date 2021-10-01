@@ -283,8 +283,8 @@ bindsym $mod+Ctrl+r restart
 ###############################################################################
 # System Management
 ###############################################################################
-## Launch // Shutter // <><Shift> p ##
-bindsym $mod+Shift+p exec shutter -s
+## Launch // Screenshot // <><Shift> p ##
+bindsym $mod+Shift+p exec flameshot gui
 
 ## Launch // Screenkey (toggle) // <><Shift> o ##
 bindsym $mod+Shift+o exec --no-startup-id screenkey-toggle
@@ -381,8 +381,8 @@ mode "Spawn Mode" {
         ## Spawn Mode // scratch term // Enter ##
         bindsym Return    exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn tmux;; mode "default"
 
-        ## Spawn Mode // scratch term // b ##
-        bindsym b    exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn bash;; mode "default"
+        ## Spawn Mode // scratch term // s ##
+        bindsym s    exec --no-startup-id ~/.config/i3/i3-cmds/ddspawn bash;; mode "default"
 
         # apt get install translate-shell
         ## Spawn Mode // google translate shell // t ##
@@ -393,6 +393,9 @@ mode "Spawn Mode" {
 
         ## Spawn Mode // rofi-pass //  p ##
         bindsym p  exec --no-startup-id rofi-pass;; mode "default"
+
+        ## Spawn Mode // rofi-bluetooth //  b ##
+        bindsym b  exec --no-startup-id rofi-bluetooth;; mode "default"
 
 
         ## Spawn Mode // xkill // x ##
@@ -658,7 +661,8 @@ bindsym XF86AudioNext exec "playerctl -p spotify next && pkill -SIGRTMIN+10 i3bl
 # app to workspace bindings
 for_window [class="brave-browser"] move to workspace number 2
 for_window [class="google-chrome"] move to workspace number 2
-for_window [class="zoom"] move to workspace number 5
+for_window [class="(?i)zoom"] move to workspace number 5
+assign [class="(?i)zoom"] number 5
 
 ## press $mod+q to go slack, press $mod+q to go back to previous workspace
 workspace_auto_back_and_forth yes
@@ -669,7 +673,8 @@ assign [class="(?i)discord"] number 8
 bindsym $mod+shift+q workspace number $ws8
 
 # additional aliases (use xprop to inspect windows)
-for_window [class="Spotify"] move to workspace number 10
+for_window [class="(?i)spotify"] move to workspace number 10
+assign [class="(?i)spotify"] number 10
 
 for_window [class="Yad"] floating enable
 for_window [class="(?i)hipchat"] floating enable
@@ -738,11 +743,7 @@ exec --no-startup-id gnome-flashback
 # screensaver 
 
 # Base daemons
-exec --no-startup-id powerline-daemon -q && powerline-config tmux setup
-# exec --no-startup-id /usr/bin/rofication-daemon
-# exec --no-startup-id deadd-notification-center
-# exec --no-startup-id /home/onjin/.pyenv/shims/onjin_notifications_center  &
-# exec --no-startup-id /usr/lib/mate-notification-daemon/mate-notification-daemon  -r &
+exec --no-startup-id powerline-daemon -q
 
 # Tray programs
 exec --no-startup-id nm-applet
