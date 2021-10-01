@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+FOLDER_PATH=~/.config/tmuxp/
+FILES_PATTERN=*.yaml
+
+function get_list()
+{
+    (cd ${FOLDER_PATH} && ls ${FILES_PATTERN}|sort)
+}
+function open_file()
+{
+    kitty -e tmuxp load ${FOLDER_PATH}$1 &
+}
+
+LIST=$( (get_list) | rofi -dmenu -p "Select")
+
+if [[ -z "${LIST}" ]]; then
+    echo "Cancel"
+else
+    open_file "${LIST}"
+fi
