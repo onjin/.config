@@ -327,7 +327,7 @@ bindsym $mod+period exec i3-layout-load
 
 # Cause Settings app to float above tiled windows
 floating_maximum_size -1 x -1
-for_window [class="Gnome-control-center"] floating enable
+for_window [class = "Gnome-control-center"] floating enable
 
 ###############################################################################
 # Window Resize and Gaps
@@ -658,37 +658,35 @@ bindsym XF86AudioPrev exec "playerctl -p spotify previous && pkill -SIGRTMIN+10 
 bindsym XF86AudioNext exec "playerctl -p spotify next && pkill -SIGRTMIN+10 i3blocks"
 
 
-# app to workspace bindings
-for_window [class="brave-browser"] move to workspace number 2
-for_window [class="google-chrome"] move to workspace number 2
-for_window [class="(?i)zoom"] move to workspace number 5
-assign [class="(?i)zoom"] number 5
-
 ## press $mod+q to go slack, press $mod+q to go back to previous workspace
 workspace_auto_back_and_forth yes
-assign [class="(?i)slack"] number 9
+
+# app to workspace bindings
+# additional aliases (use xprop to inspect windows)
+for_window [class = "brave-browser"] move to workspace number $ws2
+for_window [class = "google-chrome"] move to workspace number $ws2
+for_window [class = "(?i)zoom"] move to workspace number $ws5
+
+for_window [class = "Slack"] move to workspace number $ws9
 bindsym $mod+q workspace number $ws9
 
-assign [class="(?i)discord"] number 8
+for_window [class = "Discord"] move to workspace number $ws9
 bindsym $mod+shift+q workspace number $ws8
 
-# additional aliases (use xprop to inspect windows)
-for_window [class="(?i)spotify"] move to workspace number 10
-assign [class="(?i)spotify"] number 10
+for_window [class = "Spotify"] move to workspace number $ws10
 
-for_window [class="Yad"] floating enable
-for_window [class="(?i)hipchat"] floating enable
-for_window [class="(?i)shutter"] floating enable
-for_window [class="(?i)pavucontrol"] floating enable
-for_window [instance="guake"] floating enable
-for_window [class="(?i)skype"] floating enable
-for_window [class="(?i)gnome-calculator"] floating enable
-for_window [class="Gcalctool"] floating enable
-for_window [class="rdesktop"] floating enable
-for_window [class="Steam"] floating enable
-for_window [class="TeamViewer"] floating enable
-for_window [class="protonvpn"] floating enable
-for_window [class="corectrl"] floating enable
+# floating enabled apps
+for_window [class = "corectrl"] floating enable
+for_window [class = "Gcalctool"] floating enable
+for_window [class = "(?i)gnome-calculator"] floating enable
+for_window [class = "(?i)pavucontrol"] floating enable
+for_window [class = "(?i)skype"] floating enable
+for_window [class = "protonvpn"] floating enable
+for_window [class = "rdesktop"] floating enable
+for_window [class = "Steam"] floating enable
+for_window [class = "TeamViewer"] floating enable
+for_window [class = "Yad"] floating enable
+for_window [class = "zoom"] floating enable
 
 
 ###############################################################################
