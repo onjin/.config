@@ -1,10 +1,12 @@
-output DP-0
+output DVI-I-4-4
 off
-output DP-1
+output DVI-I-3-3
 off
-output HDMI-0
+output DVI-I-2-2
 off
-output DP-2
+output DVI-I-1-1
+off
+output eDP
 crtc 0
 mode 1920x1080
 pos 0x0
