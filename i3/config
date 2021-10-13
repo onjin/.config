@@ -733,7 +733,7 @@ bindsym $hyper+t workspace number $ws20
 # External programs launched with i3
 ###############################################################################
 # set screens layout
-exec --no-startup-id autorandr --change
+exec --no-startup-id autorandr --change --force
 
 # gnome integration
 
