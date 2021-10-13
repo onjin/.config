@@ -374,6 +374,13 @@ mode "Resize Mode" {
 }
 bindsym $mod+r mode "Resize Mode"
 
+bindsym $mod+Ctrl+Tab mode "Cycle scratchpad"; scratchpad show
+mode "Cycle scratchpad"{     
+  bindsym $mod+Tab scratchpad show; scratchpad show     
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
 ## Spawn Mode // Start Spawn Mode // <> s ##
 mode "Spawn Mode" {
         # These bindings trigger as soon as you enter the spawn mode
@@ -669,6 +676,7 @@ workspace_auto_back_and_forth yes
 for_window [class = "brave-browser"] move to workspace number $ws2
 for_window [class = "google-chrome"] move to workspace number $ws2
 for_window [class = "(?i)zoom"] move to workspace number $ws5
+for_window [class = "corectrl"] move to workspace number $ws7
 
 for_window [class = "Slack"] move to workspace number $ws9
 bindsym $mod+q workspace number $ws9
