@@ -84,3 +84,14 @@ alias wakeonlan-sniff="sudo tcpdump -i enp7s0 '(udp and port 7) or (udp and port
 
 ## plantuml
 alias plantuml='java -jar ~/.local/bin/plantuml.jar'
+
+## kubernetes
+alias k='kubectl'
+complete -F __start_kubectl k
+
+alias kn='kubectl get nodes -o wide'
+alias kp='kubectl get pods -o wide'
+alias kd='kubectl get deployment -o wide'
+alias ks='kubectl get svc -o wide'
+export do=" --dry-run=client -o yaml "
+# 
