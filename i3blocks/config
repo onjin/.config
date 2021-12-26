@@ -37,8 +37,15 @@ signal=10
 [dzienniczek]
 #label=
 command=~/.config/i3blocks/blocks/dzienniczek
-interval=once
+interval=600
 color=#7777FF
+signal=11
+separator=false
+
+[mounted_nas]
+label=NAS:
+command=~/.config/i3blocks/blocks/nas
+interval=once
 signal=11
 separator=false
 

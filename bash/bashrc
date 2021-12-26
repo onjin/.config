@@ -92,3 +92,8 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export CC=`type -p gcc`
 
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+. "$HOME/.cargo/env"
+# eval "$(starship init bash)"
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash

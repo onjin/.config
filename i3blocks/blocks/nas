@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+entrypoint=~/NAS/
+
+declare -A folders=( ["h"]="home" ["d"]="Dropbox" ["g"]="GoogleDrive" ["m"]="Multimedia" )
+
+short=''
+long=''
+
+for folder in "${!folders[@]}"; do
+    if mountpoint -q "${entrypoint}${folders[$folder]}"; then
+        short=${short}${folder^^}
+        long="${long} ${folders[$folder]^^}"
+    else
+        short=${short}${folder,,}
+        long="${long} ${folders[$folder],,}"
+    fi
+done
+echo ${short}
+echo ${long}
+echo "#00FF00"  # color
+echo ""  # background

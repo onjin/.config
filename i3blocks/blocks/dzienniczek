@@ -8,9 +8,10 @@ case $BLOCK_BUTTON in
 esac
 LINE=$(dzienniczek.py news --ou|head -n1|cut -d\| -f 1|cut -d\  -f 2-)
 COUNT=$(dzienniczek.py news --ou -c)
+MSGS=$(dzienniczek.py messages --ou -c)
 echo -n "[PSP5] "
 if [[ ! ${COUNT} -eq 0 ]]; then
-    echo "(${COUNT}) ${LINE}"
+    echo "(${COUNT} / ${MSGS}) ${LINE}"
 else
-    echo "(0)"
+    echo "(0 / ${MSGS})"
 fi

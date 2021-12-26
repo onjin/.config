@@ -94,4 +94,3 @@ alias kp='kubectl get pods -o wide'
 alias kd='kubectl get deployment -o wide'
 alias ks='kubectl get svc -o wide'
 export do=" --dry-run=client -o yaml "
-# 

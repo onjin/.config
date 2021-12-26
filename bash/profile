@@ -13,3 +13,5 @@ eval "$(~/.pyenv/bin/pyenv init --path)"
 export PATH="$HOME/.poetry/bin:$PATH"
 source "$XDG_CONFIG_HOME/bash/bashrc"
 
+. "$HOME/.cargo/env"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
