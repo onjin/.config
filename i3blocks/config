@@ -29,11 +29,12 @@ separator_block_width=15
 markup=none
 signal=10
 
-#[mounted_workspace]
-#label=WD
-#command=~/.config/i3blocks/blocks/mounted /home/onjin/wd
-#interval=5
-#separator=false
+[dotfiles]
+command=~/.config/i3blocks/blocks/git-status ~/dotfiles/
+interval=60
+signal=11
+separator=false
+
 [dzienniczek]
 #label=
 command=~/.config/i3blocks/blocks/dzienniczek
@@ -49,22 +50,6 @@ interval=once
 signal=11
 separator=false
 
-[mounted_cint]
-#label=
-command=~/.config/i3blocks/blocks/mounted /home/onjin/Workspace/p/cint cint
-interval=once
-signal=11
-separator=false
-
-[mounted_hint]
-#label=
-command=~/.config/i3blocks/blocks/mounted /home/onjin/Workspace/p/hint hint
-interval=once
-signal=11
-separator=false
-
-# openvpn support
-#
 # Support multiple VPN, with colors.
 [nm-vpn-cint]
 interval=5
@@ -74,98 +59,17 @@ command=~/.config/i3blocks/blocks/nm-vpn cint
 interval=5
 command=~/.config/i3blocks/blocks/nm-vpn otarf
 
-#[currency]
-#label=€/PLN
-#command=~/.config/i3blocks/blocks/currency EUR
-#interval=3600
-#signal=60
-#color=#aa8888
-#
-#
-#[bitcoin]
-#label=₿/$
-#command=btcprice
-#interval=3600
-#signal=60
-#color=#aa8888
-
 #[toggl]
 #label=🕑:
 #command=~/.config/i3blocks/blocks/toggl
 #interval=60
 #color=#50C878
 
-#[primary]
-#label=
-##command=echo "$(xclip -o |  grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
-#command=~/.config/i3blocks/blocks/clipboard
-#interval=2
-#color=gray
-
-#[clipboard]
-#label=
-##command=echo "$(xclip -o -selection "clipboard" | grep -o '^.\{0,9\}' | sed -e 's/[^a-zA-Z0-9\-]/_/g')"
-#command=~/.config/i3blocks/blocks/clipboard clipboard
-#interval=2
-#color=gray
-
-#[mediaplayer]
-#label=♪:
-#instance=spotify
-#command=~/.config/i3blocks/i3blocks-contrib/mediaplayer/mediaplayer
-#interval=5
-#signal=10
-#color=#50C878
-
-#[notifications]
-#label=
-#command=rofication-status
-#interval=1
-#markup=pango
-#
 [volume-pulseaudio]
-command=~/.config/i3blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio -C #93a1a1
+command=~/.config/i3blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio -C #93a1a1 
 interval=once
 signal=1
 interval=2
-
-# Memory usage
-#
-# The type defaults to "mem" if the instance is not specified.
-#[memory]
-#label=⛁
-#separator=false
-#interval=30
-
-#[memory]
-#label=SWAP
-#instance=swap
-#separator=false
-#interval=30
-
-# CPU usage
-#
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[cpu_usage]
-#label=💻
-#interval=30
-#min_width=💻 100.00%
-##separator=false
-
-#[load_average]
-#label=
-#interval=30
-
-#[fan_cpu]
-#label=CPU:
-#command=echo "$(sensors nct6798-isa-0290|grep CPUTIN|awk '{ print $2 }') / $(sensors nct6798-isa-0290|grep fan2|awk '{ print $2 }') RPM"
-#interval=2
-
-#[fan_gpu]
-#label=GPU:
-#command=echo "$(sensors amdgpu-pci-0900|grep edge|awk '{ print $2 }') / $(sensors amdgpu-pci-0900|grep fan1|awk '{ print $2 }') RPM"
-#interval=2
 
 # Disk usage
 #
@@ -187,85 +91,28 @@ interval=120
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 ## Fetch the public IP address only on startup
-[public-ip]
-command=wget -qO - icanhazip.com
-interval=once
-
-[private-ip]
-command=ip route get 1| awk '{print $7}'
+[ips]
+command=/home/onjin/.config/i3blocks/blocks/ips
 interval=once
 color=#00FF00
 
-#[iface]
-#instance=enp7s0
-#color=#00FF00
-#interval=once
-#separator=true
-
-#[iface]
-#instance=wlp8s0
-#color=#00FF00
-#interval=once
-#separator=true
-
-#[wifi]
-#instance=wlp8s0
-#interval=once
-#separator=false
-
-#[bandwidth]
-#instance=eth0
-#interval=5
-
-
-
 # Battery indicator
-#
-# The battery instance defaults to 0.
 [battery]
-label=BAT
-#label=⚡
-#instance=1
+command=~/.config/i3blocks/blocks/battery2
+label=⚡
 interval=60
-
-#[apt-upgrades]
-#command=LC_ALL=C.utf8 ~/.config/i3blocks/i3blocks-contrib/apt-upgrades/apt-upgrades
-#signal=1
-#interval=once
-
-#[systemctl]
-#command=~/.config/i3blocks/blocks/systemctl-failed
-#interval=30
+markup=pango
 
 # Date Time
-#
 [time]
 label=UTC
-command=date --utc '+%Y-%m-%d %H:%M:%S'
+#command=date --utc '+%Y-%m-%d %H:%M:%S'
+command=date --utc '+ %H:%M:%S'
 interval=5
 
 [calendar]
 command=LABEL=' ' DATEFMT='+%a %d.%m.%Y %H:%M:%S' SHORTFMT='+%a %d.%m.%Y %H:%M:%S' HEIGHT=0 ~/.config/i3blocks/i3blocks-contrib/calendar/calendar
 interval=1
-
-
-#HEIGHT=180
-#WIDTH=220
-
-# Generic media player support
-#
-# This displays "ARTIST - SONG" if a music is playing.
-# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-
-
-# Temperature
-#
-# Support multiple chips, though lm-sensors.
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
 
 # Key indicators
 #
@@ -277,8 +124,10 @@ interval=1
 #instance=CAPS
 #interval=once
 #signal=11
-
+#
 #[keyindicator]
 #instance=NUM
 #interval=once
 #signal=11
+
+# vim:ft=conf

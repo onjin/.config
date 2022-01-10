@@ -3,8 +3,8 @@ configuration {
 	font: "JetBrainsMono Nerd Font Medium 12";
 	show-icons: true;
 	drun-display-format: "{icon} {name}";
-	theme: "/home/onjin/.config/rofi/themes/material.rasi";
 	display-window: "  ";
 	display-run: " ";
 	display-drun: "  ";
 }
+@theme "/home/onjin/.config/rofi/themes/material.rasi"

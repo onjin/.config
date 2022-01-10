@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 change_color=${change_color:-#FF0000}
 off_color=${off_color:-#AAAAAA}
@@ -8,7 +8,7 @@ name=${1}
 
 vpn_exists() {
   vpn=$(nmcli -t connection show |grep vpn|cut -d: -f 1|tr '\n' ' '|grep "$1")
-  if [ -z "${vpn}" ]]; then
+  if [[ -z "${vpn}" ]]; then
     echo 0
   else
     echo 1
@@ -16,7 +16,7 @@ vpn_exists() {
 }
 vpn_active() {
   vpn=$(nmcli -t connection show --active|grep vpn|cut -d: -f 1|tr '\n' ' '|grep "$1")
-  if [ -z "${vpn}" ]]; then
+  if [[ -z "${vpn}" ]]; then
     echo 0
   else
     echo 1
@@ -33,7 +33,7 @@ button=${BLOCK_BUTTON:-}
 full_text="嬨 ${name}"
 short_text=${full_text}
 
-background_color=""
+background_color="#000000"
 if [ "$exists" -eq "1" ]; then
   if [ "$active" -eq "1" ]; then
     color="${on_color}"
@@ -43,17 +43,9 @@ if [ "$exists" -eq "1" ]; then
       color="${change_color}"
       nmcli c down ${name} &
     fi
-  else
-    exit 0
-    color="${off_color}"
-    if [ "$button" = "3" ]; then
-      background_color="${change_color}"
-      color="${change_color}"
-      nmcli c up ${name} &
-    fi
+    echo ${full_text}
+    echo ${short_text}
+    echo ${color}
+    echo ${background_color}
   fi
 fi
-echo ${full_text}
-echo ${short_text}
-echo ${color}
-echo ${background_color}

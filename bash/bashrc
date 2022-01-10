@@ -92,8 +92,10 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export CC=`type -p gcc`
 
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
-. "$HOME/.cargo/env"
-# eval "$(starship init bash)"
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
+
+export LS_COLORS="$(vivid generate solarized-dark)"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 entrypoint=~/NAS/
-
 declare -A folders=( ["h"]="home" ["d"]="Dropbox" ["g"]="GoogleDrive" ["m"]="Multimedia" )
+declare -A iscsi=( ["c"]="Workspace/p/cint" ["h"]="Workspace/p/hint" ["d"]="Workspace/develop" )
 
 short=''
 long=''
@@ -15,7 +15,21 @@ for folder in "${!folders[@]}"; do
         long="${long} ${folders[$folder],,}"
     fi
 done
+
+short="${short}|"
+long="${long}|"
+
+for folder in "${!iscsi[@]}"; do
+    if mountpoint -q "$HOME/${iscsi[$folder]}"; then
+        short=${short}${folder^^}
+        long="${long} ${iscsi[$folder]^^}"
+    else
+        short=${short}${folder,,}
+        long="${long} ${iscsi[$folder],,}"
+    fi
+done
+
 echo ${short}
-echo ${long}
+echo ${short}
 echo "#00FF00"  # color
-echo ""  # background
+echo "#000000"  # background

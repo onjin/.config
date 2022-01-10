@@ -7,11 +7,8 @@
 #echo "GDMSESSION: $GDMSESSION" >>$LOG
 #echo "HOME: $HOME" >>$LOG
 #echo "XDG_CONFIG_HOME: $XDG_CONFIG_HOME" >>  $LOG
-
+export XDG_CONFIG_HOME=$HOME/.config
 source "$HOME/.config/bash/exports"
 eval "$(~/.pyenv/bin/pyenv init --path)"
 export PATH="$HOME/.poetry/bin:$PATH"
 source "$XDG_CONFIG_HOME/bash/bashrc"
-
-. "$HOME/.cargo/env"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

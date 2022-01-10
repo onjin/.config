@@ -63,7 +63,7 @@ set_from_resource $ws20 i3-wm.workspace.20.name "20"
 ###############################################################################
 
 ## Launch // Terminal // <> Enter ##
-set_from_resource $i3-wm.program.terminal i3-wm.program.terminal ~/.local/bin/kitty
+set_from_resource $i3-wm.program.terminal i3-wm.program.terminal kitty
 bindsym $mod+Return exec $i3-wm.program.terminal
 bindsym $mod+Shift+Return exec ~/.local/bin/kitty-with-title
 
@@ -628,7 +628,6 @@ new_window pixel 1
 ###############################################################################
 # Media keys
 ###############################################################################
-
 set $volumepath ~/.local/bin/volume
 
 # Command for the status line
@@ -681,7 +680,7 @@ for_window [class = "corectrl"] move to workspace number $ws7
 for_window [class = "Slack"] move to workspace number $ws9
 bindsym $mod+q workspace number $ws9
 
-for_window [class = "Discord"] move to workspace number $ws9
+for_window [class = "(?i)Discord"] move to workspace number $ws8
 bindsym $mod+shift+q workspace number $ws8
 
 for_window [class = "Spotify"] move to workspace number $ws10
@@ -756,11 +755,14 @@ exec --no-startup-id powerline-daemon -q
 
 # Tray programs
 exec --no-startup-id nm-applet
-exec --no-startup-id dropbox start
+exec --no-startup-id copyq
+exec --no-startup-id dunst
+exec --no-startup-id dex -a -s ~/.config/autostart/
 exec --no-startup-id nagstamon
 
 # Scratch terms
-exec --no-startup-id ~/.local/bin/kitty --name termtop --hold --directory $home tmux new -s termtop
+# it's started by ~/.config/autostart/termtop.dekstop
+#exec --no-startup-id kitty --name termtop --hold --directory $home tmux new -s termtop
 
 
 exec --no-startup-id /usr/bin/kdeconnect-indicator
